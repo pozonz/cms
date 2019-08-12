@@ -1,0 +1,1664 @@
+/*-----------------------------------------------------------------------------------------
+	Login
+-----------------------------------------------------------------------------------------*/
+.page-login {
+	#headContainer {
+		/*margin-top: 0;*/
+		padding: 0 2em;
+	}
+	#bodyContent {
+	    margin: 0 auto;
+	    padding: 3em;
+	    text-align: center;
+	    max-width: 34em;
+	    border-left: 1px solid #e5e5e5;
+	    border-bottom: 1px solid #e5e5e5;
+	    min-height: 0;
+
+	    .form-login {
+	    	text-align: left;
+	    }
+	}
+	#footContainer {
+		text-align: center;
+		padding-left:0;
+
+		#foot {
+			border: none;
+		}
+	}
+	.form-login {
+		ul, li {
+			padding: 0;
+			margin: 0;
+			list-style-type: none;
+		}
+		li {
+			margin: 0 0 1em;
+		}
+		label {
+			cursor: pointer;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+/*-----------------------------------------------------------------------------------------
+	Generic form editors
+-----------------------------------------------------------------------------------------*/
+.edit {
+
+	.formStyle {
+		.form-cols;
+	}
+
+	hr {
+		border: none;
+		margin: 1em 0;
+	}
+	.content-block {
+		.editor-block;
+		background: #e5e5e5;
+		position: relative;
+		/*overflow: hidden;*/
+
+		input {
+			/*opacity: .4;*/
+		}
+		input:focus,
+		input:hover {
+			opacity: 1;
+		}
+		.formStyle {
+			/*width: 100%;*/
+		}
+
+		input,
+		textarea {
+			/*border-color: #ccc;*/
+		}
+
+		.redactor_box {
+			border: 1px solid #ccc;
+		}
+		.redactor_editor {
+			color: @body-copy;
+			border-radius: 3px;
+		}
+
+		.delete-section {
+			opacity: 1;
+			background: @red;
+			border: 1px solid rgba(0,0,0,.3);
+			margin: 0 0 .5em;
+			padding-left: 2.5em;
+			.sprite;
+			background-position: -84px -87px;
+		}
+		.delete-section:hover {
+			background-color: darken(#e92814, 10%);
+		}
+
+
+		// Heading Field
+/*		.formStyle:first-child input {
+			font-size: 1.4em;
+			font-weight: bold;
+			color: #333;
+			background: white;
+		}*/
+		// Class Field
+		/*.formStyle:nth-child(3)  {
+			width: 50%;
+			float: right;
+			margin: 0;
+			position: relative;
+
+			label {
+				position: absolute;
+				color: @body-copy;
+				left: 1em;
+				top: .6em;
+			}
+			input {
+				padding-left: 4.5em;
+			}
+
+		}
+		*/
+		// Delete block
+
+		/*
+		.contentBlockOrder,
+		.formStyle:nth-child(5)  {
+			width: auto;
+			.inline-block;
+		}
+		*/
+		.contentBlockOrder {
+			.inline-block;
+			width: auto;
+			margin: 0 1em .5em 0;
+
+			.cmsMailoutButton {
+				border: 1px solid rgba(0,0,0,.3);
+				.inline-block;
+				border-radius: 20em 0 0 20em;
+				opacity: 1;
+				overflow: hidden;
+				.sprite;
+				padding-left: 2.5em;
+				background-position: 18px 15px;
+			}
+			.move-down {
+				border-radius: 0 20em 20em 0;
+				background-position: -35px -35px;
+
+			}
+		}
+		.redactor_box {
+			border-style: solid;
+		}
+	}
+	.add-content-section,
+	.submit-area {
+		text-align: center;
+	}
+	.add-content-section {
+		/*border-bottom: @divider;*/
+		/*padding: 0 0 2em;*/
+
+		.button {
+			padding-left: 2.5em;
+			.sprite;
+			background-position: -134px -138px;
+		}
+	}
+	.submit-area {
+
+	    background: #777777;
+	    box-shadow: 0px 9px 10px -10px #444 inset;
+	    border-radius: 0 0 0 0;
+	    margin: 2em -3.3em -3em;
+	    overflow: hidden;
+	    padding: 2em 0 2em;
+	    position: relative;
+
+
+		.button {
+			margin: 0 .3em;
+			border-color: rgba(0,0,0,0.4);
+		}
+		.submit {
+			background-color: @green;
+		}
+		.submit:hover,
+		.submit:focus {
+			background-color: darken(@green, 5%);
+			background-color: #93b740;
+		}
+	}
+}
+
+
+
+
+/*-----------------------------------------------------------------------------------------
+	Folder / file-picking
+-----------------------------------------------------------------------------------------*/
+.folderPickWrap,
+.filePickWrap {
+
+    overflow: hidden;
+    .editor-block;
+    padding: 0.55em;
+
+
+	img {
+		.inline-block;
+		margin-right: .5em ;
+		vertical-align: middle;
+	}
+	.filePickFile {
+		.img-border;
+		position: relative;
+		/*width: 20em;*/
+		/*width: 90%;*/
+	}
+}
+
+.folderPickWrap {
+	padding-left: 1em;
+}
+.folderPickPreviewWrap,
+.filePickPreviewWrap {
+    float: left;
+    overflow: hidden;
+}
+.filePickButton,
+.folderPickButton,
+.cropImagePickButton {
+	float: right;
+}
+.folderPickDelete,
+.filePickDelete {
+	cursor: pointer;
+}
+
+
+
+
+
+
+/*-----------------------------------------------------------------------------------------
+	Pagebuilder
+-----------------------------------------------------------------------------------------*/
+.pageBuilder {
+
+	 .formMetadata:first-child {
+	 	width: 100%;
+
+		  input {
+		    background: none ;
+		    border: none;
+		    box-shadow: none;
+		    color: @body-copy;
+		    font-size: 2em;
+		    font-weight: bold;
+		    padding: 0;
+		    display: block;
+		    /*width: auto;*/
+		    transition: color .2s ease;
+		}
+		input:hover,
+		input:focus {
+			color: @links;
+		}
+	}
+}
+.page-category {
+	input {
+		.visuallyhidden;
+	}
+	label {
+		.inline-block;
+		color: @links;
+		cursor: pointer;
+		border: 1px solid #e5e5e5;
+		transition: all .1s ease-in-out;
+		text-align: left;
+		padding: .5em;
+		min-width: 13em;
+
+		.item-title {
+			.inline-block;
+			vertical-align: middle;
+			padding-right: 1em;
+			overflow: hidden;
+			height: 1.7em;
+		}
+
+	}
+	label:hover {
+		background: #f9f9f9;
+
+		.dd-empty {
+		}
+	}
+	.number {
+		color: #999;
+		font-weight: normal;
+		margin: 0 0 0 .5em;
+		font-size: .9em;
+	}
+	input:checked + label {
+		background: @links;
+		color: #fff;
+
+		.number {
+			color: lighten(@links, 30%);
+			padding-right: 5px;
+		}
+	}
+	.dd {
+		.inline-block;
+		vertical-align: middle;
+		height: 3em;
+		width: 3em;
+		margin: 0 .5em 0 0;
+		background: rgba(red(@links), green(@links), blue(@links), .2);
+		overflow: hidden !important;
+		border: 1px dashed lighten(@links, 20%);
+	}
+	.dd-placeholder,
+	.dd-empty {
+		background: none;
+		min-height: 0;
+	}
+	.dd-empty {
+		border: none;
+		text-align: center;
+		padding: 1em 1.5em;
+	}
+	.other {
+		.dd-empty {
+			min-width: 100px;
+		}
+		.dd-placeholder,
+		.dd-list {
+			display: none;
+		}
+	}
+
+}
+
+
+
+/*-----------------------------------------------------------------------------------------
+	/Pagebuilder - 2016 content blocks
+-----------------------------------------------------------------------------------------*/
+
+/*:target {
+   -webkit-animation: highlight 1s ease;
+   -moz-animation: highlight 1s ease;
+   -webkit-transform: translateX(20px);
+   -moz-transform: translateX(20px);
+   -ms-transform: translateX(20px);
+   -o-transform: translateX(20px);
+ }
+ @keyframes highlight {
+   0% { background:  white; }
+   100% { background: red; }
+ }
+
+ .section-title {
+    border-left: 40px solid white;
+    padding: 10px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    padding-right: 50px;
+    margin-left: -20px;
+  }*/
+
+
+
+
+.formStyle.type34 {
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	padding: 2em 0;
+	margin: 3em 0 ;
+/*	padding: 1em;
+	background: #f5f5f5;
+	border: 1px solid #e5e5e5;*/
+
+	.section-blocks {
+		margin: 0 0 2em;
+
+		label {
+			color: @body-copy;
+		}
+	}
+	.toc {
+		display: none;
+
+		@media(min-width: 102.5em) { //1640px
+			display: block;
+			position: fixed;
+			right: 0;
+			top: 9.9em;
+			width: 15em;
+			background: white;
+			z-index: 5;
+			text-align: center;
+			box-shadow: 0px 2px 4px rgba(0,0,0,.1);
+		}
+
+		.item {
+			border-bottom: 1px solid #e5e5e5;
+
+			&:last-child {
+				border: none;
+			}
+			.active {
+				/*background: @links;*/
+				background: #555;
+				color: #fff;
+			}
+		}
+		.level2 {
+			display: none;
+		}
+		a {
+			display: block;
+			padding: .8em 1em;
+			color: @body-copy;
+
+			&:hover {
+				background: #F1F1F1;
+			}
+		}
+		.sidebar-submit-area {
+			border-top: 1px solid #e5e5e5;
+						padding: 1em;
+
+			.button {
+				font-size: .9em;
+			}
+			.save-content.save {
+				background: @green;
+			}
+		}
+	}
+	.toc-heading {
+		text-transform: uppercase;
+		color: #999;
+		font-size: .9em;
+		border-bottom: 1px solid #e5e5e5;
+		padding: 1em;
+		margin: 0;
+	}
+	.section-container {
+		margin: 0 0 4em;
+	}
+
+	.section-title {
+		float: left;
+		width: 60%;
+		margin: 0;
+		position: relative;
+		color: @links;
+
+		&:after {
+			content: "";
+			width: 10px;
+			background: @links;
+			position: absolute;
+			left: -2.2em;
+			top: 0;
+			bottom: -3.5em;
+			height: auto;
+		}
+		&:before,
+		.section-id {
+			/*content: "Section 5429";*/
+			display: block;
+			font-size: .55em;
+			margin: 0 0 -.4em;
+			text-transform: uppercase;
+		}
+		.js-id-container {
+		    font-size: 0.65em;
+		    font-weight: normal;
+		    color: #999;
+		    margin: 0 0 0 0.4em;
+	    }
+	}
+	.section-toolbar {
+		float: right;
+		width: 20em;
+		text-align: right;
+	}
+	.section-edit-button {
+		display: inline-block;
+		vertical-align: middle;
+
+		img {
+			display: block;
+		}
+	}
+	.section-move {
+		background: url('/cms/images/icon-nestable-active.png') no-repeat;
+		border: none;
+		padding: 0;
+		box-shadow: none;
+		width: 13px;
+		height: 8px;
+		border-radius: 0;
+		margin: 0 .5em 0 0;
+	}
+	.section-move-down {
+		background: url('/cms/images/icon-nestable.png') no-repeat;
+	}
+	.block-add-container {
+		width: 8em;
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0 1em 0 0;
+	}
+	.block-file {
+		cursor: move;
+		border-bottom: 1px solid #ccc;
+		background: #D6D6D6;
+		background: linear-gradient(#F9F9F9 0, #E0E0E0 100%);
+		transition: all .2s ease-in-out;
+		padding: 0.7em 1em;
+		margin: 0;
+		position: relative;
+
+		&:hover {
+			background: linear-gradient(#F9F9F9 0, #ddd 100%);
+			/*background: #f5f5f5;*/
+			border-bottom-color: #bbb;
+		}
+	}
+	.content-block {
+		padding: 0;
+	}
+	.block-placeholder {
+		/*min-height: 10em;*/
+		text-align: center;
+		padding: 1em;
+
+		&:before {
+			content: "Add blocks to begin...";
+			/*font-style: italic;*/
+			color: #999;
+			text-align: center;
+		}
+	}
+	.block-widgets {
+		padding: 1em 1em 0;
+		/*background: #e5e5e5;*/
+		margin-right: -2.5%;
+		/*width: 102.4%;*/
+	}
+	.block-title {
+		font-size: .9em;
+		text-transform: uppercase;
+		margin: 0;
+	}
+	.block-item-textarea,
+	.block-item-wysiwyg {
+		width: 97.5%;
+	}
+	.block-type-subheading {
+		/*display: block;*/
+		margin: 0 .5em 0 0;
+		color: #a0a0a0;
+		}
+	.delete-block {
+		position: absolute;
+		top: 50%;
+		right: 1em;
+		height: 12px;
+		width: 12px;
+		margin: -6px 0 0;
+		background: url('/cms/images/binIcon.gif') -5px -5px;
+		text-indent: -5000px;
+		overflow: hidden;
+
+		&.active-block {
+			right: 2.5em;
+		}
+	}
+
+	.block-template-fragment {
+		display: none; /* Temporary - might come back */
+
+		.fragment-url {
+			display: inline-block;
+			vertical-align: middle;
+			width: auto;
+		}
+
+	}
+
+
+}
+.block-sortable-placehoder {
+	border: 1px dashed #ccc;
+	box-shadow: none;
+	background: #f5f5f5;
+	height: 15em;
+	margin: 0 0 2em;
+}
+
+
+
+
+
+/*-----------------------------------------------------------------------------------------
+	Forms - checkboxes
+-----------------------------------------------------------------------------------------*/
+.formStyle.type4 {
+
+}
+/*-----------------------------------------------------------------------------------------
+	Forms - textarea areas
+-----------------------------------------------------------------------------------------*/
+.formStyle.type6 {
+	width: 100%;
+
+	textarea {
+		width: 100% !important;
+	}
+}
+/*-----------------------------------------------------------------------------------------
+	Forms - file uploads
+-----------------------------------------------------------------------------------------*/
+.formStyle.type8 {
+	.editor-block;
+	position: relative;
+	min-height: 4.5em;
+
+	input[type="file"] {
+		background: none;
+		box-shadow: none;
+		padding: 1em 1em 1em 0;
+		border: none;
+	}
+	.cms_form_file_container {
+		margin-bottom: 1em;
+	}
+}
+/*-----------------------------------------------------------------------------------------
+	Forms - WYSIWYG boxes
+-----------------------------------------------------------------------------------------*/
+.formStyle.type10,
+.formStyle.type21,
+.formStyle.type28 {
+	.editor-block;
+	margin: 1em 0;
+	width: 100%;
+	position: relative;
+
+	.redactor_box {
+		border: 1px solid #ccc;
+		border-radius: 3px;
+	}
+
+
+
+	label {
+		display: block;
+	}
+}
+.formStyle.type34,
+.formStyle.type29 {
+	.content-block {
+		margin-bottom: 1em;
+	}
+}
+
+
+
+
+
+
+/*-----------------------------------------------------------------------------------------
+	Forms - Read only text
+-----------------------------------------------------------------------------------------*/
+.formStyle.type22 {
+	margin: 0;
+	width: 100%;
+
+	label {
+		width: 8em;
+		margin: 0 1em 0 0;
+	}
+}
+/*-----------------------------------------------------------------------------------------
+	Forms - Primary key / Doc type code
+-----------------------------------------------------------------------------------------*/
+.formStyle.type14,
+.formStyle.type19 {
+	width: 100%;
+	margin: 0;
+	color: #aaa;
+}
+.formStyle.type19 {
+	margin: 0 0 2em;
+/*	margin: 0 0 1em;
+	border-bottom: @divider;
+	padding: 0 0 1em;*/
+}
+/*-----------------------------------------------------------------------------------------
+	Forms - Datepicker
+-----------------------------------------------------------------------------------------*/
+input.hasDatepicker {
+	.sprite;
+	padding-left: 3em;
+	background-position: -188px -191px;
+}
+
+
+
+/*-----------------------------------------------------------------------------------------
+	Block builder (generic modules)
+-----------------------------------------------------------------------------------------*/
+.formStyle.type34,
+.formStyle.type29 {
+	width: 100%;
+
+/*	ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0 0 1em;
+	}
+
+	 li {
+		margin: 0 0 .8em 0;
+		transition: background-color .1s ease-in-out
+	}*/
+}
+
+
+
+
+/*-----------------------------------------------------------------------------------------
+	Forms - key value matching
+-----------------------------------------------------------------------------------------*/
+.formStyle.type26,
+.formStyle.type20,
+.formStyle.type35 {
+	width: 100%;
+	/*max-width: 50em;*/
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0 0 1em;
+		border-radius: 3px;
+		/*overflow: hidden;*/
+		border-top: 1px solid #ccc;
+	}
+	li {
+		margin: 0 0 .8em 0;
+		margin: 0;
+		cursor: move;
+		.editor-block;
+		border-top: none;
+		border-radius: 0;
+		padding: .5em .4em;
+		transition: background-color .1s ease-in-out;
+	}
+	li:hover {
+		background-color: #f5f5f5;
+	}
+	.ui-sortable-helper {
+		border-top: inherit;
+	}
+	.ui-sortable-placeholder {
+		border: 1px dashed #ccc;
+		box-shadow: none;
+		background: #f5f5f5;
+	}
+	input {
+		.input-style;
+		.inline-block;
+		vertical-align: middle;
+		border-color: #ccc;
+		padding: .4em .8em;
+	}
+	input:hover, input:focus {
+		.input-hover-style;
+	}
+	.moveKVP {
+		.sprite;
+		 background-position: -250px 0;
+		 .inline-block;
+		 vertical-align: middle;
+		 height: 20px;
+		 margin: 0 0 0 1em;
+		 overflow: hidden;
+		 width: 19px;
+	}
+	.keyKVP, .valueKVP {
+		width: 44.5%;
+		margin: 0 .5em 0 0;
+
+		@media only screen and (max-width: 1300px) { width: 43.5%; }
+		@media only screen and (max-width: 1200px) { width: 40%; }
+		@media only screen and (max-width: 930px) { width: 35%; }
+	}
+	.insertKVP,
+	.removeKVP {
+		.button;
+		vertical-align: middle;
+		background-image: url('/cms/images/sprites.png');
+		background-repeat: no-repeat;
+		background-position: -135px -138px;
+		padding-left: 2.5em;
+
+
+	}
+	.removeKVP {
+		background-color: @red;
+		background-position: -293px -243px;
+		height: 1.9em;
+		padding: 0;
+		vertical-align: middle;
+		width: 1.9em;
+		margin-left: 1%;
+	}
+}
+.formStyle.type35 {
+	.valueKVP,
+	.keyKVP {
+		width: 27.5%;
+		margin-left: 1%;
+		margin-right: 0;
+	}
+}
+
+
+/*-----------------------------------------------------------------------------------------
+	Forms - Many to many
+-----------------------------------------------------------------------------------------*/
+.formStyle.type9,
+.formStyle.type18 {
+	width: 100%;
+	/*max-width: 50em;*/
+}
+.checkListContainer {
+	background: #d9d9d9;
+	border: 1px solid #BBBBBB;
+	border-radius: 3px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.15) inset;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+
+	ul, li {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+	ul:before {
+		display: block;
+		width: 1px;
+		content: "";
+		background: #aaa;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		margin-left: -1px;
+		height: 100%;
+	}
+	li {
+		.ui-bevel;
+		background-color: #f0f0f0;
+	}
+	label {
+		border-bottom: 1px solid #ccc;
+		padding: .5em 1em;
+		cursor: pointer;
+		display: block;
+		width: 100%;
+		font-size: .95em;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	li:last-child {
+		label {
+			/*border: none;*/
+		}
+	}
+	label:hover {
+		background: #f0f0f0;
+	}
+	.leftCheckList,
+	.rightCheckList {
+		float: left;
+		width: 50%;
+		max-height: 20em;
+		overflow: auto;
+	}
+	.rightCheckList {
+		float: right;
+	}
+}
+#_author_deletebutton {
+	cursor: pointer;
+}
+
+
+
+
+
+
+/*-----------------------------------------------------------------------------------------
+	Viewing a record
+-----------------------------------------------------------------------------------------*/
+.metadata_view,
+.formStyle_view {
+	display: table-row;
+
+	label,
+	.detail,
+	.textarea_view  {
+		border-bottom: @divider;
+		display: table-cell;
+		width: 25%;
+		padding: .4em 1em;
+	}
+	label {
+		background: #f5f5f5;
+	}
+	.detail,
+	.textarea_view {
+		width: 70%;
+	}
+
+}
+
+
+
+
+/*-----------------------------------------------------------------------------------------
+	Assets
+-----------------------------------------------------------------------------------------*/
+.mode-asset {
+	#headContainer,
+	#bodyContent {
+		padding-left: 10em;
+	}
+}
+.asset-path {
+	margin: 0 0 1em;
+}
+#fileModuleBrowser, .mode-asset {
+
+	#bodyContent {
+		.max-width;
+		// max-width: 73em;
+		/*max-width: none;*/
+	}
+	.assets-images.ui-sortable {
+		position: relative;
+		.nav-ul;
+		background: #e9e9e9;
+		box-shadow: 0px 0 5px #ccc inset;
+		padding: 2em 2em 1em;
+		margin: 0 0 2em;
+
+		.details {
+			font-size: .95em;
+			padding: 0 .5em;
+
+			a {
+				display: block;
+				line-height: 1.2;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				width: 95%;
+				margin: 0 auto;
+			}
+		}
+		.asset-controls {
+			margin: .5em 0;
+			text-align: center;
+
+			.icon {
+				.inline-block;
+				margin: 0 .05em;
+				width: auto;
+			}
+		}
+		.doc-code-meta {
+			text-align: right;
+			font-size: .85em;
+			color: #888;
+			margin: 1.5em 0 0;
+			border-top: 1px solid #e5e5e5;
+			text-align: center;
+			padding: .5em;
+
+		}
+		.asset-img,
+		.asset-file {
+			background: url("/cms/images/spinner.gif") no-repeat center #e9e9e9;
+			/*background: #e9e9e9;*/
+			border: 4px solid #fff;
+			box-shadow: 0 0 4px rgba(0, 0, 0, 0.1) inset;
+			display: block;
+			height: 120px;
+			line-height: 120px;
+			margin: 0 0 .5em;
+			overflow: hidden;
+			position: relative;
+			padding: 0;
+			width: 100%;
+
+			img {
+				display: inline-block;
+				margin: 0 auto;
+				max-height: 100%;
+				max-width: 100%;
+
+
+				  position: absolute;
+				  top: 50%;
+				  left: 50%;
+				  -webkit-transform: translate(-50%, -50%);
+				     -moz-transform: translate(-50%, -50%);
+				      -ms-transform: translate(-50%, -50%);
+				          transform: translate(-50%, -50%);
+
+			}
+			.cropping-options {
+				background: #333 url('/cms/images/icon-asset-crop-dark.png') center no-repeat;
+				display: block;
+				position: absolute;
+				text-align: center;
+				font-size: .85em;
+				left: 0;
+				top: 0;
+				width: 4em;
+				height: 4em;
+				line-height: 1.4;
+				opacity: 0;
+				transform: scale(.2);
+				box-shadow: 0px 3px 4px rgba(0,0,0,.2);
+				text-indent: -5000px;
+				overflow: hidden;
+				z-index: 3;
+				transition: all .2s ease-in-out;
+			}
+
+			.cropping-options:hover {
+				background-color: @links;
+			}
+		}
+		.asset-img:hover {
+			.cropping-options  {
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+		li,
+		.ui-sortable-placeholder {
+			.inline-block;
+			background: white;
+			width: 10.97em;
+			height: 15em;
+			margin: 0 1em 1.5em 0;
+			text-align: center;
+			box-shadow: 0px 2px 3px rgba(0,0,0,.1);
+			cursor: move;
+			border: 1px solid #fff;
+			height: ;
+			border-radius: 3px;
+			transition: border .1s ease-in-out, box-shadow .1s ease-in-out;
+
+			br {
+				display: none;
+			}
+			.approve {
+				display: block;
+			}
+
+		}
+		.ui-sortable-placeholder {
+			visibility: visible !important;
+			background: none;
+			border-color: #bbb;
+			border-style: dashed;
+			box-shadow: none;
+		}
+		li:hover {
+			border-color: #aaa;
+			box-shadow: 0px 4px 10px rgba(0,0,0,.2);
+		}
+
+	}
+}
+
+
+//Individual file edit
+.view-file-thumbnail {
+	background: #e5e5e5;
+	width: 45%;
+	margin: 0 0 3em;
+	float: left;
+	.img-border;
+}
+.view-file {
+
+	.save-image,
+	.info,
+
+
+	.filename,
+	.caption,
+	.approved {
+		padding: 0 0 1em;
+		margin: 0 0 1em;
+		border-bottom: @divider;
+		/*background: red;*/
+		width: 50%;
+		float: right;
+	}
+	.approved {
+		border: none;
+		margin: 0 0 3em;
+	}
+	.filename {
+		padding: 0;
+		margin: 0;
+		border: none;
+	}
+	.caption {
+		font-style: italic;
+		font-weight: normal;
+	}
+	.buttons {
+		/*clear: both;
+		padding: 2em 0 0;
+		text-align: center;
+		width: 100%;
+		border-top: @divider;*/
+
+		.button {
+			margin-right: -4px;
+		}
+		.edit {
+			border-radius: 20em 0 0 20em ;
+		}
+		.delete-button {
+			border-radius: 0 20em 20em 0;
+		}
+
+	}
+	.backlink {
+		position: absolute;
+		top: 2em;
+		right: 15em;
+	}
+
+}
+
+
+
+
+
+
+/*-----------------------------------------------------------------------------------------
+	Assets - Single asset editing
+-----------------------------------------------------------------------------------------*/
+.asset-edit-single {
+	.doccode,
+	.asset-path {
+		font-size: .5em;
+		margin: 0;
+		overflow: hidden;
+		font-weight: normal;
+	}
+	.asset-path {
+		margin-top: -1.5em;
+		margin-bottom: 1em;
+	}
+	.asset-parent-folder {
+		position: absolute;
+		top: 5.5em;
+		right: .5em;
+		width: 18em;
+		text-align: right;
+
+		label {
+			.inline-block;
+			vertical-align: middle;
+			/*width: 30%;*/
+			padding: 0 1em 0 0;
+			display: none;
+		}
+		select {
+			.inline-block;
+			width: 75%;
+			vertical-align: middle;
+			margin-bottom: 0;
+		}
+	}
+	.folderPickPreviewWrap {
+		.folderName {
+			.inline-block;
+			white-space: nowrap;
+			/*display: block;*/
+			overflow: hidden;
+			width: 11.9em;
+			margin-right: .5em;
+			text-align: left;
+			text-overflow: ellipsis;
+		}
+	}
+	.asset-record-fields {
+		width: 50%;
+		.inline-block;
+		padding: 0 3em 0 0;
+
+		.formStyle {
+			width: 100%;
+			margin-right: 0;
+		}
+	}
+	.asset-image-area {
+		width: 50%;
+		.inline-block;
+
+		.img-wrap {
+			background: #e9e9e9;
+			margin: 0 0 2em;
+		}
+		img {
+			display: block;
+			margin: 0 auto;
+			max-width: 100%;
+		}
+	}
+	.asset-detail {
+		display: block;
+		margin: 0 0 2em;
+	}
+	.asset-meta {
+		margin-top: 2em;
+	}
+	.formMetadata,
+	.asset-image-meta {
+		color: #999;
+		font-size: .95em;
+	}
+	.asset-image-meta {
+		float: right;
+		text-align: right;
+
+		.file-name .icon {
+			background: url('/cms/images/icon-download.png') no-repeat left top;
+			.inline-block;
+			margin: 0 0 0 .5em;
+			vertical-align: middle;
+			height: 14px;
+			width: 11px;
+		}
+	}
+	.buttons {
+		float: left;
+
+		.button {
+			display: block;
+			margin-bottom: .5em;
+		}
+	}
+}
+
+
+
+
+
+.edit.formid-220 {
+
+	.formStyle.type8 {  /* Image area */
+		width: 100%;
+		padding-bottom: 0;
+
+		label {
+			display: block;
+		}
+		table {
+			margin: 0;
+		}
+	}
+	.cms_form_file_container {
+		float: left;
+		width: 60%;
+	}
+	.cms_form_file_container:after {
+	    background: none repeat scroll 0 0 #BBBBBB;
+	    content: "";
+	    height: 100%;
+	    position: absolute;
+	    right: 14.8em;
+	    top: 0;
+	    width: 2px;
+	}
+	.cms_form_fileupload_container {
+		float: right;
+		width: 30%;
+		margin: -2em  0 0;
+
+		input {
+			z-index: 1;
+			position: relative;
+			border: none;
+			color: #fff;
+			box-shadow: none !important;
+			text-align: right;
+			opacity: 0;
+			cursor: pointer;
+		}
+	}
+
+	.cms_form_fileupload_container:before {
+		content: "Upload a new file";
+		display: block;
+		.button;
+		position: absolute;
+		right: 1em;
+		top: 1em;
+		cursor: pointer;
+		z-index: 0;
+	}
+
+	.cms_form_file_delete {
+		margin: 0;
+		position: absolute;
+		right: 1em;
+		top: 4em;
+	}
+}
+
+
+
+// Hacking apart a table
+.cms_form_file_container {
+	td {
+		display: block;
+		padding: 0;
+		background: none !important;
+	}
+	tr:hover td {
+		background: none;
+	}
+	br {
+		display: block;
+	}
+}
+.cms_form_file_image {
+	background: #e5e5e5;
+	width: 18em;
+	float: left;
+	margin: .5em 2em 1em 0;
+	display: block;
+	border: 3px solid #fff;
+	box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+}
+.cms_form_file_delete {
+	margin: 0 0 2em;
+
+	br {
+		display: none;
+	}
+}
+
+.fileModAddContainer {
+    position: absolute;
+    right: 3em;
+    text-align: right;
+    top: 2em;
+    width: 87%;
+
+    #showAddNewFolder {
+    	position: static;
+    }
+    .form-upload-file {
+    	.inline-block;
+    	margin: 0 .5em;
+    }
+}
+
+#files_list input {
+    background: none;
+    border: none;
+    box-shadow: none;
+    color: @links;
+    float: left;
+    margin: 0 1em 0 0;
+    padding: 0;
+}
+
+
+
+/*-----------------------------------------------------------------------------------------
+	Admin - Add / edit user
+-----------------------------------------------------------------------------------------*/
+
+.permissionsOptionsBox {
+	.permissions {
+		margin: 0 0 1em;
+	}
+	.approvedText {
+		display: inline;
+	}
+	.permissionBoxLight {
+		float: left;
+	}
+}
+.permissionBox, .permissionBoxLast {
+
+    label {
+    	font-weight: normal;
+    }
+    .iconleft,
+    .iconleftLast {
+        background: none repeat scroll 0 0 #A3A3A3;
+        padding: 0.4em;
+        border-radius: 3px;
+    }
+}
+
+
+#changeForm {
+
+}
+
+
+
+
+
+
+/*-----------------------------------------------------------------------------------------
+	Formbuilder
+-----------------------------------------------------------------------------------------*/
+
+#formBuilder, #formBuilder .fields {
+    clear: both;
+    position: relative;
+}
+
+
+
+#formBuilder {
+	margin: 1em 0 0;
+
+
+	input {
+		/*padding: .2em .8em;*/
+	}
+	.addField select {
+	    width: 200px;
+	    border: 1px solid #CECECE;
+	}
+	.field {
+		.editor-block;
+		overflow: hidden;
+		padding: .5em 1em .8em;
+		margin: 0 0 1em;
+		cursor: move;
+		position: relative;
+		   -moz-transition: border .1s ease-in-out, box-shadow .1s ease-in-out;
+		-webkit-transition: border .1s ease-in-out, box-shadow .1s ease-in-out;
+		        transition: border .1s ease-in-out, box-shadow .1s ease-in-out;
+		box-shadow: 0px 0 0 rgba(0,0,0,0);
+
+
+		input[type="text"],
+		textarea {
+			border-color: #ccc;
+		}
+		.move {
+		    position: absolute;
+		    top: 7px;
+		    right: 10px;
+		    display: none;
+		}
+
+		.remove {
+		    position: absolute;
+		    top: .5em;
+		    right: .5em;
+		}
+		.additional {
+			border-top: 2px solid #ccc;
+			padding: 1em 0 0;
+			margin: 1em 0 0;
+		}
+		.options {
+			text-align: center;
+			label {
+				display: none;
+			}
+			.list {
+				text-align: left;
+			}
+		}
+		.option {
+			 .inline-block;
+			  margin: 0 2% 0.1em 0;
+			  width: 31%;
+
+			.key, .value {
+				.inline-block;
+				width: 12%;
+				margin: 0 .5em .5em 0;
+			}
+			.value {
+				width: 82%;
+				vertical-align: middle;
+			}
+			.remove {
+				.inline-block;
+				vertical-align: middle;
+				margin-right: 0;
+				position: static;
+			}
+
+		}
+		.type,
+		.id,
+		.label,
+		.required {
+			display: inline-block;
+			margin: 0 2% 0 0;
+			width: 30%;
+		}
+		.required {
+			width: 18%;
+		}
+		.type {
+			background: #555;
+			border-radius: 0 3px 3px 0;
+			color: #FFFFFF;
+			font-weight: bold;
+			margin: 0.3em 3% 0 -1em;
+			padding: 0.5em 1em;
+			text-align: center;
+			vertical-align: top;
+			width: 7em;
+		}
+		.optionsQuery {
+			clear: both;
+
+			textarea {
+				height: 3em;
+			}
+		}
+
+	}
+	.field.radio {
+		width: 100%;
+	}
+	.field:hover {
+		box-shadow: 0px 4px 10px rgba(0,0,0,.2);
+		border-color: #999;
+	}
+	.field.ui-sortable-placeholder {
+		background: #f5f5f5;
+		box-shadow: none;
+		border: 1px dashed #ccc;
+		padding: 3em;
+	}
+	.field.dropdown {
+		.option {
+			width: 48%;
+		}
+		.key {
+			width: 30%;
+		}
+		.value {
+			width: 55%;
+		}
+	}
+	.remove {
+	    background: url("/cms/images/binIcon.gif");
+	    display: block;
+	    height: 22px;
+	    width: 22px;
+	    margin: 0 !important;
+	    cursor: pointer;
+	}
+
+	.add {
+
+	}
+	.addField {
+		.inline-block;
+		width: auto;
+		margin: 0 1em 0 0;
+	}
+
+}
+
+
+
+
+/*-----------------------------------------------------------------------------------------
+	Lists
+-----------------------------------------------------------------------------------------*/
+.iconCell {
+	.facebookshare {
+		.glyph;
+		.inline-block;
+		margin: 0 -.4em 0 .6em;
+		text-align: left;
+		width: 23px;
+		height: 23px;
+		overflow: hidden;
+		background-position: 0 -300px;
+	}
+	.twitter-tweet-button {
+		.inline-block;
+		margin: .2em 0 0 0.8em;
+	}
+}
+
+/*-----------------------------------------------------------------------------------------
+	Contact
+-----------------------------------------------------------------------------------------*/
+
+#contactMap,
+#contactDetails {
+	float: left;
+	width: 60%;
+}
+#contactDetails {
+	float: left;
+	margin: 0 0 0 5%;
+	width: 30%;
+
+	h2 {
+		margin: 1em 0 0;
+	}
+	br {
+		display: block;
+	}
+}
