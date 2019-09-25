@@ -55,7 +55,7 @@ $(function() {
                 if (!data.length) {
                     // $(itm).find('.js-no-results').show();
                     $(itm).find('.js-gallery-container').addClass('no-result');
-                    $(itm).find('.js-gallery-container').html('No Results Found');
+                    $(itm).find('.js-gallery-container').html('<li class="no-result">No Results Found</li>');
                 }
                 $(itm).find('.js-gallery-container').sortable({
                     cursorAt: {left: -30, top: -30},
