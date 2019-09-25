@@ -84,4 +84,16 @@ $(function () {
     Handlebars.registerHelper('random', function() {
         return Math.random();
     });
+
+    Handlebars.registerHelper('isLessIfSet', function(lvalue, rvalue, options) {
+        if (!rvalue) {
+            return options.inverse(this);
+        }
+
+        if (lvalue <= rvalue) {
+            return options.fn(this);
+        }
+
+        return options.inverse(this);
+    });
 });
