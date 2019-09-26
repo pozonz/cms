@@ -669,6 +669,26 @@ body #crop-image-modal .image-cropper .presets > div {
 body #crop-image-modal footer {
   text-align: right;
 }
+body.fragment-base {
+  background: white;
+  padding: 0 5em;
+}
+body.fragment-base .cms_from_various_snippets_container.content-block-sidebar {
+  display: none;
+}
+body.fragment-base #headContainer {
+  display: none;
+}
+body.fragment-base #menuContainer {
+  display: none;
+}
+body.fragment-base #verticalMenu {
+  display: none;
+}
+body.fragment-base #bodyContent {
+  padding-left: 0;
+  border-right: none;
+}
 body.page-login .alert.alert-danger {
   background: red;
   color: white;
@@ -754,8 +774,6 @@ body.page-orm .edit .assetfolderpicker .gallery-file-title {
   line-height: 1.2;
 }
 body.page-orm .edit .assetfolderpicker .no-result {
-  margin: 0 !important;
-  padding: 0.5em 0 !important;
   background: #e9e9e9 !important;
   height: auto !important;
   border: none !important;

@@ -809,6 +809,34 @@ body {
     }
   }
 
+  &.fragment-base {
+    background: white;
+    padding: 0 5em;
+
+    .cms_from_various_snippets_container {
+      &.content-block-sidebar {
+        display: none;
+      }
+    }
+
+    #headContainer {
+      display: none;
+    }
+
+    #menuContainer {
+      display: none;
+    }
+
+    #verticalMenu {
+      display: none;
+    }
+
+    #bodyContent {
+      padding-left: 0;
+      border-right: none;
+    }
+  }
+
   &.page-login {
     .alert {
       &.alert-danger {
@@ -932,8 +960,8 @@ body {
         }
 
         .no-result {
-          margin: 0 !important;
-          padding: 0.5em 0 !important;
+          //margin: 0 !important;
+          //padding: 0.5em 0 !important;
           background: #e9e9e9 !important;
           height: auto !important;
           border: none !important;

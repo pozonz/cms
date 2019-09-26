@@ -13,24 +13,33 @@ $(function () {
         $('.ui-dialog-buttonpane').hide();
     });
 
-    var returnUrl = $('.js-returnUrl').attr('href');
+    var productUniqid = $('#orm_uniqid').val();
     $(document).on('click', '.js-add-variant', function () {
-        initDialog();
-        $.pjax.reload({
-            url: location.pathname + '?returnUrl=' + encodeURIComponent(returnUrl),
-            // url: document.URL,
-            container: '#product-vairant',
-            fragment: '#product-vairant',
+        $.fancybox.open({
+            href: '/manage/orms/ProductVariant/new?fragment=1&productUniqid=' + productUniqid,
+            type: 'iframe',
+            width: 1200,
+            beforeShow: function(){
+                $(".fancybox-skin").css("background-color", "white");
+            },
+            beforeClose: function(){
+                getVariants();
+            }
         });
         return false;
     });
     $(document).on('click', '.js-edit-variant', function () {
-        initDialog();
-        $.pjax.reload({
-            url: location.pathname + '?returnUrl=' + encodeURIComponent(returnUrl) + '&variantId=' + $(this).closest('tbody').attr('id'),
-            // url: document.URL,
-            container: '#product-vairant',
-            fragment: '#product-vairant',
+        var ormInfo = $(this).closest('.js-orm-info');
+        $.fancybox.open({
+            href: '/manage/orms/ProductVariant/' + $(ormInfo).attr('id') + '?fragment=1',
+            type: 'iframe',
+            width: 1200,
+            beforeShow: function(){
+                $(".fancybox-skin").css("background-color", "white");
+            },
+            beforeClose: function(){
+                getVariants();
+            }
         });
         return false;
     });
@@ -43,32 +52,6 @@ $(function () {
         }
     });
 });
-
-function initDialog() {
-    $('#product-vairant').html('Loading...')
-    $('.ui-dialog-buttonpane').hide();
-
-    $('#product-vairant').dialog({
-        title: 'Adding a variant...',
-        resizable: false,
-        draggable: false,
-        modal: true,
-        dialogClass: 'confirmation',
-        buttons: [
-            {
-                class: 'bg-blue',
-                text: 'Save', click: function () {
-                    $('#product-vairant').find('form').submit();
-                }
-            },
-            {
-                text: "Cancel", click: function () {
-                    $(this).dialog("close");
-                }
-            },
-        ]
-    });
-};
 
 function getVariants() {
     $('.js-product-variants-table').find('tbody').remove();

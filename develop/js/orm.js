@@ -10,6 +10,10 @@ $(function() {
     window._files = [];
     window._ancestors = [];
 
+    $(document).on('click', '.js-closeFragmentWindow', function () {
+        parent.$.fancybox.close();
+    });
+
     $(document).on('change', '.js-choice_multi_json', function() {
         $(this).prev('input').val(JSON.stringify($(this).val()));
     });
