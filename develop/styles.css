@@ -1,13 +1,13 @@
 body .button-normal,
 body .button-red {
   background: #fefefe;
-  padding: 0.2em 0.8em;
+  padding: .2em .8em;
   border: 1px solid #999;
   border-radius: 7%;
 }
 body .button-normal.change,
 body .button-red.change {
-  margin-right: 0.5em;
+  margin-right: .5em;
   color: black;
   font-size: 85%;
 }
@@ -20,8 +20,8 @@ body .button-red {
   margin-top: 1em;
 }
 body .button-red .contentListTable {
-  padding-left: 0.5em !important;
-  padding-right: 0.5em !important;
+  padding-left: .5em !important;
+  padding-right: .5em !important;
 }
 body .button-red .contentListTable.no-result {
   text-align: center;
@@ -109,7 +109,7 @@ body .file-manager .row .col-lg-3 form .input-group-btn {
   right: 1em;
 }
 body .file-manager .row .col-lg-3 form .input-group-btn button {
-  margin-top: 0.2em;
+  margin-top: .2em;
   color: black;
   border: none;
   box-shadow: none;
@@ -121,11 +121,11 @@ body .file-manager .row .col-lg-9 {
   width: 77%;
 }
 body .file-manager .row .col-lg-9 ul {
-  padding-left: 0.8em;
+  padding-left: .8em;
   padding-right: 0;
 }
 body .file-manager .row .col-lg-9 ul li {
-  margin-right: 0.5em;
+  margin-right: .5em;
 }
 body .file-manager .extra-stuff {
   border-top: 1px solid #ddd;
@@ -346,7 +346,7 @@ body .file-manager .dropzone-custom .dz-default.dz-message {
   top: 50%;
   left: 50%;
 }
-@media all and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 138dpi), (min-resolution: 1.5dppx) {
+@media all and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 1.5/1), (min-device-pixel-ratio: 1.5), (min-resolution: 138dpi), (min-resolution: 1.5dppx) {
   body .file-manager .dropzone-custom .dz-default.dz-message {
     background-image: url("../images/spritemap@2x.png");
     -webkit-background-size: 428px 406px;
@@ -414,7 +414,7 @@ body .file-manager .dropzone-previews .dz-preview .dz-success-mark {
   background-image: url("../images/spritemap.png");
   background-repeat: no-repeat;
 }
-@media all and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 138dpi), (min-resolution: 1.5dppx) {
+@media all and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 1.5/1), (min-device-pixel-ratio: 1.5), (min-resolution: 138dpi), (min-resolution: 1.5dppx) {
   body .file-manager .dropzone-custom .dz-preview .dz-error-mark,
   body .file-manager .dropzone-previews .dz-preview .dz-error-mark,
   body .file-manager .dropzone-custom .dz-preview .dz-success-mark,
@@ -462,7 +462,7 @@ body .file-manager .dropzone-previews .dz-preview .dz-progress .dz-upload {
   background-repeat: repeat-x;
   background-position: 0px -400px;
 }
-@media all and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 138dpi), (min-resolution: 1.5dppx) {
+@media all and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 1.5/1), (min-device-pixel-ratio: 1.5), (min-resolution: 138dpi), (min-resolution: 1.5dppx) {
   body .file-manager .dropzone-custom .dz-preview .dz-progress .dz-upload,
   body .file-manager .dropzone-previews .dz-preview .dz-progress .dz-upload {
     background-image: url("../images/spritemap@2x.png");
@@ -608,7 +608,7 @@ body .file-manager .dropzone-custom .dz-default.dz-message.dz-progress {
 body .file-manager .dropzone-custom.dz-started .dz-default.dz-message.dz-progress {
   display: block;
   color: green;
-  opacity: 0.5;
+  opacity: .5;
 }
 body .file-manager .dropzone-custom.dz-started .dz-default.dz-message {
   display: none;
@@ -692,7 +692,7 @@ body.fragment-base #bodyContent {
 body.page-login .alert.alert-danger {
   background: red;
   color: white;
-  padding: 0.5em 1em;
+  padding: .5em 1em;
 }
 body.page-model .model-pagination-detail {
   padding: 5px 0;
@@ -724,7 +724,7 @@ body.page-orm .edit hr {
   border-top: 2px solid #e5e5e5 !important;
 }
 body.page-orm .edit .cropImagePickButton {
-  padding-right: 0.5em;
+  padding-right: .5em;
 }
 body.page-orm .edit .text-danger {
   color: red;
@@ -740,14 +740,14 @@ body.page-orm .edit input[type=email] {
   border: 1px solid #ddd;
   border-radius: 3px;
   color: #666;
-  padding: 0.6em 1em;
+  padding: .6em 1em;
   width: 100%;
   background: #fcfcfc;
   background: #fff;
   font-family: 'Titillium Web', 'Helvetica Neue', Arial, sans-serif;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
-  -webkit-transition: all 0.2s ease;
+  -webkit-transition: all .2s ease;
   transition: all 0.2s ease;
 }
 body.page-orm .edit .formStyle.type34 {
@@ -786,9 +786,9 @@ body.page-orm .edit .content-block .formStyle {
   margin-bottom: 2em;
 }
 body.page-orm .edit .page-template-widget .template-new {
-  margin-top: 0.5em;
+  margin-top: .5em;
   background: #fefefe;
-  padding: 0.5em;
+  padding: .5em;
   border: 1px solid #ddd;
 }
 body.page-orm .edit .page-template-widget .template-new > div {
@@ -796,7 +796,18 @@ body.page-orm .edit .page-template-widget .template-new > div {
   width: 50%;
 }
 body.page-orm .edit .page-template-widget .template-new > div:first-child {
-  padding-right: 0.5em;
+  padding-right: .5em;
+}
+body.page-orm .edit .product-variants-table .tableHead {
+  text-align: left;
+}
+body.page-orm .edit .product-special-section {
+  padding-top: 1em;
+  padding-left: 2%;
+  background: lightgrey;
+}
+body.page-orm .edit .product-special-section :disabled {
+  background: #eee;
 }
 body.page-orm .orm-fm {
   padding: 20px 30px;
@@ -816,7 +827,7 @@ body.page-orm .content-block-sidebar {
 }
 body.page-orm .content-block-sidebar .panel-heading {
   background: linear-gradient(#F9F9F9 0, #ddd 100%);
-  padding: 0.7em 1em;
+  padding: .7em 1em;
 }
 body.page-orm .content-block-sidebar .panel-body {
   padding: 1.5em 1em;
@@ -824,6 +835,6 @@ body.page-orm .content-block-sidebar .panel-body {
 body.page-orm .content-block-sidebar .sidebar-submit-area {
   border-top: 1px solid #bbb;
   text-align: center;
-  padding: 0.7em 1em;
+  padding: .7em 1em;
 }
 /*# sourceMappingURL=styles.css.map */
