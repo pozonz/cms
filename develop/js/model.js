@@ -38,10 +38,10 @@ $(function() {
                 id: 'z' + new Date().getTime(),
                 column: $(this).val(),
                 widget: $(this).find('option:selected').val().toLowerCase().indexOf('date') === -1 ? '\\Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType' : '\\MillenniumFalcon\\Core\\Form\\Type\\DatePicker',
-                label: $(this).find('option:selected').text().toLowerCase().replace(/\b[a-z]/g, function (letter) {
+                label: $(this).find('option:selected').text().toLowerCase().replace('(date) ', '').replace(/\b[a-z]/g, function (letter) {
                     return letter.toUpperCase();
                 }) + ':',
-                field: $(this).find('option:selected').text().toLowerCase(),
+                field: $(this).find('option:selected').text().toLowerCase().replace('(date) ', ''),
                 required: $(this).val() == 'title' ? 1 : 0,
                 unique: $(this).val() == 'title' ? 1 : 0,
                 sql: '',
@@ -137,7 +137,7 @@ function renderFields() {
             }
         }
         if (!exist) {
-            $('#fields').append('<option value="' + itm + '">' + itm.toLowerCase().replace(/\b[a-z]/g, function (letter) {
+            $('#fields').append('<option value="' + itm + '">' + (itm.indexOf('date') != -1 ? '(Date) ' : '') + itm.toLowerCase().replace(/\b[a-z]/g, function (letter) {
                     return letter.toUpperCase();
                 }) + '</option>');
         }
