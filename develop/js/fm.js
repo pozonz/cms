@@ -105,7 +105,7 @@ fm = {
                     }
                     fm.renderFiles();
                     $.ajax({
-                        type: 'GET',
+                        type: 'POST',
                         url: '/manage/rest/asset/file/move',
                         data: 'parentId=' + targetFolderId + '&id=' + fm.currentFileId,
                         success: function (data) {
@@ -128,7 +128,7 @@ fm = {
                     {
                         text: 'Save', click: function () {
                             $.ajax({
-                                type: 'GET',
+                                type: 'POST',
                                 url: '/manage/rest/asset/files/add/folder',
                                 data: 'parentId=' + fm.currentFolderId + '&title=' + $(this).find('input').val(),
                                 success: function (msg) {
@@ -162,7 +162,7 @@ fm = {
                     {
                         text: 'Save', click: function () {
                             $.ajax({
-                                type: 'GET',
+                                type: 'POST',
                                 url: '/manage/rest/asset/files/edit/folder',
                                 data: 'id=' + ormInfo.data('id') + '&title=' + $(this).find('input').val(),
                                 success: function (msg) {
@@ -188,7 +188,7 @@ fm = {
             var file = fm.getById(fm.files, id);
             file._selected = $(this).is(':checked') ? 1 : 0;
             $.ajax({
-                type: 'GET',
+                type: 'POST',
                 url: '/manage/rest/asset/folders/file/select',
                 data: 'modelName=' + fm.modelName + '&attributeName=' + fm.attributeName + '&ormId=' + fm.ormId + '&addOrDelete=' + file._selected + '&id[]=' + id,
                 success: function (data) {
@@ -206,7 +206,7 @@ fm = {
                 str += '&id[]=' + itm.id;
             }
             $.ajax({
-                type: 'GET',
+                type: 'POST',
                 url: '/manage/rest/asset/folders/file/select',
                 data: 'modelName=' + fm.modelName + '&attributeName=' + fm.attributeName + '&ormId=' + fm.ormId + '&addOrDelete=1' + str,
                 success: function (data) {
@@ -224,7 +224,7 @@ fm = {
                 str += '&id[]=' + itm.id;
             }
             $.ajax({
-                type: 'GET',
+                type: 'POST',
                 url: '/manage/rest/asset/folders/file/select',
                 data: 'modelName=' + fm.modelName + '&attributeName=' + fm.attributeName + '&ormId=' + fm.ormId + '&addOrDelete=0' + str,
                 success: function (data) {
@@ -335,7 +335,7 @@ fm = {
                 }
             }
             $.ajax({
-                type: 'GET',
+                type: 'POST',
                 url: '/manage/rest/asset/folders/update',
                 data: 'data=' + encodeURIComponent(JSON.stringify(data)),
                 success: function (data) {
@@ -382,7 +382,7 @@ fm = {
             stop: function () {
                 var data = $('#js-files > ul').sortable("toArray");
                 $.ajax({
-                    type: 'GET',
+                    type: 'POST',
                     url: '/manage/rest/column/sort',
                     data: {
                         data: JSON.stringify(data),
@@ -454,7 +454,7 @@ fm = {
             ev.preventDefault();
             if ($(this).valid()) {
                 $.ajax({
-                    type: 'GET',
+                    type: 'POST',
                     url: '/manage/rest/asset/files/add/folder',
                     data: {
                         title: $('#js-add-dialog form input[name=name]').val(),
