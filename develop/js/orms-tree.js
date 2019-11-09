@@ -26,7 +26,7 @@ function update() {
     }
 
     window._ajax = $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: '/manage/rest/nestable/sort',
         data: 'model=' + $('.js-model-wrapper').data('modelname') + '&data=' + encodeURIComponent(JSON.stringify(toArray(root))),
         success : function(msg) {
