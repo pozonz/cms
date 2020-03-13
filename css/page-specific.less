@@ -52,6 +52,24 @@
 /*-----------------------------------------------------------------------------------------
 	Generic form editors
 -----------------------------------------------------------------------------------------*/
+.re-button-tooltip{
+	transform: translateY(-30px);
+	background: #449aef!important;
+    box-shadow: 0 1px 2px rgba(0,0,0,.22);
+	color: white;
+	&:after{
+		border-bottom-color: #449aef!important;
+	}
+}
+
+.redactor-source-view{
+	.redactor-toolbar{
+		display: block;
+		position: fixed;
+		top: 0px;
+	}
+}
+
 .edit {
 
 	.formStyle {
@@ -105,7 +123,20 @@
 			background-color: darken(#e92814, 10%);
 		}
 
+		.redactor-box.redactor-styles-on .redactor-toolbar{
+		    padding: 50px 16px 0 16px;
+		}
 
+
+
+		.redactor-toolbar-wrapper{
+			background: #E4E4E4;
+			margin: -1px;
+		}
+
+		.redactor-toolbar-fixed{
+			padding-top: 50px!important;
+		}
 		// Heading Field
 /*		.formStyle:first-child input {
 			font-size: 1.4em;
@@ -589,10 +620,10 @@
 		position: absolute;
 		top: 50%;
 		right: 1em;
-		height: 12px;
-		width: 12px;
-		margin: -6px 0 0;
-		background: url('/cms/images/binIcon.gif') -5px -5px;
+		height: 22px;
+		width: 22px;
+		margin: -10px 0 0;
+		background: url('/cms/images/binIcon.gif') 0px 0px;
 		text-indent: -5000px;
 		overflow: hidden;
 
@@ -976,11 +1007,13 @@ input.hasDatepicker {
 	}
 	.assets-images.ui-sortable {
 		position: relative;
+		display: inline-table;
 		.nav-ul;
 		background: #e9e9e9;
 		box-shadow: 0px 0 5px #ccc inset;
-		padding: 2em 2em 1em;
-		margin: 0 0 2em;
+		padding: 1.1em 1.1em .5625em;
+		margin: 0 0 0;
+		// overflow: hidden;
 
 		.details {
 			font-size: .95em;
@@ -1083,7 +1116,7 @@ input.hasDatepicker {
 			background: white;
 			width: 10.97em;
 			height: 15em;
-			margin: 0 1em 1.5em 0;
+			margin: 0 .75em .75em 0;
 			text-align: center;
 			box-shadow: 0px 2px 3px rgba(0,0,0,.1);
 			cursor: move;
