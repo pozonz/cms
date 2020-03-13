@@ -5,7 +5,7 @@ body {
 	color: #585858;
 	font-variant: small-caps;
 	font-family: "Gill Sans", "Lucida Sans", "Trebuchet MS";
-	
+
 }
 
 .angryWarning {
@@ -67,7 +67,7 @@ div.formElementDescription{
 }
 
 td.formElementDescriptionSettings{
-	border-top: 0.1em solid #cde1ef;	
+	border-top: 0.1em solid #cde1ef;
 	padding-left: 1em;
 	padding-right: 1em;
 	padding-bottom: 0.5em;
@@ -75,12 +75,12 @@ td.formElementDescriptionSettings{
 }
 
 table.formElementEditor {
-	border-bottom: 0.1em solid #cde1ef;	
+	border-bottom: 0.1em solid #cde1ef;
 	width: 100%;
 }
 
 select.formElement {
-	width: 30em;	
+	width: 30em;
 }
 
 select.formElementEditor{
@@ -92,7 +92,7 @@ input.formElementEditor{
 }
 
 input.formElement {
-	width: 30em;	
+	width: 30em;
 }
 textarea.formElementEditor {
 	width: 50em;

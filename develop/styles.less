@@ -89,7 +89,7 @@ body {
   .file-manager {
     width: 100%;
     height: 100%;
-    overflow-y: auto;
+
 
     ol.breadcrumb {
       margin: 0;
@@ -142,11 +142,11 @@ body {
         width: 77%;
 
         ul {
-          padding-left: .8em;
+          padding-left: 1.1em;
           padding-right: 0;
 
           li {
-            margin-right: .5em;
+            margin-right: .75em;
           }
         }
       }
@@ -936,6 +936,7 @@ body {
 
           .delete-block.edit-block {
             right: 2.5em;
+            background: url(/cms/images/editIcon.gif) 0px 0px;
           }
 
           .delete-block.active-block {
@@ -1056,4 +1057,134 @@ body {
       }
     }
   }
+  .jstree-anchor {
+        display: inline-block;
+        color: black;
+        white-space: nowrap;
+        padding: 0 8px 0 5px;
+        border-radius: 40px!important;
+        margin: 0;
+        vertical-align: top;
+    }
+    .jstree-default{
+        .jstree-icon{
+            // background-image: url(../css/sprite.png);
+        }
+        .jstree-open>.jstree-ocl{
+            background-position: -36px -4px;
+            background: none;
+            position: relative;
+            &:before{
+                content: "-";
+                font-weight: 900;
+                font-size: 1.2em;
+                line-height: 0;
+                position: relative;
+    top: -1px;
+            }
+        }
+        .jstree-closed>.jstree-ocl{
+            background-position: -4px -4px;
+            background: none;
+            position: relative;
+            &:before{
+                content: "+";
+                font-weight: 900;
+                font-size: 1.2em;
+                line-height: 0;
+                position: relative;
+    top: -1px;
+            }
+        }
+        .jstree-leaf>.jstree-ocl{
+            background: none;
+        }
+        .jstree-node{
+            background: none;
+        }
+        .jstree-ok{
+
+        }
+        .jstree-er{
+
+        }
+        .mode-asset{
+            .assets-images{
+                &.ui-sortable{
+                    .ui-sortable-placeholder{
+                        margin-right: .5em;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .jstree-open{
+        .jstree-themeicon{
+            &:before{
+                content: '\f07c';
+            }
+        }
+    }
+    .jstree-leaf{
+        .jstree-themeicon{
+            &:before{
+                content: '\f07b';
+            }
+        }
+    }
+
+
+    .jstree-closed{
+        .jstree-themeicon{
+            &:before{
+                content: '\f07b';
+            }
+        }
+    }
+
+    .jstree-dnd-parent{
+        .jstree-anchor{
+            // background: green!important;
+        }
+    }
+
+
+
+
+
+
+}
+
+#jstree-marker{
+    transform: translateY(-47px) translateX(-4px);
+    margin: 0;
+}
+#vakata-dnd{
+    // transform: translateX(-46px) translateY(-68px);
+    border-radius: 2px;
+    box-shadow: none;
+    font-weight: 900;
+    line-height: 24px;
+    height: 24px;
+    transform: translateX(-50px) translateY(-69px);
+    pointer-events: none;
+    // display: none!important;
+    .jstree-default{
+        padding: 0;
+    }
+
+}
+
+.jstree-ok{
+
+}
+.jstree-er{
+
+}
+
+
+.ui-sortable-helper{
+    opacity: .6;
 }

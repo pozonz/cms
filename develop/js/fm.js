@@ -315,7 +315,7 @@ fm = {
             plugins: ['types', 'dnd', 'search'],
             types: {
                 default: {
-                    'icon': 'fa fa-folder'
+                    'icon': 'far fa-folder-open'
                 },
             }
         });
@@ -378,7 +378,6 @@ fm = {
 
         $('#js-files > ul').sortable({
             items: 'li.js-tableContent',
-            cursorAt: {left: -30, top: -30},
             stop: function () {
                 var data = $('#js-files > ul').sortable("toArray");
                 $.ajax({
