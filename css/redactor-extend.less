@@ -1,9 +1,31 @@
+.redactor-toolbar-fixed,
+.redactor-source-view .redactor-toolbar {
+	position: relative !important;
+}
+.redactor-styles {
+	font-family: @font-body !important;
+	color: @body-copy !important;
+}
+.redactor-source, .redactor-source:focus, .redactor-source:hover {
+	font-size: 13px !important;
+}
+.formStyle .redactor-box.redactor-styles-on {
+	border-color: fade(@body-copy, 20%);
+	background-color: @color-grey1 !important;
+}
+.formStyle .redactor-box.redactor-styles-on:hover {
+	border-color: @body-copy;
+}
+.redactor-styles {
+	min-height: 120px !important;
+}
+
 /*-----------------------------------------------------------------------------------------
 	WYSIWYG elements
------------------------------------------------------------------------------------------*/	
+-----------------------------------------------------------------------------------------*/
 .img-center {
 	margin: 3em auto;
-	display: block;	
+	display: block;
 }
 .img-left {
 	float: left;
@@ -25,7 +47,7 @@
 
 /*-----------------------------------------------------------------------------------------
 	Dialogues
------------------------------------------------------------------------------------------*/	
+-----------------------------------------------------------------------------------------*/
 #redactor_modal {
 	color: inherit;
 	font-size: .9em;
@@ -47,12 +69,12 @@
        -moz-transition: all .1s ease-in-out;
     -webkit-transition: all .1s ease-in-out;
             transition: all .1s ease-in-out;
-    
+
     .image {
     	height: 7em;
     	overflow: hidden;
     	margin: 0 0 1em;
-		
+
 		img {
 			background: #e9e9e9 url('/cms/images/spinner.gif') center no-repeat;
 		}
@@ -77,11 +99,11 @@
 }
 .preview.redactorfolder:hover {
 	border-color: #888;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);	
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 #redactor_image_box {
 	/*background: #e9e9e9;*/
-	
+
 	img {
 		display: block;
 		height: auto;
@@ -108,7 +130,7 @@
 }
 
 .redactor_box {
-	border-color: #ccc;		
+	border-color: #ccc;
 }
 .redactor_box {
 	border: none;
@@ -122,7 +144,7 @@
 
 /*-----------------------------------------------------------------------------------------
 	Assets picking
------------------------------------------------------------------------------------------*/	
+-----------------------------------------------------------------------------------------*/
 #redactor_image_box {
 	margin-top: 6em;
 }
@@ -135,7 +157,7 @@
 	background: @links;
 	color: rgba(255, 255, 255, .5);
 	text-shadow: none;
-	
+
 	a {
 		color: #fff;
 		margin: 0 .5em;
@@ -146,7 +168,7 @@
 	padding: 0;
 	margin: 0;
 	list-style-type: none;
-	
+
 	a {
 		display: block;
 		background: url('/cms/images/iconFolder.gif') no-repeat .8em center;
@@ -154,7 +176,7 @@
 		border-bottom: 1px solid #ccc;
 	}
 	li:last-child a {
-		border-bottom: none;		
+		border-bottom: none;
 	}
 	a:hover {
 		background-color: white;
@@ -175,9 +197,9 @@
 
 /*-----------------------------------------------------------------------------------------
 	Crop
------------------------------------------------------------------------------------------*/	
+-----------------------------------------------------------------------------------------*/
 .crop_area {
-	
+
 	.image-size {
 		color: #999;
 		border-left: 2px solid #ddd;
