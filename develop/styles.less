@@ -36,9 +36,10 @@ body {
 
 
     ol.breadcrumb {
-      margin: 0;
-      padding: 0;
+        margin: 0;
+      padding: 0.6em 0 0 0;
       list-style-type: none;
+      font-size: 0.7em;
 
       li {
         margin: 0;
@@ -65,13 +66,18 @@ body {
 
           margin-bottom: 1em;
 
+          .pz-search {
+              padding-left: 2.8em;
+          }
+
           .input-group-btn {
             position: absolute;
-            right: 1em;
+            left: -.3em;
+            top: 0.1em;
 
             button {
               margin-top: .2em;
-              color: black;
+              color: #454A51;
               border: none;
               box-shadow: none;
               background: none;
@@ -84,6 +90,7 @@ body {
         display: block;
         float: left;
         width: 77%;
+        padding-left: 3em;
 
         ul {
           padding-left: 1.1em;
@@ -99,18 +106,19 @@ body {
     .extra-stuff {
       border-top: 1px solid #ddd;
       background-color: white;
-      position: absolute;
+      position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      padding: 10px 20px;
+      padding: 10px 30px 10px 20px;
+      display: flex;
+      justify-content: center;
 
       .pull-left {
-        float: left;
       }
 
       .pull-right {
-        float: right;
+        margin-left: 1em;
       }
     }
 
@@ -133,7 +141,6 @@ body {
 
           label {
             cursor: pointer;
-            background-color: #666;
             color: #fff;
             display: block;
             padding: 5px 0 5px 25px;
@@ -372,6 +379,12 @@ body {
 
     .dropzone-custom .dz-default.dz-message span {
       display: none;
+      display: block;
+        color: rgba(69, 74, 81, 0.4);
+        font-weight: 500;
+        line-height: 1.4;
+        max-width: 8em;
+        margin: auto;
     }
 
     .dropzone-custom.dz-square .dz-default.dz-message {
@@ -612,7 +625,7 @@ body {
     }
 
     .dropzone-custom {
-      border: 2px dashed #b1b1b1;
+      border: 1px dashed rgba(69, 74, 81, 0.41);
       background: 0;
       width: 150px;
       min-height: 15em;
@@ -943,10 +956,11 @@ body {
     }
 
     .orm-fm {
-      padding: 20px 30px;
+      padding: 20px 50px;
 
       .addForm {
         top: 1.5em;
+        right: 2em;
       }
     }
 
