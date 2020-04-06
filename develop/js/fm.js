@@ -378,6 +378,7 @@ fm = {
 
         $('#js-files > ul').sortable({
             items: 'li.js-tableContent',
+            cursorAt: {left: -10},
             stop: function () {
                 var data = $('#js-files > ul').sortable("toArray");
                 $.ajax({
