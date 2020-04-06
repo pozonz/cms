@@ -660,9 +660,17 @@ $(function() {
                 };
                 for (var idxBlk in section.blocks) {
                     var block = section.blocks[idxBlk];
+                    var t = block.title;
+                    if (typeof block.values.title !== 'undefined' && block.values.title) {
+                        t = block.values.title;
+                    } else if (typeof block.values.heading !== 'undefined' && block.values.heading) {
+                        t = block.values.heading;
+                    } else if (typeof block.values.title !== 'undefined' && block.values.header) {
+                        t = block.values.header;
+                    }
                     obj.children.push({
                         id: block.id,
-                        text: block.title,
+                        text: t,
                         type: block.status == 1 ? 'block' : 'block-disabled',
                     })
                 }
