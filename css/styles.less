@@ -1,12 +1,10 @@
 /* ORIGINATE 2015 */
 
 
-
 /*-----------------------------------------------------------------------------------------
 	Fonts
 -----------------------------------------------------------------------------------------*/
-@import url(//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600,700);
-//@import url(http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic);
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap);
 
 
 
@@ -28,14 +26,23 @@
 /*-----------------------------------------------------------------------------------------
 	Less variables
 -----------------------------------------------------------------------------------------*/
-@links: #2281CF;
-@body-copy: #444;
-@green: #82ad1d;
-@red: #e92814;
-@font-body:  'Titillium Web', 'Helvetica Neue', Arial, sans-serif;
-@font-headings:  'Titillium Web', 'Helvetica Neue', Arial, sans-serif;
+@links: #4087F1;
+@body-copy: #454A51;
+@green: #4BB174;
+@red: #D13D46;
+
+@color-grey1: #F3F5F9;
+@color-grey2: #DDE2EA;
+@color-grey3: #454A51;
+
+@font-body:  'Inter', 'Helvetica Neue', Arial, sans-serif;
+@font-headings:  'Inter', 'Helvetica Neue', Arial, sans-serif;
 @menu-padding: 25em;
 @divider: 1px solid #e5e5e5;
+
+@weight-regular: 400;
+@weight-medium: 500;
+@weight-semibold: 600;
 
 //Timestamp
 	@date: `new Date().getTime()`;
@@ -66,16 +73,18 @@
 	background-image: -webkit-gradient(linear,0% 0,0% 100%,from(rgba(0,0,0,0)),to(rgba(0,0,0,.05)));
 }
 .editor-block {
-	background: #e9e9e9;
-	border: 1px solid #bbb;
+	background: @color-grey1;
+	border: 1px solid @color-grey2;
 	border-radius: 3px;
 	/*color: #FFFFFF;*/
 	padding: 1em;
 
-	.ui-bevel;
 }
 .max-width {
 	max-width: 90em;
+}
+.form-group {
+	margin-bottom: 1em
 }
 .form-cols {
 	margin-right: 2%;
@@ -123,15 +132,15 @@ body {
 	font-family: @font-body;
 	margin: 0;
 	padding: 0;
+	position: relative;
+	background: @color-grey1;
 }
 a {
 	cursor: pointer;
 	text-decoration: none;
 	font-weight: bold;
 	color: @links;
-	   -moz-transition: color .2s ease-in-out, background .1s ease-in-out, border .2s ease-in-out, opacity .2s ease;
-	-webkit-transition: color .2s ease-in-out, background .1s ease-in-out, border .2s ease-in-out, opacity .2s ease;
-	        transition: color .2s ease-in-out, background .1s ease-in-out, border .2s ease-in-out, opacity .2s ease;
+	        transition: color .1s ease-in-out, background .1s ease-in-out, border .1s ease-in-out, opacity .1s ease;
 }
 h1,h2,h3,h4 {
 	margin: 0 0 .5em;
@@ -201,10 +210,9 @@ table {
 	}
 }
 td {
-	border-bottom: 1px solid #e5e5e5;
-	padding: .4em 1em;
-	   -moz-transition: background-color .1s ease-in-out;
-	-webkit-transition: background-color .1s ease-in-out;
+	border-bottom: 1px solid fade(@body-copy, 20%);
+	padding: .6em 1em;
+	font-size: .9em;
 	        transition: background-color .1s ease-in-out;
 
 }
@@ -212,15 +220,21 @@ tr:last-child td {
 	border-bottom: none;
 }
 tr:hover td {
-	background: #f6f6f6;
+	background: white;
 }
-.tableHead {
-	background: #f0f0f0;
-	border: 1px solid #ccc;
-	font-size: .9em;
-	font-weight: bold;
-	padding: .6em 1em;
-	.ui-bevel;
+tr .tableHead,
+tr:last-child .tableHead {
+	border-bottom: 1px solid fade(@body-copy, 20%);
+	// background: #f0f0f0;
+	// border: 1px solid #ccc;
+	// font-size: .9em;
+	// font-weight: bold;
+	// padding: .6em 1em;
+	// .ui-bevel;
+    font-weight: @weight-medium;
+    font-size: 12px;
+    color: fade(@body-copy,60%);
+    text-transform: uppercase;
 
 
 	a {
@@ -229,10 +243,6 @@ tr:hover td {
 		margin: -.6em -1em;
 		text-align: left;
 
-	}
-	a:hover {
-		background-color: @links;
-		color: #fff;
 	}
 }
 .iconCell {
@@ -273,16 +283,19 @@ select, textarea,
 .input-style,
 .redactor_input {
     border: medium none;
-	border: 1px solid #ddd;
+	border: 1px solid fade(@body-copy, 20%);
     border-radius: 3px;
-    color: #666666;
-    padding: .6em 1em;
+    color: @body-copy;
+    padding: 1em 1.2em;
     width: 100%;
-    background: #fcfcfc;
     background: #fff;
 	font-family: @font-body;
-	box-shadow: 0 1px 1px rgba(0,0,0,0.05) inset;
 	transition: all .2s ease;
+	box-shadow: none;
+
+	.formStyle.type34 & {
+		background-color: @color-grey1;
+	}
 }
 input[type=file] {
 	font-size: .9em;
@@ -311,7 +324,7 @@ textarea:hover,
 .input-style:hover,
 .input-hover-style {
     outline: none;
-    border-color: #aaa;
+    border-color: @body-copy;
 }
 
 select:focus,
@@ -319,16 +332,22 @@ input:focus,
 textarea:focus {
     outline: none;
     /*border-color: @links;*/
-    border-color: #999;
-    box-shadow: 0px 3px 5px rgba(0,0,0,.1);
+	border-color: @body-copy;
+    box-shadow: none;
 }
 label {
 	.inline-block;
 	margin-right: .5em;
 	/*cursor: pointer;*/
 	/*font-weight: bold;*/
-	color: #888;
+	color: fade(@body-copy, 60%) !important; // To override INLINE styles from devs
+
 	font-size: .95em;
+	font-weight: normal !important; // To override INLINE styles from devs
+
+	.checkbox &, .radio & {
+		color: @body-copy !important; // To override INLINE styles from devs
+	}
 }
 .error,
 .status {
@@ -366,22 +385,37 @@ input[type=button]:focus,
 input.button:hover,
 input.button:focus,
 
+.button-normal,
+.button-red,
+
 .ui-button	{
 	font-family: @font-headings;
-    background-color: #555;
+    background-color: @links;
     background-repeat: repeat-x;
-    border: 1px solid rgba(0,0,0,.3);
-    border-radius: 20em;
+    border: none;
+    border-radius: 10px;
     color: #FFFFFF;
     display: inline-block;
-    padding: .4em 1.5em;
-    font-weight: bold;
+    padding: 0.9em 1.8em;
+    font-weight: @weight-semibold;
     width: auto;
     text-align: center;
     /*position: relative;*/
     transition: background .3s ease;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+	font-size: .875em;
+	height: 3.3em; //Discrepencies between links and button
+
+	.fa,.fas,.far  {
+		margin-right: .4em;
+	}
+}
+.button.back-button,
+.button.back-button:hover, .button.back-button:focus {
+	background: none;
+	color: @links;
+	padding-left: 0;
+	padding-right: .8em;
 }
 .ui-button-text-only .ui-button-text {
 	padding: 0;
@@ -404,7 +438,7 @@ input.button:hover,
 input.button:focus,
 
 .ui-button:focus {
-	background-color: @links;
+	background-color: darken(@links,10%);
 }
 .radio,
 .checkbox {
@@ -428,6 +462,11 @@ input[type="checkbox"], input[type="radio"] {
 		display: inline;
 	}
 }
+.formStyle.datepicker div {
+	display: flex;
+	align-items: baseline;
+
+}
 .cms_form_file {
 	line-height: normal;
 }
@@ -444,7 +483,13 @@ input[type="checkbox"], input[type="radio"] {
 		}
 	}
 }
+.btn-success {
+	background-color: @green;
 
+	&:hover,&:focus {
+		background-color: darken(@green,10%);
+	}
+}
 
 
 
@@ -458,10 +503,6 @@ input[type="checkbox"], input[type="radio"] {
 /*-----------------------------------------------------------------------------------------
 	Layout
 -----------------------------------------------------------------------------------------*/
-body {
-	position: relative;
-	background: #f5f5f5;
-}
 #menuTop {
 
 	z-index: 3;
@@ -471,7 +512,7 @@ body {
 	}
 
 	a {
-		color: #ccc;
+		color: white;
 		font-size: .85em;
 		font-weight: normal;
 		display: block;
@@ -481,7 +522,7 @@ body {
 		color: #fff;
 	}
 	.menuTop {
-	background: #333 url("/cms/images/originate-o.png") no-repeat .8em 50%;
+	background: @color-grey3 url("/cms/images/originate-logo.svg") no-repeat .8em 50%;
 		height: 3em;
 		left: 0;
 		top: 0;
@@ -508,7 +549,7 @@ body {
 	}
 }
 #headContainer {
-	background: url("/site/images/bannerBg.jpg");
+	background: url("/images/bannerBg.jpg") !important;
 	overflow: hidden;
 	margin-top: 3em;
 	padding-left: @menu-padding;
@@ -518,8 +559,9 @@ body {
 	z-index: 5;
 }
 #head {
-    background: url("/site/images/head.jpg") no-repeat;
-    height: 6.9em;
+    background: url("/images/head.jpg") no-repeat;
+	background-color: transparent !important;
+    height: 105px;
 }
 a.logo {
     display: block;
@@ -527,8 +569,6 @@ a.logo {
     width: 100%;
 }
 div#h1 h1 {
-	border-bottom: @divider;
-	border-width: 2px;
 	margin: 0 0 1em;
 	min-height: 1.7em;
 }
@@ -547,7 +587,6 @@ div#h1 h1 {
 }
 #verticalMenu, #viewModes {
 	.nav-ul;
-	box-shadow: 2px 0 5px rgba(0,0,0,.2);
 	overflow: auto;
 	height: 100%;
 	top: 3em;
@@ -560,7 +599,7 @@ div#h1 h1 {
 #viewModes {
 	left: 0;
 	width: 7em;
-	background: #333;
+	background: @color-grey3;
 	z-index: 7;
 
 	li {
@@ -631,20 +670,20 @@ div#h1 h1 {
 -----------------------------------------------------------------------------------------*/
 #verticalMenu {
 	left: 7.6em;
-	background: #ddd;
-	width: 16em;
+	background: @color-grey2;
+	width: 18em;
 	font-size: .92em;
-	border-right: 1px solid #aaa;
 	top: 3.3em;
 	height: auto;
 	bottom: 0;
-	padding-bottom: 0;
+	padding: 1.3em;
 
 	ul {
 		.nav-ul;
 	}
 	li {
 		position: relative;
+		border-bottom: 1px solid fade(@body-copy, 15%);
 	}
 
 	li:last-child {
@@ -653,21 +692,16 @@ div#h1 h1 {
 	a {
 		display: block;
 		padding:.8em 1em;
-		border-bottom: 1px solid #bbb;
 		position: relative;
+		font-weight: @weight-medium;
+		color: @body-copy;
 
-
-		.ui-bevel;
-		background-image: -moz-linear-gradient(0% 100% 90deg, rgba(0,0,0,.05), rgba(0,0,0,0));
-		background-image: -webkit-gradient(linear,0% 0,0% 100%,from(rgba(0,0,0,0)),to(rgba(0,0,0,.05)));;
-		background-repeat: no-repeat;
-		background-position: 0 50%, 0 0;
-
+		&:hover {
+			color: @links;
+		}
 	}
-	a:hover
-	  {
-		background-color: #f9f9f9;
-		/*border-right: 5px solid @links;*/
+	.selected a {
+		color: @links;
 	}
 	a.view-toggle {
 		background: none;
@@ -683,11 +717,12 @@ div#h1 h1 {
 		margin: 0 0 2em;
 	}
 	.menuHeading {
-		font-weight: bold;
 		text-transform: uppercase;
-		padding: 1em 1em .5em 1em;
-		font-size: ;
+		padding: 1rem 1rem 0.2rem;
 		border: none;
+		opacity: 0.5;
+		font-size: 12px;
+		font-weight: @weight-medium;
 	}
 	.toggle-icon {
 		background: url("/cms/images/icon-nestable.png") no-repeat scroll center center;
@@ -709,23 +744,28 @@ div#h1 h1 {
 		}
 	}
 	.subcategory {
+		padding: 0.3em 0 1.4em;
+
+		li {
+			border-bottom: none;
+		    list-style: circle;
+		    margin: 0 0 0 2.3em;
+		}
 		a {
-			/*padding-left: 3.5em;*/
-			background-color: #4a94d1;
-			color: #fff;
-			border-color: lighten(#4a94d1, 5%);
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			box-shadow: none;
 			background-image: none;
-			background-position: 2.5em 50%, 0 0;
+			background-position: 2.5em 50%,0 0;
 			position: relative;
-			border-left: 1em solid rgba(33,33,33, .2);
-
+			font-weight: 400;
+			padding: 0 1em 0.7em 0;
+			color: @body-copy;
 		}
-		a:hover {
-			background-color: darken(#4a94d1, 5%);
+		.selected-subitm a,
+		a:hover,a:focus {
+			color: @links;
 		}
 	}
 	.sub-2 a {
@@ -745,14 +785,15 @@ div#h1 h1 {
 	Body content
 -----------------------------------------------------------------------------------------*/
 #bodyContent {
-	// padding: 2em 3em 6em @menu-padding;
-	padding: 2em 3em 3em @menu-padding;
-	position: relative;
 	.max-width;
-	border-right: @divider;
-	// border-bottom: 5px solid #e5e5e5;
 	overflow: hidden;
-	background: white;
+	padding: 4em 4.5em 4em 28em;
+	position: relative;
+	overflow: hidden;
+
+	@media(min-width: 1400px) {
+		width: 75%;
+	}
 }
 
 
@@ -772,8 +813,11 @@ div#h1 h1 {
 #showAddNewFolder,
 .view-file .buttons {
 	position: absolute;
-	right: 3em;
-	top: 2em;
+    // right: 5.7em;
+    // top: 3.8em;
+
+	right: 5.1em;
+	top: 4.8em;
 }
 
 a.delete-button,
@@ -899,7 +943,9 @@ a.delete-button:focus,
 .ui-widget-content {
 	border-color: #e5e5e5;
 }
-
+.ui-dialog .ui-dialog-content {
+	overflow: visible;
+}
 
 
 
@@ -1266,18 +1312,18 @@ a.delete-button:focus,
 		width: 3em;
 		position: relative;
 		margin: 0 .2em 0 0;
-		border: 1px solid #e5e5e5;
+		border: 1px solid fade(@body-copy, 60%);
 		color: #555;
 		line-height: 2.8em;
 		text-align: center
 	}
 	a:hover {
-		border-color: #555
+		border-color: @body-copy;
 	}
 	.selected a,
 	.selected a:hover {
-		border-color: #2281cf;
-		background: #2281cf;
+		border-color: @links;
+		background: @links;
 		color: #fff;
 		pointer-events: none
 	}
@@ -1470,5 +1516,68 @@ li.ui-timepicker-selected .ui-timepicker-duration,
 
 
 /*-----------------------------------------------------------------------------------------
-	/Overrides
+	/PAgebuilder section nav
 -----------------------------------------------------------------------------------------*/
+.content-block-sidebar {
+	@media not all and (min-width:1400px) {
+		display: none;
+	}
+  width: 250px;
+  position: fixed;
+  right: 2em;
+  top: 200px;
+  z-index: 999;
+
+  .panel-heading {
+	font-size: 12px;
+	font-weight: @weight-medium;
+	color: fade(@body-copy,50%);
+	text-transform: uppercase;
+
+	.fa {
+		display: none;
+	}
+  }
+
+  .panel-body {
+	padding: 1em 0;
+  }
+
+  .sidebar-submit-area {
+	  display: flex;
+
+	  .button {
+		  font-size: .9em;
+		  width: 50%;
+		  margin: 0 1px 0 0 !important;
+		  border-radius: 10px 0 0 10px;
+	  }
+	  .save-content.save {
+		  border-radius: 0 10px 10px 0;
+		  background: @green;
+
+		  &:hover,&:focus {
+			  background: darken(@green,10%);
+		  }
+	  }
+  }
+}
+.jstree-default .jstree-anchor {
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: normal;
+	height: 30px !important;
+	font-size: 14px; //Set in pixels to not interfere with font awesome child
+
+	&:hover, &:focus {
+		color: @links;
+		background: none !important;
+		box-shadow: none !important;
+	}
+}
+.jstree-default .jstree-clicked {
+	color: @links  !important; //Combats CDN linked file
+	background: none !important; //Combats CDN linked file
+	box-shadow: none !important; //Combats CDN linked file
+}
