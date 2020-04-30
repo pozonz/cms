@@ -1,4 +1,49 @@
-$(function() {
+$(function () {
+    $R.add('plugin', 'filePicker', {
+        init: function (app) {
+            this.app = app;
+            this.toolbar = app.toolbar;
+        },
+        start: function () {
+            var buttonData = {
+                title: 'File picker',
+                api: 'plugin.filePicker.toggle'
+            };
+            var $button = this.toolbar.addButton('my-button', buttonData);
+            $button.setIcon('<i class="re-icon-file"></i>');
+        },
+        toggle: function () {
+            window._redactor = this;
+            window._callback = function () {
+                window._redactor.app.insertion.insertHtml('<a target="_blank" href="/downloads/assets/' + $(this).closest('.js-orm-info').data('id') + '">' + $(this).closest('.js-orm-info').find('a').attr('title') + '</a>');
+                $.fancybox.close();
+            };
+            filepicker();
+        }
+    });
+
+    $R.add('plugin', 'imagePicker', {
+        init: function (app) {
+            this.app = app;
+            this.toolbar = app.toolbar;
+        },
+        start: function () {
+            var buttonData = {
+                title: 'Image picker',
+                api: 'plugin.imagePicker.toggle'
+            };
+            var $button = this.toolbar.addButton('my-button', buttonData);
+            $button.setIcon('<i class="re-icon-image"></i>');
+        },
+        toggle: function () {
+            window._redactor = this;
+            window._callback = function () {
+                window._redactor.app.insertion.insertHtml('<img src="/images/assets/' + $(this).closest('.js-orm-info').data('id') + '/large" alt="' + $(this).closest('.js-orm-info').find('a').attr('title') + '">');
+                $.fancybox.close();
+            };
+            filepicker();
+        }
+    });
 
     var templateGalleryFile = Handlebars.compile($('#gallery-file').html());
 
@@ -14,17 +59,17 @@ $(function() {
         parent.$.fancybox.close();
     });
 
-    $(document).on('change', '.js-choice_multi_json', function() {
+    $(document).on('change', '.js-choice_multi_json', function () {
         $(this).prev('input').val(JSON.stringify($(this).val()));
     });
 
-    $(document).on('click', '.js-orm-fm .js-tableContent a.js-image-select', function() {
+    $(document).on('click', '.js-orm-fm .js-tableContent a.js-image-select', function () {
         window._callback.call(this);
         return false;
     });
 
-    var renderElements = function(container, callback) {
-        $.each($(container).find('.assetfolderpicker'), function(idx, itm) {
+    var renderElements = function (container, callback) {
+        $.each($(container).find('.assetfolderpicker'), function (idx, itm) {
             var modelName = $(itm).closest('form').data('modelname');
             var ormId = $(itm).closest('form').data('ormid');
             var attributeName = $(itm).find('input').data('attributename');
@@ -81,7 +126,7 @@ $(function() {
                 getFiles();
             }
 
-            $(itm).on('click', '.change', function(ev) {
+            $(itm).on('click', '.change', function (ev) {
                 window._callback = function () {
                     $(this).next('div').find('a').click();
                 };
@@ -90,7 +135,7 @@ $(function() {
                     getFiles();
                 });
             });
-            $(itm).on('click', '.delete', function(ev) {
+            $(itm).on('click', '.delete', function (ev) {
                 $(itm).find('.js-no-results').hide();
                 $(itm).find('.js-loading').hide();
                 // $(itm).find('.js-gallery-container').parent().addClass('sk-loading');
@@ -148,7 +193,7 @@ $(function() {
             // });
         });
 
-        $.each($(container).find('.assetpicker'), function(idx, itm) {
+        $.each($(container).find('.assetpicker'), function (idx, itm) {
             var elemId = $(itm).find('input').attr('id');
             var fileId = $(itm).find('.js-orm-info').data('id');
 
@@ -196,7 +241,7 @@ $(function() {
                 getFile();
             }
 
-            $(itm).on('click', '.js-asset-change', function(ev) {
+            $(itm).on('click', '.js-asset-change', function (ev) {
                 var _this = this;
                 window._callback = function () {
                     var widgetContainer = $(_this).closest('.js-filePickWrap')
@@ -211,13 +256,14 @@ $(function() {
                     widgetContainer.find('.js-cropping-options').show();
                     if (callback) {
                         callback();
-                    };
+                    }
+                    ;
                     $.fancybox.close();
                 };
                 filepicker();
                 return false;
             });
-            $(itm).on('click', '.js-asset-delete', function(ev) {
+            $(itm).on('click', '.js-asset-delete', function (ev) {
                 var widgetContainer = $(this).closest('.js-filePickWrap')
                 widgetContainer.find('.js-fileId').val('');
                 widgetContainer.find('.js-filePickFile').attr('src', '/cms/images/spacer.gif');
@@ -225,7 +271,8 @@ $(function() {
                 widgetContainer.find('.js-cropping-options').hide();
                 if (callback) {
                     callback();
-                };
+                }
+                ;
                 return false;
             });
         });
@@ -250,10 +297,24 @@ $(function() {
         $(container).find('select:not(.no-chosen)').chosen({
             allow_single_deselect: true
         });
+
         $(container).find('.wysiwyg textarea').redactor({
-            // plugins: ['filePicker', 'imagePicker', 'video', 'table'],
+            plugins: ['filePicker', 'imagePicker', 'video', 'table'],
             minHeight: '300px',
+            imageResizable: true,
+            imageFigure: false,
+            imageEditable: false,
+            imagePosition: {
+                "left": "img-left",
+                "right": "img-right",
+                "center": "img-center"
+            },
             callbacks: {
+                image: {
+                    changed: function(image) {
+                        console.log(image)
+                    }
+                },
                 changed: function (e) {
                     if (callback) {
                         callback();
@@ -684,28 +745,28 @@ $(function() {
                 },
                 'plugins': ['types', 'dnd'],
                 'types': {
-                    "#" : {
-                        "valid_children" : ["section"]
+                    "#": {
+                        "valid_children": ["section"]
                     },
-                    "section" : {
+                    "section": {
                         'icon': 'far fa-folder-open',
-                        "valid_children" : ["block"]
+                        "valid_children": ["block"]
                     },
-                    "section-disabled" : {
+                    "section-disabled": {
                         'icon': 'far fa-folder-open text-danger',
-                        "valid_children" : ["block"]
+                        "valid_children": ["block"]
                     },
-                    "block" : {
+                    "block": {
                         'icon': 'far fa-file',
-                        "valid_children" : [],
+                        "valid_children": [],
                     },
-                    "block-disabled" : {
+                    "block-disabled": {
                         'icon': 'far fa-file text-danger',
-                        "valid_children" : [],
+                        "valid_children": [],
                     },
                 },
             }).on('ready.jstree',
-                function() {
+                function () {
                     setTimeout($.proxy(function () {
                         $('.sidebar' + dataId + ' .scroll-content').slimscroll({
                             height: Math.max($('.sidebar' + dataId + ' .panel-body').outerHeight(), 75) + 'px',
@@ -752,7 +813,7 @@ $(function() {
                 } else {
                     var selector = '.js-block-' + data.node.id;
                 }
-                $("html, body").animate({ scrollTop: $(selector).position().top });
+                $("html, body").animate({scrollTop: $(selector).position().top});
             });
 
             $('.sidebar' + dataId).find('.sidebar-submit-area .js-back').click(function () {
@@ -852,7 +913,7 @@ function saveBlock(dataId, dataBlocks, dataValue, callback) {
     callback();
 }
 
-function getById (data, id) {
+function getById(data, id) {
     for (var idx in data) {
         var itm = data[idx];
         if (itm.id == id) {
@@ -862,7 +923,7 @@ function getById (data, id) {
     return null;
 };
 
-function cleanString (sections) {
+function cleanString(sections) {
     sections = JSON.parse(JSON.stringify(sections));
     for (var idxSection in sections) {
         var section = sections[idxSection];
@@ -877,18 +938,18 @@ function cleanString (sections) {
 function folderpicker(modelName, ormId, attributeName, callback) {
     $.fancybox.open([
         {
-            href : '#orm-popup-container',
-            type : 'inline',
+            href: '#orm-popup-container',
+            type: 'inline',
             minWidth: 1050,
             minHeight: 600,
             maxWidth: 1050,
             maxHeight: 600,
-            beforeClose: function() {
+            beforeClose: function () {
                 callback()
             }
         },
     ], {
-        padding : 0
+        padding: 0
     });
 
     fm.init({
@@ -902,15 +963,15 @@ function folderpicker(modelName, ormId, attributeName, callback) {
 function filepicker() {
     $.fancybox.open([
         {
-            href : '#orm-popup-container',
-            type : 'inline',
+            href: '#orm-popup-container',
+            type: 'inline',
             minWidth: 1050,
             minHeight: 600,
             maxWidth: 1050,
             maxHeight: 600,
         },
     ], {
-        padding : 0
+        padding: 0
     });
 
     fm.init({

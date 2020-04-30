@@ -3,17 +3,8 @@ var fc = {}
 
 fc = {
     init: function (options = {}) {
-        //Setup image crop
-        var template_crop_image = Handlebars.compile($('#crop-image').html());
-        $(document).on('click', '.js-cropping-options', function () {
-            var ormInfo = $(this).closest('.js-orm-info');
-            $('#crop-image-modal').html(template_crop_image({
-                code: ormInfo.data('code'),
-                width: ormInfo.data('width'),
-                height: ormInfo.data('height'),
-                imageSizes: window._imageSizes,
-            }));
-
+        window._fcCallback = null;
+        var setUpCropModal = function () {
             $('.js-preset-ratio').click(function (e) {
                 var x = $(this).data('x');
                 var y = $(this).data('y');
@@ -46,19 +37,23 @@ fc = {
             });
 
             $('.js-crop-apply, .js-crop-apply-close').click(function () {
+                var width = $(this).closest('.js-crop-container').data('width');
+                var height = $(this).closest('.js-crop-container').data('height');
+                var assetId = $(this).closest('.js-crop-container').data('code');
+
                 var _this = this;
                 var select = window._jcrop_api.tellSelect();
                 if (select) {
                     var x = Math.max(0, parseInt(select.x, 10));
                     var y = Math.max(0, parseInt(select.y, 10))
-                    var width = Math.min(ormInfo.data('width'), parseInt(select.w, 10));
-                    var height = Math.min(ormInfo.data('height'), parseInt(select.h, 10));
+                    var width = Math.min(width, parseInt(select.w, 10));
+                    var height = Math.min(height, parseInt(select.h, 10));
 
                     var data = 'x=' + x;
                     data += '&y=' + y;
                     data += '&width=' + width;
                     data += '&height=' + height;
-                    data += '&assetId=' + ormInfo.data('id');
+                    data += '&assetId=' + assetId;
                     data += '&assetSizeId=' + $('#redactor_image_size').val();
                     $.ajax({
                         type: 'GET',
@@ -67,6 +62,9 @@ fc = {
                         success: function (msg) {
                             fc.setCropPreview();
                             if ($(_this).hasClass('js-crop-apply-close')) {
+                                if (window._fcCallback) {
+                                    window._fcCallback();
+                                }
                                 $.fancybox.close();
                             }
                         }
@@ -92,12 +90,90 @@ fc = {
                 }
             });
 
-
             setTimeout(function () {
                 $('#crop-image-modal').find('.crop_area').show();
                 $('#crop-image-modal').find('.ajax-load').hide();
                 $.fancybox.update();
             }, 2000);
+        };
+
+        //Setup image crop
+        var template_crop_image = Handlebars.compile($('#crop-image').html());
+        $(document).on('click', '.js-cropping-options', function () {
+            var ormInfo = $(this).closest('.js-orm-info');
+            $('#crop-image-modal').html(template_crop_image({
+                code: ormInfo.data('code'),
+                width: ormInfo.data('width'),
+                height: ormInfo.data('height'),
+                imageSizes: window._imageSizes,
+                size: null,
+            }));
+            setUpCropModal();
+            return false;
+        });
+
+        $(document).on('dblclick', '.redactor-box img', function () {
+            const schemeAndHttpHost = (location.protocol === 'https:' ? 'https://' : 'http://') + window.location.host;
+
+            var _this = this;
+            var imageCode = null;
+            var imageSize = null;
+            var parsedUrl = null;
+
+            var src = $(this).attr('src');
+            try {
+                parsedUrl = new URL(src);
+            } catch (ex) {
+
+            }
+
+            if (parsedUrl) {
+                alert('Can not crop external linked image');
+                return;
+            }
+
+            try {
+                parsedUrl = new URL(src, schemeAndHttpHost);
+            } catch (ex) {
+            }
+
+            if (!parsedUrl) {
+                alert('Can not recognise the image URL');
+                return;
+            }
+
+            var srcFragments = parsedUrl.pathname.split('/');
+            if (srcFragments.length >= 4) {
+                imageCode = srcFragments[3];
+            }
+            if (srcFragments.length >= 5) {
+                imageSize = srcFragments[4];
+            }
+            $.ajax({
+                type: 'GET',
+                url: '/manage/rest/asset/file/size',
+                data: {
+                    code: imageCode,
+                    size: imageSize,
+                },
+            }).done(function (msg) {
+                if (msg.id) {
+                    $('#crop-image-modal').html(template_crop_image({
+                        code: msg.id,
+                        width: msg.width,
+                        height: msg.height,
+                        imageSizes: window._imageSizes,
+                        size: msg.size,
+                    }));
+                    setUpCropModal();
+
+                    window._fcCallback = function() {
+                        $(_this).attr('src', parsedUrl.pathname + '?v=' + Math.random());
+                    }
+                } else {
+                    alert('Can not crop this image');
+                }
+            });
 
             return false;
         });
