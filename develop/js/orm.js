@@ -55,6 +55,16 @@ $(function () {
     window._files = [];
     window._ancestors = [];
 
+    $(document).on('click', '.js-orm-apply,.js-orm-save', function (ev) {
+        var form = $(this).closest('form')
+        form.removeAttr('target', '_blank');
+    });
+
+    $(document).on('click', '.js-orm-preview', function (ev) {
+        var form = $(this).closest('form')
+        form.prop('target', '_blank');
+    });
+
     $(document).on('click', '.js-closeFragmentWindow', function () {
         parent.$.fancybox.close();
     });
@@ -65,6 +75,25 @@ $(function () {
 
     $(document).on('click', '.js-orm-fm .js-tableContent a.js-image-select', function () {
         window._callback.call(this);
+        return false;
+    });
+
+    $(document).on('click', '.js-delete-version', function () {
+        var id = $(this).data('id');
+        var className = $(this).data('classname');
+
+        $.ajax({
+            type: 'GET',
+            url: '/manage/rest/version/delete',
+            data: {
+                id: id,
+                className: className,
+            },
+            success: function (data) {
+                location.reload();
+            }
+        });
+
         return false;
     });
 
@@ -303,7 +332,7 @@ $(function () {
             minHeight: '300px',
             imageResizable: true,
             imageFigure: false,
-            imageEditable: false,
+            // imageEditable: false,
             imagePosition: {
                 "left": "img-left",
                 "right": "img-right",
@@ -828,6 +857,16 @@ $(function () {
             $('.sidebar' + dataId).find('.sidebar-submit-area [value=Save]').click(function () {
                 $('form').find('[value=Save]').click();
             });
+
+            if ($('#canBePreviewed').val() == 1) {
+                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Preview]').show();
+                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Preview]').click(function () {
+                    $('form').find('[value=Preview]').click();
+                });
+            } else {
+                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Preview]').hide();
+            }
+
         };
 
         //assemble all data

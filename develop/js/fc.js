@@ -87,6 +87,11 @@ fc = {
                         window._jcrop_api = this;
                         fc.setCropPreview();
                     });
+                },
+                beforeClose: function () {
+                    if (window._fcCallback) {
+                        window._fcCallback();
+                    }
                 }
             });
 
