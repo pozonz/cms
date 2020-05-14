@@ -858,15 +858,32 @@ $(function () {
                 $('form').find('[value=Save]').click();
             });
 
+            $('.sidebar' + dataId).find('.sidebar-submit-area [value=Restore]').click(function () {
+                $('form').find('[value=Restore]').click();
+            });
+
             if ($('#canBePreviewed').val() == 1) {
-                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Preview]').show();
-                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Preview]').click(function () {
+                $('.sidebar' + dataId).find('.js-sidebar-preview-area').show();
+                $('.sidebar' + dataId).find('.js-sidebar-preview-area').click(function () {
                     $('form').find('[value=Preview]').click();
                 });
             } else {
-                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Preview]').hide();
+                $('.sidebar' + dataId).find('.js-sidebar-preview-area').hide();
             }
 
+            if ($('#isRestoringFromVersion').val() == 1) {
+                $('.sidebar' + dataId).find('.sidebar-submit-area .cancel').attr('href', $('.js-orm-restore-cancel').attr('href'));
+
+                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Save]').hide();
+                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Apply]').hide();
+                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Restore]').show();
+                $('.sidebar' + dataId).find('.sidebar-submit-area .cancel').show();
+            } else {
+                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Save]').show();
+                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Apply]').show();
+                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Restore]').hide();
+                $('.sidebar' + dataId).find('.sidebar-submit-area .cancel').hide();
+            }
         };
 
         //assemble all data
