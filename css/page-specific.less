@@ -224,22 +224,59 @@ html {
 		}
 	}
 	.submit-area {
-
+		display: flex;
+		flex-wrap: wrap;
 		border-top: 1px solid fade(@body-copy, 20%);
 		padding: 3em 0 0;
 		margin: 2em 0 0;
 
-
+		.preview{
+			flex-basis: 100%;
+			min-width: 100%;
+			&.button{
+				flex-basis: auto;
+				min-width: 0;
+				width: auto;
+				margin-bottom: .5em!important; // Apes.
+			}
+		}
 		.button {
-			margin: 0 .3em;
+			margin: 0 ;
 			border-color: rgba(0,0,0,0.4);
+			font-size: .9em;
+			margin: 0 1px 0 0!important;
+
 		}
 		.submit {
 			background-color: @green;
+			border-radius: 0 10px 10px 0;
+			width: 100%;
+			max-width: 9.32em;
 		}
 		.save-content {
 			background-color: @links !important; //Fuckin inline style from devs
+			border-radius: 10px 0 0 10px;
+			width: 100%;
+			max-width: 9.32em;
+			&:hover, &:focus{
+				background-color: darken(@links, 5%)!important; // Cant beat them, you gotta join them
+			}
 		}
+		.restore{
+			border-radius: 10px;
+			background-color: @links!important;
+			&:hover, &:focus{
+				background-color: darken(@links, 5%)!important;
+			}
+		}
+		.cancel{
+			background-color: transparent;
+			color: @links;
+			border-radius: 0 10px 10px 0;
+			&.submit:hover, &.submit:focus{
+				background-color: transparent!important;
+			}
+    	  	}
 		.submit:hover,
 		.submit:focus {
 			background-color: darken(@green, 5%);
@@ -293,7 +330,66 @@ html {
 }
 
 
+.versions{
+	list-style: none;
+	padding: 0;
+	&__item{
+		position: relative;
+		display: flex;
+		&:before{
+			content: '';
+			position: absolute;
+			bottom: 4px;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background-color: #444;
+			border-radius: 100px;
+			pointer-events: none;
+			opacity: 0;
+			transition: opacity .1s ease-in;
+		}
+		&:hover{
+			&:before{
+				opacity: .1;
+			}
+		}
+	}
+	&__info{
+		display: flex;
+		width: 100%;
+		@media(min-width: 64em){
+			width: 75%
+		}
+		@media(min-width: 80em){
+			width: 60%
+		}
+		@media(min-width: 87.5em){
+			width: 100%
+		}
+	}
+	&__restore{
+		font-weight: 400;
+		font-size: .875em;
+		margin-right: .5em;
+	}
+	&__delete{
 
+	}
+
+}
+.versions-info{
+
+	&__time{
+
+	}
+	&__author{
+		margin-right: 2em;
+		min-width: 7em;
+		max-width: 7em;
+
+	}
+}
 
 
 
@@ -488,7 +584,7 @@ html {
 		.sidebar-submit-area {
 			display: flex;
 			border-top: 1px solid #e5e5e5;
-						padding: 1em;
+			padding: 1em;
 
 			.button {
 				font-size: .9em;
@@ -498,6 +594,10 @@ html {
 			}
 			.save-content.save {
 				background: @green;
+				border-radius: 0 10px 10px 0;
+			}
+			.save-content.cancel{
+				background: none;
 				border-radius: 0 10px 10px 0;
 			}
 		}

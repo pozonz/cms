@@ -1518,6 +1518,44 @@ li.ui-timepicker-selected .ui-timepicker-duration,
 /*-----------------------------------------------------------------------------------------
 	/PAgebuilder section nav
 -----------------------------------------------------------------------------------------*/
+.preview{
+	.submit-area &{
+		&.button{
+			background: none;
+			&:hover{
+				background: none;
+			}
+		}
+	}
+	&.button{
+	    position: relative;
+	    background: none;
+	    color: @links;
+	    font-weight: 400;
+	    padding-left: 2.3em;
+	    margin-bottom: .5em;
+
+	    &:before{
+		    content: '';
+		    position: absolute;
+		    top: ~'calc(50% - .5em)';
+		    left: 0;
+		    height: 1.2em;
+		    width: 1.8em;
+		  background: url(/cms/images/icon-preview.png) no-repeat scroll center center;
+
+	    }
+	    &:after{
+		    content: '';
+		    position: absolute;
+		    left: 2.3em;
+		    bottom: .75em;
+		    height: 1px;
+		    width: ~'calc(100% - 4.1em)';
+		    background: @links;
+	    }
+    	}
+}
 .content-block-sidebar {
 	@media not all and (min-width:1400px) {
 		display: none;
@@ -1552,13 +1590,21 @@ li.ui-timepicker-selected .ui-timepicker-duration,
 		  margin: 0 1px 0 0 !important;
 		  border-radius: 10px 0 0 10px;
 	  }
-	  .save-content.save {
+	  .save {
 		  border-radius: 0 10px 10px 0;
 		  background: @green;
 
 		  &:hover,&:focus {
 			  background: darken(@green,10%);
 		  }
+	  }
+	  .cancel{
+		  background: none;
+		  color: @links;
+		  border-radius: 0 10px 10px 0;
+	  }
+	  .restore{
+		  border-radius: 10px;
 	  }
   }
 }
