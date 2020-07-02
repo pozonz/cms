@@ -341,7 +341,7 @@ $(function () {
             callbacks: {
                 image: {
                     changed: function(image) {
-                        console.log(image)
+                        // console.log(image)
                     }
                 },
                 changed: function (e) {
@@ -351,6 +351,8 @@ $(function () {
                 }
             },
         });
+
+        renderCustomWidget(container);
     };
     renderElements($('body'), null);
     $.each($('.js-fragment-container'), function (idx, itm) {
@@ -858,8 +860,8 @@ $(function () {
                 $('form').find('[value=Save]').click();
             });
 
-            $('.sidebar' + dataId).find('.sidebar-submit-area [value=Restore]').click(function () {
-                $('form').find('[value=Restore]').click();
+            $('.sidebar' + dataId).find('.sidebar-submit-area .restore').click(function () {
+                $('form').find('.restore').click();
             });
 
             if ($('#canBePreviewed').val() == 1) {
@@ -876,12 +878,12 @@ $(function () {
 
                 $('.sidebar' + dataId).find('.sidebar-submit-area [value=Save]').hide();
                 $('.sidebar' + dataId).find('.sidebar-submit-area [value=Apply]').hide();
-                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Restore]').show();
+                $('.sidebar' + dataId).find('.sidebar-submit-area .restore').show();
                 $('.sidebar' + dataId).find('.sidebar-submit-area .cancel').show();
             } else {
                 $('.sidebar' + dataId).find('.sidebar-submit-area [value=Save]').show();
                 $('.sidebar' + dataId).find('.sidebar-submit-area [value=Apply]').show();
-                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Restore]').hide();
+                $('.sidebar' + dataId).find('.sidebar-submit-area .restore').hide();
                 $('.sidebar' + dataId).find('.sidebar-submit-area .cancel').hide();
             }
         };
