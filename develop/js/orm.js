@@ -352,7 +352,9 @@ $(function () {
             },
         });
 
-        renderCustomWidget(container);
+        if (typeof renderCustomWidget !== "undefined") {
+            renderCustomWidget(container);
+        }
     };
     renderElements($('body'), null);
     $.each($('.js-fragment-container'), function (idx, itm) {
