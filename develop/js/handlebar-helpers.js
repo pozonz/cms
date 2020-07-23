@@ -101,4 +101,25 @@ $(function () {
 
         return options.inverse(this);
     });
+
+    Handlebars.registerHelper('myOptionKey', function(str) {
+        var pos = str.indexOf('-');
+        return str.substr(0, pos);
+    });
+
+    Handlebars.registerHelper('myOptionValue', function(str) {
+        var pos = str.indexOf('-');
+        return str.substr(parseInt(pos, 10) + 1);
+    });
+
+    Handlebars.registerHelper('getByValueAndCompare', function(array, key, value, options) {
+        array = array && typeof array == 'object' ? array : [];
+        var pos = value.indexOf('-');
+        value = value.substr(0, pos);
+        if (typeof array[key] == 'object') {
+            return array[key] && array[key].indexOf(value) != -1 ? options.fn(this) : options.inverse(this);
+        } else {
+            return array[key] && array[key] == value ? options.fn(this) : options.inverse(this);
+        }
+    });
 });
