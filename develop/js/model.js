@@ -1,24 +1,28 @@
 $(function() {
     window._fieldSource = $("#field-source").html();
 
-    $('#model_dataType').on('change', function (ev) {
-        if ($(this).val() == 0) {
-            $('.js-model-data-group').fadeIn(400, function () {
-                $('.js-choice_multi_json').chosen({
-                    allow_single_deselect: true
-                });
-            });
-        } else {
-            $('.js-model-data-group').hide();
-        }
+    // $('#model_dataType').on('change', function (ev) {
+    //     if ($(this).val() == 0) {
+    //         $('.js-model-data-group').fadeIn(400, function () {
+    //             $('.js-choice_multi_json').chosen({
+    //                 allow_single_deselect: true
+    //             });
+    //         });
+    //     } else {
+    //         $('.js-model-data-group').hide();
+    //     }
+    // });
+    // if ($('#model_dataType').val() == 0) {
+    //     $('.js-model-data-group').fadeIn(400, function () {
+    //         $('.js-choice_multi_json').chosen({
+    //             allow_single_deselect: true
+    //         });
+    //     });
+    // }
+
+    $('.js-choice_multi_json').chosen({
+        allow_single_deselect: true
     });
-    if ($('#model_dataType').val() == 0) {
-        $('.js-model-data-group').fadeIn(400, function () {
-            $('.js-choice_multi_json').chosen({
-                allow_single_deselect: true
-            });
-        });
-    }
 
     $('#model_listType').on('change', function (ev) {
         if ($(this).val() == 1) {
