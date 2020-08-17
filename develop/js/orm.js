@@ -18,7 +18,7 @@ $(function () {
                 window._redactor.app.insertion.insertHtml('<a target="_blank" href="/downloads/assets/' + $(this).closest('.js-orm-info').data('id') + '">' + $(this).closest('.js-orm-info').find('a').attr('title') + '</a>');
                 $.fancybox.close();
             };
-            filepicker();
+            filepicker(null);
         }
     });
 
@@ -41,7 +41,7 @@ $(function () {
                 window._redactor.app.insertion.insertHtml('<img src="/images/assets/' + $(this).closest('.js-orm-info').data('id') + '/large" alt="' + $(this).closest('.js-orm-info').find('a').attr('title') + '">');
                 $.fancybox.close();
             };
-            filepicker();
+            filepicker(null);
         }
     });
 
@@ -289,7 +289,8 @@ $(function () {
                     ;
                     $.fancybox.close();
                 };
-                filepicker();
+                var ormInfo = $(this).closest('.js-orm-info');
+                filepicker(ormInfo.data('id'));
                 return false;
             });
             $(itm).on('click', '.js-asset-delete', function (ev) {
@@ -306,16 +307,97 @@ $(function () {
             });
         });
 
+        $.each($(container).find('.js-mkvp-widget'), function (idx, itm) {
+            var isJson = function (str) {
+                try {
+                    var val = JSON.parse(str);
+                } catch (e) {
+                    return false;
+                }
+                return (typeof val == 'array' || typeof val == 'object') ? true : false;
+            };
+            var rawValue = $(itm).find('textarea').val();
+            var jsonValue = isJson(rawValue) ? JSON.parse(rawValue) : [];
+
+            var render = function (mkvps) {
+                $(itm).find('table').find('tbody').remove();
+                for (var key in mkvps) {
+                    var mkvp = mkvps[key];
+                    $(itm).find('table').append(
+                        `<tbody class="js-row"><tr>
+                        <td><input class="js-key js-input" type="text" value="${mkvp.key}"></td>
+                        <td><input class="js-value js-input" type="text" value="${mkvp.value}"></td>
+                        <td><a class="js-delete" data-idx="${idx}" href="#"><img alt="Delete Record" title="Delete Record" src="/cms/images/binIcon.gif" border="0"></a></td>
+                    </tr></tbody>`
+                    )
+                }
+
+                $(itm).find('table').sortable({
+                    items: 'tbody.js-row',
+                    stop: function(event, ui) {
+                        changeValue(mkvps);
+                    },
+                    placeholder: {
+                        element: function(currentItem) {
+                            return $('<tr><td colspan="3" style="background: lightyellow; height: ' + $(currentItem).height() + 'px">&nbsp;</td></tr>')[0];
+                        },
+                        update: function(container, p) {
+                            return;
+                        }
+                    }
+                });
+
+                $.each($(itm).find('table').find('tbody.js-row').find('td'), function (key, td) {
+                    $(td).css('width', $(td).outerWidth() + 'px');
+                });
+
+                changeValue(mkvps);
+            };
+
+            var changeValue = function (mkvps) {
+                $.each($(itm).find('table').find('tbody.js-row'), function (key, tbody) {
+                    mkvps[key].key = $(tbody).find('.js-key').val();
+                    mkvps[key].value = $(tbody).find('.js-value').val();
+                    $(tbody).find('.js-delete').data('idx', key);
+                });
+                $(itm).find('textarea').val(JSON.stringify(mkvps));
+            };
+
+            $(itm).on('keyup', '.js-input', function () {
+                changeValue(jsonValue);
+            });
+
+            $(itm).on('click', '.js-add', function () {
+                jsonValue.push({
+                    key: '',
+                    value: '',
+                });
+                render(jsonValue);
+                return false;
+            });
+
+            $(itm).on('click', '.js-delete', function () {
+                var idx = $(this).data('idx');
+                jsonValue.splice(idx, 1);
+                render(jsonValue);
+                return false;
+            });
+
+            render(jsonValue);
+        });
+
         $(container).find('.formStyle.datepicker input,.inner-box.datepicker input').datetimepicker({
             timepicker: false,
             format: 'd F Y',
             scrollInput: false,
         });
+
         $(container).find('.formStyle.datetimepicker input,.inner-box.datetimepicker input').datetimepicker({
             step: 5,
             format: 'd F Y H:i',
             scrollInput: false,
         });
+
         $(container).find('.formStyle.timepicker input,.inner-box.timepicker input').datetimepicker({
             timepicker: true,
             datepicker: false,
@@ -323,6 +405,7 @@ $(function () {
             format: 'H:i',
             scrollInput: false,
         });
+
         $(container).find('select:not(.no-chosen)').chosen({
             allow_single_deselect: true
         });
@@ -357,6 +440,7 @@ $(function () {
         }
     };
     renderElements($('body'), null);
+
     $.each($('.js-fragment-container'), function (idx, itm) {
         var dataId = $(itm).data('id');
         var dataBlocks = JSON.parse($(itm).find('.js-blocks').val());
@@ -996,48 +1080,88 @@ function cleanString(sections) {
 };
 
 function folderpicker(modelName, ormId, attributeName, callback) {
-    $.fancybox.open([
-        {
-            href: '#orm-popup-container',
-            type: 'inline',
-            minWidth: 1050,
-            minHeight: 600,
-            maxWidth: 1050,
-            maxHeight: 600,
-            beforeClose: function () {
-                callback()
-            }
-        },
-    ], {
-        padding: 0
-    });
+    $.ajax({
+        type: 'GET',
+        url: '/manage/rest/asset/file/current-folder',
+        data: 'modelName=' + modelName + '&ormId=' + ormId + '&attributeName=' + attributeName,
+        success: function (data) {
+            $('#currentFolderId').val(data.currentFolderId)
 
-    fm.init({
-        mode: 2,
-        modelName: modelName,
-        attributeName: attributeName,
-        ormId: ormId,
+            $.fancybox.open([
+                {
+                    href: '#orm-popup-container',
+                    type: 'inline',
+                    minWidth: 1050,
+                    minHeight: 600,
+                    maxWidth: 1050,
+                    maxHeight: 600,
+                    beforeClose: function () {
+                        callback()
+                    }
+                },
+            ], {
+                padding: 0
+            });
+
+            fm.init({
+                mode: 2,
+                modelName: modelName,
+                attributeName: attributeName,
+                ormId: ormId,
+            });
+        }
     });
 };
 
-function filepicker() {
-    $.fancybox.open([
-        {
-            href: '#orm-popup-container',
-            type: 'inline',
-            minWidth: 1050,
-            minHeight: 600,
-            maxWidth: 1050,
-            maxHeight: 600,
-        },
-    ], {
-        padding: 0
-    });
+function filepicker(currentAssetId) {
+    if (!currentAssetId) {
+        $.fancybox.open([
+            {
+                href: '#orm-popup-container',
+                type: 'inline',
+                minWidth: 1050,
+                minHeight: 600,
+                maxWidth: 1050,
+                maxHeight: 600,
+            },
+        ], {
+            padding: 0
+        });
 
-    fm.init({
-        mode: 1,
-        modelName: null,
-        attributeName: null,
-        ormId: null,
-    });
+        fm.init({
+            mode: 1,
+            modelName: null,
+            attributeName: null,
+            ormId: null,
+        });
+    } else {
+        $.ajax({
+            type: 'GET',
+            url: '/manage/rest/asset/file/current-folder',
+            data: 'currentAssetId=' + currentAssetId,
+            success: function (data) {
+                $('#currentFolderId').val(data.currentFolderId)
+
+                $.fancybox.open([
+                    {
+                        href: '#orm-popup-container',
+                        type: 'inline',
+                        minWidth: 1050,
+                        minHeight: 600,
+                        maxWidth: 1050,
+                        maxHeight: 600,
+                    },
+                ], {
+                    padding: 0
+                });
+
+                fm.init({
+                    mode: 1,
+                    modelName: null,
+                    attributeName: null,
+                    ormId: null,
+                });
+            }
+        });
+    }
 };
