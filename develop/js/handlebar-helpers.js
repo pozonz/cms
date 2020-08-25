@@ -122,4 +122,18 @@ $(function () {
             return array[key] && array[key] == value ? options.fn(this) : options.inverse(this);
         }
     });
+
+    Handlebars.registerHelper('isNotChoiceType', function(str, options) {
+        var choiceTypes = [
+            '\\Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType',
+            '\\MillenniumFalcon\\FormDescriptor\\Type\\CheckboxesType',
+            '\\MillenniumFalcon\\FormDescriptor\\Type\\RadioButtonsType'
+        ];
+
+        if (choiceTypes.indexOf(str) === -1) {
+            return options.fn(this);
+        }
+
+        return options.inverse(this);
+    });
 });

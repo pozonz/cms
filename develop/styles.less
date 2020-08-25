@@ -1,4 +1,44 @@
 body {
+  &.page-formbuilder {
+    .option-type {
+      margin-top: 10px;
+      margin-bottom: 10px;
+
+      label {
+        line-height: 24px;
+        padding-right: .7em;
+
+        input[type=radio] {
+          margin-right: .3em;
+        }
+      }
+    }
+    .custom-options {
+      padding-top: 2em;
+      padding-bottom: 5em;
+
+      .custom-option {
+        max-width: 50%;
+        float: left;
+        padding-right: 1em;
+        padding-bottom: 1em;
+
+        input[type=text] {
+          &.option-key {
+            width: 45%;
+          }
+          &.option-val {
+            width: 45%;
+          }
+        }
+        .remove {
+          display: inline-block !important;
+        }
+      }
+    }
+
+  }
+
   .sidebarorm_content {
     margin-left: 12px !important;
     .jstree-leaf {
