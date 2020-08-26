@@ -723,6 +723,15 @@ body.page-model .model-data-group .formStyle {
   text-align: left;
   width: 90%;
 }
+body.page-restore .restore {
+  background-color: orange !important;
+}
+body.page-restore .cancel {
+  color: #999 !important;
+}
+body.page-restore .edit .submit-area button.restore {
+  background-color: orange !important;
+}
 body.page-orm .table-striped tbody:not(:last-child) tr td {
   border-bottom: 1px solid #e5e5e5 !important;
 }
@@ -812,7 +821,7 @@ body .jstree-anchor {
   color: black;
   white-space: nowrap;
   padding: 0 8px 0 5px;
-  border-radius: 40px!important;
+  border-radius: 40px !important;
   margin: 0;
   vertical-align: top;
 }
