@@ -4,9 +4,19 @@ var fm = {}
 fm = {
     init: function (options = {}) {
         window.__currentFolderId = $('#currentFolderId').length ? $('#currentFolderId').val() : 0;
+        window.__keyword = $('#currentKeyword').length ? $('#currentKeyword').val() : '';
+        window.__pageNum = $('#currentPageNum').length ? $('#currentPageNum').val() : 1;
 
         fm.currentFolderId = window.__currentFolderId;
         fm.currentFolderId = isNaN(fm.currentFolderId) ? 0 : fm.currentFolderId;
+        fm.keyword = window.__keyword;
+        fm.filesPageNum = window.__pageNum;
+
+        window.__returnUrl = location.pathname + '?currentFolderId=' + fm.currentFolderId;
+        if (fm.keyword) {
+            window.__returnUrl = location.pathname + '?keyword=' + fm.keyword;
+        }
+
 
         fm.options = options;
         fm.mode = options.mode;
@@ -25,7 +35,7 @@ fm = {
         fm.ajaxFolder = null;
         fm.ajaxNav = null;
 
-        fm.keyword = '';
+        // fm.keyword = '';
         fm.files = [];
         fm.folders = [];
         fm.currentFolder = null;
@@ -44,6 +54,7 @@ fm = {
             fm.selectFolder($(this).parent().attr('id'));
 
             $('.js-nav .pz-tools').html('');
+            fm.filesPageNum = 1;
 
             fm.getFiles();
             fm.getNav();
@@ -65,13 +76,14 @@ fm = {
         $('#popup-container').find('.js-search').off();
         $('#popup-container').on('change', '.js-search', function () {
             fm.keyword = $(this).val();
+            fm.filesPageNum = 1;
             fm.renderFolders();
             fm.renderNav();
             fm.getFiles();
         });
         $('#popup-container').find('.js-search-button').off();
         $('#popup-container').on('click', '.js-search-button', function () {
-            fm.keyword = $(this).val();
+            fm.keyword = $('.js-search').val();
             fm.renderFolders();
             fm.renderNav();
             fm.getFiles();
@@ -233,6 +245,13 @@ fm = {
             fm.renderFiles();
             return false;
         });
+
+        $('#popup-container').on('click', '.js-files-pagenum', function () {
+            fm.filesPageNum = $(this).data('pagenum');
+            fm.getFiles();
+            return false;
+        });
+
     },
 
     getFolders: function () {
@@ -255,12 +274,17 @@ fm = {
     getFiles: function () {
         // $('.file-manager').css('position', '')
         $('.js-extra-stuff').hide();
+        $('.js-files-pagination').hide();
 
         $('#js-files').html(fm.templateFiles({
             showUploadButton: 0,
         }));
         $('#js-files > ul').html('<img src="/cms/images/spinner.gif" alt="Loading..." />');
 
+        window.__returnUrl = location.pathname + '?currentFolderId=' + fm.currentFolderId;
+        if (fm.keyword) {
+            window.__returnUrl = location.pathname + '?keyword=' + fm.keyword;
+        }
 
         if (fm.ajaxFile) {
             fm.ajaxFile.abort();
@@ -268,9 +292,12 @@ fm = {
         fm.ajaxFile = $.ajax({
             type: 'GET',
             url: '/manage/rest/asset/files',
-            data: 'currentFolderId=' + fm.currentFolderId + '&keyword=' + fm.keyword + '&modelName=' + fm.modelName + '&attributeName=' + fm.attributeName + '&ormId=' + fm.ormId,
+            data: 'currentFolderId=' + fm.currentFolderId + '&keyword=' + fm.keyword + '&modelName=' + fm.modelName + '&attributeName=' + fm.attributeName + '&ormId=' + fm.ormId + '&pageNum=' + fm.filesPageNum,
             success: function (data) {
                 fm.files = data.files;
+                fm.filesTotal = data.total;
+                fm.filesPageNum = data.pageNum;
+
                 fm.renderFiles()
             }
         });
@@ -373,6 +400,7 @@ fm = {
             $('#js-files > ul').append(fm.templateFile({
                 mode: fm.mode,
                 file: itm,
+                url: encodeURI(window.__returnUrl)
             }))
         }
 
@@ -393,6 +421,38 @@ fm = {
                 });
             }
         });
+
+        if (fm.filesTotal > 1) {
+            var whole = 11;
+            var half = (whole - 1) / 2;
+
+            fm.filesPageNum = parseInt(fm.filesPageNum, 10);
+
+            if (fm.filesTotal > (fm.filesPageNum + half)) {
+                var start = Math.max(fm.filesPageNum - half, 1);
+                var end = Math.min(start + whole - 1, fm.filesTotal);
+            } else {
+                var start = Math.max(fm.filesTotal - whole + 1, 1);
+                var end = fm.filesTotal;
+            }
+
+            $('.js-files-pagination ul').empty()
+            for (var i = start, il = end; i <= il; i++) {
+                $('.js-files-pagination ul').append('<li ' + (fm.filesPageNum == i ? 'class="selected"' : '') + '><a href="#" class="js-files-pagenum" data-pagenum="' + i + '">' + i + '</a></li>')
+            }
+
+            $('.js-files-pagination').show()
+        } else {
+            $('.js-files-pagination').hide()
+        }
+
+        if ($('#popup-container').parent().attr('id') === 'orm-popup-container') {
+            $.fancybox.update()
+        } else {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 1000, 'easeInOutQuint');
+        }
 
         if (fm.mode == 2) {
             // $('.file-manager').css('position', 'absolute')

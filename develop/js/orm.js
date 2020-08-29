@@ -1091,9 +1091,9 @@ function folderpicker(modelName, ormId, attributeName, callback) {
                 {
                     href: '#orm-popup-container',
                     type: 'inline',
-                    minWidth: 1050,
+                    minWidth: 1150,
                     minHeight: 600,
-                    maxWidth: 1050,
+                    maxWidth: 1150,
                     maxHeight: 600,
                     beforeClose: function () {
                         callback()
@@ -1119,9 +1119,9 @@ function filepicker(currentAssetId) {
             {
                 href: '#orm-popup-container',
                 type: 'inline',
-                minWidth: 1050,
+                minWidth: 1150,
                 minHeight: 600,
-                maxWidth: 1050,
+                maxWidth: 1150,
                 maxHeight: 600,
             },
         ], {
@@ -1146,9 +1146,9 @@ function filepicker(currentAssetId) {
                     {
                         href: '#orm-popup-container',
                         type: 'inline',
-                        minWidth: 1050,
+                        minWidth: 1150,
                         minHeight: 600,
-                        maxWidth: 1050,
+                        maxWidth: 1150,
                         maxHeight: 600,
                     },
                 ], {

@@ -43,4 +43,32 @@ $(function() {
         }
     });
 
+    $(document).on('change', '#orm_type', function (ev) {
+        setByPageType();
+    });
+    setByPageType();
 });
+
+function setByPageType() {
+    if ($('#orm_type').val() == 2) {
+        $.each($('.formStyle '), function (idx, itm) {
+            if (idx > 3) {
+                $(itm).hide();
+            } else {
+                $(itm).show();
+            }
+        });
+        $('.sidebarorm_content').hide();
+        $('.preview').hide();
+        $('.js-version-container').hide();
+        $('hr').hide();
+    } else {
+        $.each($('.formStyle '), function (idx, itm) {
+            $(itm).show();
+        });
+        $('.sidebarorm_content').show();
+        $('.preview').show();
+        $('.js-version-container').show();
+        $('hr').show();
+    }
+};

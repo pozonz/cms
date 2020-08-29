@@ -28,6 +28,9 @@ body.page-formbuilder .custom-options .custom-option input[type=text].option-val
 body.page-formbuilder .custom-options .custom-option .remove {
   display: inline-block !important;
 }
+body #popup-container .pagination {
+  overflow: hidden;
+}
 body .sidebarorm_content {
   margin-left: 12px !important;
 }
@@ -808,6 +811,12 @@ body.page-orm .edit .product-special-section {
 }
 body.page-orm .edit .product-special-section :disabled {
   background: #eee;
+}
+body.page-orm .edit .versions__restore {
+  text-decoration: underline;
+}
+body.page-orm .edit .versions__restore:hover {
+  font-weight: bold;
 }
 body.page-orm .orm-fm {
   padding: 20px 50px;
