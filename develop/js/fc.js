@@ -187,7 +187,7 @@ fc = {
     setCropPreview: function () {
         var assetCode = $('.js-crop-container').data('code');
         var sizeCode = $('#redactor_image_size option:selected').data('code');
-        $('#previewCrop').attr('src', '/images/assets/' + assetCode + (sizeCode ? '/' + sizeCode : '') + '?v=' + Math.random());
+        $('#previewCrop').attr('src', '/images/assets/' + assetCode + (sizeCode ? '/' + sizeCode : '/1') + '?v=' + Math.random());
 
         setTimeout(function () {
             $('#imageSizeCrop').find('.js-crop-preivew-width').html($('#previewCrop')[0].naturalWidth);
