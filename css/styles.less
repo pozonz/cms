@@ -342,7 +342,7 @@ label {
 	/*font-weight: bold;*/
 	color: fade(@body-copy, 60%) !important; // To override INLINE styles from devs
 
-	font-size: .95em;
+	font-size: .9em;
 	font-weight: normal !important; // To override INLINE styles from devs
 
 	.checkbox &, .radio & {
@@ -1158,7 +1158,7 @@ a.delete-button:focus,
   padding: 0;
   text-indent: -5000px;
   overflow: hidden;
-  width: 3em;
+  width: 3.4em;
   top: 0;
   border-radius: 0;
   border: none;
@@ -1198,7 +1198,6 @@ a.delete-button:focus,
   padding: .6em 0 .6em 1em;
   transition: background-color .1s ease-in-out 0s;
   position: relative;
-  background: #f5f5f5
 }
 
 .dd-item .child-num {
@@ -1626,4 +1625,33 @@ li.ui-timepicker-selected .ui-timepicker-duration,
 	color: @links  !important; //Combats CDN linked file
 	background: none !important; //Combats CDN linked file
 	box-shadow: none !important; //Combats CDN linked file
+}
+
+
+
+/*-----------------------------------------------------------------------------------------
+	/Version history
+-----------------------------------------------------------------------------------------*/
+.versions {
+	list-style: none;
+	padding: 0;
+}
+.versions__item {
+	font-size: 0.9rem;
+	position: relative;
+	display: flex;
+}
+.versions__info {
+	display: flex;
+	width: 33rem;
+}
+.versions__restore{
+	margin-right: .5em;
+	text-decoration: none !important;
+	font-weight: normal !important;
+}
+.versions-info__author {
+	width: 15em;
+	min-width: 0;
+	max-width: none;
 }
