@@ -366,6 +366,7 @@ html {
 	}
 	label {
 		.inline-block;
+		margin: 0 3px 8px 0;
 		color: @links;
 		cursor: pointer;
 		border: 1px solid #e5e5e5;
@@ -373,6 +374,8 @@ html {
 		text-align: left;
 		padding: .5em;
 		min-width: 13em;
+		border-radius: 4px;
+		background: white;
 
 		.item-title {
 			.inline-block;
@@ -397,7 +400,8 @@ html {
 	}
 	input:checked + label {
 		background: @links;
-		color: #fff;
+		border-color: @links;
+		color: #fff !important;
 
 		.number {
 			color: lighten(@links, 30%);
