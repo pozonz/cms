@@ -740,7 +740,7 @@ $(function () {
                 var blocks = [];
                 for (idxBlk in dataBlocks) {
                     var dataBlk = dataBlocks[idxBlk];
-                    var tags = itm.tags.filter(value => -1 !== dataBlk.tags.indexOf(value));
+                    var tags = itm.tags.filter(value => -1 !== dataBlk.tags.indexOf(`"${value}"`));
                     if (tags.length || !itm.tags.length) {
                         blocks.push(dataBlk);
                     }
