@@ -410,8 +410,43 @@ $(function () {
             allow_single_deselect: true
         });
 
+        $.each($('.js-selectize'), function (idx, itm) {
+            var id = $(itm).attr('id');
+            var choiceClass = id + '-choice';
+            var options = [];
+            $.each($('.' + choiceClass), function (choiceIdx, choiceItm) {
+                options.push({
+                    id: $(choiceItm).data('id'),
+                    name: $(choiceItm).data('name'),
+                });
+            });
+
+            $(itm).selectize({
+                plugins: ['restore_on_backspace', 'remove_button', 'drag_drop'],
+                persist: false,
+                maxItems: null,
+                valueField: 'id',
+                labelField: 'name',
+                searchField: ['name'],
+                options: options,
+                createFilter: function(input) {
+                    return false;
+                },
+                create: function(input) {
+                    return false;
+                }
+            });
+        });
+
+
+        var plugInType = $('#var_wysiwyg_no_image_video_buttons').val();
+        var plugins = ['filePicker', 'imagePicker', 'video', 'table'];
+        if (plugInType == 1) {
+            plugins = ['table', 'line'];
+        }
         $(container).find('.wysiwyg textarea').redactor({
-            plugins: ['filePicker', 'imagePicker', 'video', 'table'],
+            buttonsAdd: ['line'],
+            plugins: plugins,
             minHeight: '300px',
             imageResizable: true,
             imageFigure: false,

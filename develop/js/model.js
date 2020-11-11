@@ -68,6 +68,7 @@ $(function() {
             || $(value).val() == '\\MillenniumFalcon\\Core\\Form\\Type\\ChoiceMultiJson'
             || $(value).val() == '\\MillenniumFalcon\\Core\\Form\\Type\\ChoiceMultiJsonTree'
             || $(value).val() == '\\MillenniumFalcon\\Core\\Form\\Type\\ChoiceTree'
+            || $(value).val() == '\\MillenniumFalcon\\Core\\Form\\Type\\ChoiceSortable'
         ) {
             $('#sql' + $(value).closest('tbody').find('.id').val()).show();
         } else {
