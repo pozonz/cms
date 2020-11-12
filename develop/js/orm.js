@@ -133,7 +133,7 @@ $(function () {
                 if (!data.length) {
                     // $(itm).find('.js-no-results').show();
                     $(itm).find('.js-gallery-container').addClass('no-result');
-                    $(itm).find('.js-gallery-container').html('<li class="no-result">No Results Found</li>');
+                    $(itm).find('.js-gallery-container').html('<li class="no-result">No files selected</li>');
                 }
                 $(itm).find('.js-gallery-container').sortable({
                     cursorAt: {left: -30, top: -30},
@@ -677,6 +677,12 @@ $(function () {
                 values: {},
             };
             var section = getById(dataValue, $(this).closest('.js-section').data('id'));
+            saveBlock(dataId, dataBlocks, dataValue, block.block, section.id, block.id, block.status, block.twig, blockOption.title, function () {
+                render();
+                assemble();
+            });
+            /**
+            var section = getById(dataValue, $(this).closest('.js-section').data('id'));
             $('#' + dataId + '-modal-block').html(template_modal_block({
                 block: block,
                 section: section,
@@ -691,7 +697,7 @@ $(function () {
                     {
                         text: 'Save', click: function () {
                             var _this = this;
-                            saveBlock(dataId, dataBlocks, dataValue, function () {
+                            saveBlock(dataId, dataBlocks, dataValue, block.block, section.id, block.id, block.status, block.twig, blockOption.title, function () {
                                 $(_this).dialog("close");
                                 render();
                                 assemble();
@@ -704,9 +710,10 @@ $(function () {
                         }
                     },
                 ]
-            });
+            });*/
             $(this).val('');
         });
+
         $(document).on('click', '#' + dataId + '_wrap .js-edit-block', function () {
             var blocks = [];
             for (var idx in dataValue) {
@@ -729,7 +736,7 @@ $(function () {
                     {
                         text: 'Save', click: function () {
                             var _this = this;
-                            saveBlock(dataId, dataBlocks, dataValue, function () {
+                            saveBlock(dataId, dataBlocks, dataValue, block.block, section.id, block.id, block.status, block.twig, block.title, function () {
                                 $(_this).dialog("close");
                                 render();
                                 assemble();
@@ -746,6 +753,7 @@ $(function () {
             $(this).val('');
             return false;
         });
+
         $(document).on('click', '#' + dataId + '_container .js-delete-block', function () {
             var secId = $(this).closest('.js-section').data('id');
             var blkId = $(this).closest('.js-block').data('id');
@@ -1062,27 +1070,27 @@ function saveSection(dataId, dataValue, callback) {
     callback();
 };
 
-function saveBlock(dataId, dataBlocks, dataValue, callback) {
-    var blockOption = getById(dataBlocks, $('#' + dataId + '-modal-block [name=blockId]').val());
+function saveBlock(dataId, dataBlocks, dataValue, blockOptionId, sectionId, blockId, blockStatus, blockTwig, blockTitle, callback) {
+    var blockOption = getById(dataBlocks, blockOptionId);
 
     var block = {
-        id: $('#' + dataId + '-modal-block [name=id]').val(),
-        title: $('#' + dataId + '-modal-block [name=name]').val(),
-        status: $('#' + dataId + '-modal-block [name=status]').val(),
-        block: $('#' + dataId + '-modal-block [name=blockId]').val(),
-        twig: $('#' + dataId + '-modal-block [name=twig]').val(),
+        id: blockId,
+        title: blockTitle,
+        status: blockStatus,
+        block: blockOptionId,
+        twig: blockTwig,
         items: blockOption.items,
         values: {},
     };
 
-    var section = getById(dataValue, $('#' + dataId + '-modal-block [name=sectionId]').val());
+    var section = getById(dataValue, sectionId);
 
     var blocks = [];
     for (var idx in dataValue) {
         var itm = dataValue[idx];
         blocks = blocks.concat(itm.blocks);
     }
-    var existBlock = getById(blocks, $('#' + dataId + '-modal-block [name=id]').val());
+    var existBlock = getById(blocks, blockId);
     if (!existBlock) {
         section.blocks.push(block);
     } else {
