@@ -1655,3 +1655,33 @@ li.ui-timepicker-selected .ui-timepicker-duration,
 	min-width: 0;
 	max-width: none;
 }
+
+
+/*-----------------------------------------------------------------------------------------
+	/Selectize overrides
+-----------------------------------------------------------------------------------------*/
+.selectize-input {
+	min-height: 4em;
+}
+.selectize-control.multi .selectize-input [data-value] {
+	background: @links !important;
+	border: none !important;
+	color: white !important;
+	box-shadow: none !important;
+	padding: 0.3em 0.8em;
+	border-radius: 4px !important;
+}
+.selectize-control.plugin-remove_button [data-value] .remove {
+	color: white !important;
+	border: none !important;
+	width: 2em !important;
+}
+.selectize-dropdown [data-selectable] {
+	border-bottom: 1px solid #e5e5e5;
+	color: @body-copy;
+	padding: .8em 1.2em !important;
+}
+.selectize-dropdown .active {
+	background: @links !important;
+	color: white !important;
+}
