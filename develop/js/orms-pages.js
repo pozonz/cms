@@ -104,7 +104,7 @@ function update() {
         var data = toArray(root);
 
         window._ajax = $.ajax({
-            type: 'GET',
+            type: 'POST',
             url: '/manage/rest/pages/sort',
             data: 'cat=' + _cat + '&data=' + encodeURIComponent(JSON.stringify(data)),
             success : function(msg) {
