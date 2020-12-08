@@ -38,7 +38,7 @@
 
 @font-body:  'Inter', 'Helvetica Neue', Arial, sans-serif;
 @font-headings:  'Inter', 'Helvetica Neue', Arial, sans-serif;
-@menu-padding: 25em;
+@menu-padding: 31em;
 @divider: 1px solid #e5e5e5;
 
 @weight-regular: 400;
@@ -558,6 +558,10 @@ input[type="checkbox"], input[type="radio"] {
 	position: relative;
 	width: 100%;
 	z-index: 5;
+
+	.has-no-sidebar & {
+		padding-left: 13em;
+	}
 }
 #head {
     background: url("/images/head.jpg") no-repeat !important;
@@ -642,7 +646,7 @@ div#h1 h1 {
 	}
 
 	a:hover,
-	.selected a {
+	.selected > a {
 		background-color: @links;
 	}
 	a:hover,
@@ -671,7 +675,8 @@ div#h1 h1 {
 #verticalMenu {
 	left: 7.6em;
 	background: @color-grey2;
-	width: 18em;
+	// width: 18em;
+	width: 22em;
 	font-size: .92em;
 	top: 3.3em;
 	height: auto;
@@ -701,7 +706,7 @@ div#h1 h1 {
 			color: @links;
 		}
 	}
-	.selected a {
+	.selected > a {
 		color: @links;
 	}
 	a.view-toggle {
@@ -761,7 +766,7 @@ div#h1 h1 {
 			margin: 0 0 0 2.1em;
 
 			.toggle-icon {
-				height: 2.1em;
+				height: 1.7em;
 			}
 		}
 		li li {
@@ -778,8 +783,7 @@ div#h1 h1 {
 			background-position: 2.5em 50%,0 0;
 			position: relative;
 			font-weight: 400;
-			padding: 0 2em 0.7em 0;
-			color: @body-copy;
+			padding: 0 2.5em 0.7em 0;
 		}
 		.selected-subitm a,
 		a:hover,a:focus {
@@ -802,12 +806,12 @@ div#h1 h1 {
 #bodyContent {
 	.max-width;
 	overflow: hidden;
-	padding: 4em 4.5em 4em 28em;
+	padding: 4em 4.5em 4em @menu-padding;
 	position: relative;
 	overflow: hidden;
 
 	@media(min-width: 1400px) {
-		width: 75%;
+		width: 80%;
 	}
 }
 
@@ -1600,6 +1604,18 @@ li.ui-timepicker-selected .ui-timepicker-duration,
   right: 2em;
   top: 200px;
   z-index: 999;
+
+  .slimScrollDiv {
+	max-height: 54vh;
+	overflow: auto !important;
+	height: auto !important;
+  }
+  .slimScrollBar {
+	  display: none !important;
+  }
+  .panel-body {
+	  height: auto !important;
+  }
 
   .panel-heading {
 	font-size: 12px;
