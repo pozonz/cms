@@ -460,7 +460,7 @@
 	},
 "projectAttributes": {
 	"creationDate": 604467182.14388895,
-	"displayValue": "CMS - FND",
+	"displayValue": "CMS - legacy",
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-angryPicard",
 	"iconImageWasSetByUser": 0
@@ -1928,7 +1928,7 @@
 			}
 		},
 	"esLintSourceType": 0,
-	"externalServerAddress": "https://foundationnorth.jamie.dev6.innovanet.co.nz",
+	"externalServerAddress": "https://nzbcf.jamie.dev6.innovanet.co.nz/manage",
 	"gitIgnoreBuildFolder": 1,
 	"hideConfigFile": 0,
 	"jsCheckerReservedNamesString": "",

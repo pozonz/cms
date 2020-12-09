@@ -38,7 +38,7 @@
 
 @font-body:  'Inter', 'Helvetica Neue', Arial, sans-serif;
 @font-headings:  'Inter', 'Helvetica Neue', Arial, sans-serif;
-@menu-padding: 25em;
+@menu-padding: 31em;
 @divider: 1px solid #e5e5e5;
 
 @weight-regular: 400;
@@ -558,6 +558,10 @@ input[type="checkbox"], input[type="radio"] {
 	position: relative;
 	width: 100%;
 	z-index: 5;
+
+	.has-no-sidebar & {
+		padding-left: 13em;
+	}
 }
 #head {
     background: url("/images/head.jpg") no-repeat !important;
@@ -642,7 +646,7 @@ div#h1 h1 {
 	}
 
 	a:hover,
-	.selected a {
+	.selected > a {
 		background-color: @links;
 	}
 	a:hover,
@@ -671,7 +675,8 @@ div#h1 h1 {
 #verticalMenu {
 	left: 7.6em;
 	background: @color-grey2;
-	width: 18em;
+	// width: 18em;
+	width: 22em;
 	font-size: .92em;
 	top: 3.3em;
 	height: auto;
@@ -691,16 +696,17 @@ div#h1 h1 {
 	}
 	a {
 		display: block;
-		padding:.8em 1em;
+		padding: 1em;
 		position: relative;
 		font-weight: @weight-medium;
 		color: @body-copy;
+		font-size: .96em;
 
 		&:hover {
 			color: @links;
 		}
 	}
-	.selected a {
+	.selected > a {
 		color: @links;
 	}
 	a.view-toggle {
@@ -725,23 +731,31 @@ div#h1 h1 {
 		font-weight: @weight-medium;
 	}
 	.toggle-icon {
-		background: url("/cms/images/icon-nestable.png") no-repeat scroll center center;
+		background: url(/cms/images/icon-nestable.png) no-repeat center;
 		border: none;
-		border-left: 1px solid rgba(0,0,0,.1);
 		box-shadow: none;
 		top: 0;
-		bottom: 0;
-		height: auto;
-		right: 0;
+		height: 4.1em;
+		right: -1.1em;
 		border-radius: 0;
-		width: 1em;
-		/*transition: transform .3s ease-in-out;*/
+		width: 3.8em;
+		padding: 0;
+
+		&:before {
+			border-left: 1px solid fade(black,10%);
+			content: "";
+			top: 1em;
+			bottom: 1em;
+			position: absolute;
+			left: 0;
+		}
 
 		&:hover {
 		}
 		&.selected {
 			transform: scaleY(-1);
 		}
+
 	}
 	.subcategory {
 		padding: 0.3em 0 1.4em;
@@ -749,10 +763,19 @@ div#h1 h1 {
 		li {
 			border-bottom: none;
 		    list-style: circle;
-		    margin: 0 0 0 2.3em;
+			margin: 0 0 0 2.1em;
+
+			.toggle-icon {
+				height: 1.7em;
+			}
+		}
+		li li {
+			margin-left: 0;
+			padding-left: 1.3em;
+			border-left: 1px solid fade(black, 10%);
+			list-style-type: none;
 		}
 		a {
-			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			box-shadow: none;
@@ -760,8 +783,7 @@ div#h1 h1 {
 			background-position: 2.5em 50%,0 0;
 			position: relative;
 			font-weight: 400;
-			padding: 0 1em 0.7em 0;
-			color: @body-copy;
+			padding: 0 2.5em 0.7em 0;
 		}
 		.selected-subitm a,
 		a:hover,a:focus {
@@ -769,12 +791,9 @@ div#h1 h1 {
 		}
 	}
 	.sub-2 a {
-		padding-left: 1.5em;
-		background: #6da7e4;
 	}
 
 	.sub-2 a:before {
-		content: "\2022\00a0";
 	}
 }
 
@@ -787,12 +806,12 @@ div#h1 h1 {
 #bodyContent {
 	.max-width;
 	overflow: hidden;
-	padding: 4em 4.5em 4em 28em;
+	padding: 4em 4.5em 4em @menu-padding;
 	position: relative;
 	overflow: hidden;
 
 	@media(min-width: 1400px) {
-		width: 75%;
+		width: 80%;
 	}
 }
 
@@ -1164,7 +1183,7 @@ a.delete-button:focus,
   border: none;
   background: #fff url('/cms/images/icon-nestable-active.png') no-repeat 16px 1.1em;
   box-shadow: none;
-  border: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
   border-bottom: none;
 }
 
@@ -1198,6 +1217,7 @@ a.delete-button:focus,
   padding: .6em 0 .6em 1em;
   transition: background-color .1s ease-in-out 0s;
   position: relative;
+
 }
 
 .dd-item .child-num {
@@ -1206,14 +1226,29 @@ a.delete-button:focus,
   font-weight: normal;
   font-size: .85em
 }
-
-.dd3-content span {
-  margin-left: 4em;
-  position: relative;
-  z-index: 1;
-  font-weight: bold
+.dd3-content {
+	position: relative;
+	margin-left: 3em;
+	padding-right: 8em;
 }
+.dd3-content__title {
+  font-size: .95em;
+  font-weight: bold;
+  margin-right: .5em;
+}
+.dd-item__link-url {
+	display: block;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 0.85em;
+	color: #888;
 
+	&:hover,&:focus {
+		color: @links;
+	}
+}
 .dd-handle {
   display: block;
   z-index: 0;
@@ -1234,9 +1269,7 @@ a.delete-button:focus,
   background-image: url('/cms/images/icon-nestable.png')
 }
 
-.dd-collapsed:hover {
-  background: #f6f6f6
-}
+
 
 .dd-list .dd-list {
   border: 1px solid #e5e5e5;
@@ -1244,7 +1277,6 @@ a.delete-button:focus,
 }
 
 .dd-list .dd-list span {
-  margin-left: 25px;
 }
 
 .dd-list .dd-list .child-num {
@@ -1268,7 +1300,15 @@ a.delete-button:focus,
   background-color: #f6f6f6;
   background: #e3f1fd
 }
-
+.dd-item__hide-from-nav {
+	background-color: @links;
+	color: #fff;
+    border-radius: 3px;
+	padding: 0.15em 0.4em .1em;
+	display: inline-block;
+    font-size: 0.72em;
+    font-weight: normal;
+}
 .dd-dragel {
   position: absolute;
   pointer-events: none;
@@ -1521,7 +1561,7 @@ li.ui-timepicker-selected .ui-timepicker-duration,
 	.submit-area &{
 		&.button{
 			background: none;
-			&:hover{
+			&:hover, &:focus{
 				background: none;
 			}
 		}
@@ -1564,6 +1604,18 @@ li.ui-timepicker-selected .ui-timepicker-duration,
   right: 2em;
   top: 200px;
   z-index: 999;
+
+  .slimScrollDiv {
+	max-height: 54vh;
+	overflow: auto !important;
+	height: auto !important;
+  }
+  .slimScrollBar {
+	  display: none !important;
+  }
+  .panel-body {
+	  height: auto !important;
+  }
 
   .panel-heading {
 	font-size: 12px;
