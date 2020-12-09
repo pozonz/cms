@@ -386,6 +386,119 @@ $(function () {
             render(jsonValue);
         });
 
+        $.each($(container).find('.js-abtest-widget'), function (idx, itm) {
+            var choices = JSON.parse($(itm).find('.js-choices').val());
+
+            var render = function (data) {
+                $(itm).find('table').find('tbody').remove();
+                for (var key in data) {
+                    var val = data[key];
+
+                    var pageOptions = '';
+                    for (var choiceIdx in choices) {
+                        var choice = choices[choiceIdx];
+                        var selected = (choice == val.page) ? 'selected' : '';
+                        pageOptions += `<option ${selected} value="${choice}">${choiceIdx}</option>`;
+                    }
+
+                    $(itm).find('table').append(
+                        `<tbody class="js-row"><tr>
+                            <td>
+                                <select class="page form-control js-value js-page">${pageOptions}</select>
+                            </td>
+                            <td><input class="js-value js-token" type="text" value="${val.token}"></td>
+                            <td><input class="js-value js-chance" type="text" value="${val.chance}"></td>
+                            <td><a class="js-delete" data-idx="${idx}" href="#"><img alt="Delete Record" title="Delete Record" src="/cms/images/binIcon.gif" border="0"></a></td>
+                        </tr></tbody>`
+                    )
+                }
+
+                $(itm).find('select:not(.no-chosen)').chosen({
+                    allow_single_deselect: true
+                });
+
+                $(itm).find('table').sortable({
+                    items: 'tbody.js-row',
+                    stop: function(event, ui) {
+                        changeValue(data);
+                    },
+                    placeholder: {
+                        element: function(currentItem) {
+                            return $('<tr><td colspan="4" style="background: lightyellow; height: ' + $(currentItem).height() + 'px">&nbsp;</td></tr>')[0];
+                        },
+                        update: function(container, p) {
+                            return;
+                        }
+                    }
+                });
+
+                $.each($(itm).find('table').find('tbody.js-row').find('td'), function (key, td) {
+                    $(td).css('width', $(td).outerWidth() + 'px');
+                });
+
+                changeValue(data);
+            };
+
+            var addValue = function (data, page, token, chance) {
+                data.push({
+                    page: page,
+                    token: token,
+                    chance: chance,
+                });
+                return data;
+            };
+
+            var addDefault = function (data) {
+                var firstPage = choices[Object.keys(choices)[0]];
+                return addValue(data, firstPage, 'page-' + parseInt(Math.random() * 10000, 10), '50')
+            };
+
+            var changeValue = function (data) {
+                $.each($(itm).find('table').find('tbody.js-row'), function (key, tbody) {
+                    data[key].page = $(tbody).find('.js-page').val();
+                    data[key].token = $(tbody).find('.js-token').val();
+                    data[key].chance = $(tbody).find('.js-chance').val();
+                    $(tbody).find('.js-delete').data('idx', key);
+                });
+                $(itm).find('textarea:not(.js-choices)').val(JSON.stringify(data));
+            };
+
+            var isJson = function (str) {
+                try {
+                    var val = JSON.parse(str);
+                } catch (e) {
+                    return false;
+                }
+                return (typeof val == 'array' || typeof val == 'object') ? true : false;
+            };
+            var rawValue = $(itm).find('textarea').val();
+            var jsonValue = isJson(rawValue) ? JSON.parse(rawValue) : [];
+            if (jsonValue.length == 0) {
+                for (var i = 0, il = 2; i < il; i++) {
+                    jsonValue = addDefault(jsonValue);
+                }
+            }
+
+            $(itm).on('keyup change', '.js-value', function () {
+                changeValue(jsonValue);
+            });
+
+            $(itm).on('click', '.js-add', function () {
+                jsonValue = addDefault(jsonValue);
+                render(jsonValue);
+                return false;
+            });
+
+            $(itm).on('click', '.js-delete', function () {
+                var idx = $(this).data('idx');
+                jsonValue.splice(idx, 1);
+                render(jsonValue);
+                return false;
+            });
+
+            render(jsonValue);
+        });
+
         $(container).find('.formStyle.datepicker input,.inner-box.datepicker input').datetimepicker({
             timepicker: false,
             format: 'd F Y',
