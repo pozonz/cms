@@ -666,7 +666,16 @@ body .columns-container {
 body #viewModes #cms_viewmode_ecommerce a {
   background-image: url("/cms/images/mode-ecommerce.png");
 }
-body #headContainer.header .logo {
+body .re-button-tooltip {
+  -webkit-transform: none;
+  transform: none;
+}
+body #headContainer {
+  margin-top: 0;
+  padding-top: 3em;
+  background-position-y: bottom !important;
+}
+body #headContainer .header .logo {
   background-size: cover !important;
 }
 body #crop-image-modal .image-cropper .presets > div {

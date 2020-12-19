@@ -561,7 +561,7 @@ $(function () {
             buttonsAdd: ['line'],
             plugins: plugins,
             minHeight: '300px',
-            imageResizable: true,
+            imageResizable: false,
             imageFigure: false,
             // imageEditable: false,
             imagePosition: {
