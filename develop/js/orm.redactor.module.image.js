@@ -669,7 +669,6 @@ $(function () {
                 },
             }).done(function (msg) {
                 if (msg.id) {
-                    console.log(data)
                     var template_crop_image = Handlebars.compile($('#crop-image-redactor').html());
                     $('#crop-image-modal').html(template_crop_image({
                         code: msg.id,
@@ -707,13 +706,13 @@ $(function () {
                         }
 
                         imageData.src = '/images/assets/' + imageCode + '/' + selectedImageSize + '?v=' + Math.random();
-                        console.log(imageData);
                         var current = _this.selection.getCurrent();
                         $(current).removeClass('img-left');
                         $(current).removeClass('img-right');
                         $(current).removeClass('img-center');
                         $(current).addClass(imageData.align);
 
+                        $(current).html('<h2>fdafsd</h2>');
                         var template_image = Handlebars.compile($('#crop-image-redactor-img-with-figure').html());
                         $(current).html(template_image(imageData))
                         $.fancybox.close();

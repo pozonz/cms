@@ -741,6 +741,9 @@ body.page-restore .cancel {
 body.page-restore .edit .submit-area button.restore {
   background-color: orange !important;
 }
+body.page-orm .product-variants-table td:not(:first-child) {
+  padding-left: 0;
+}
 body.page-orm .abtest-widget select.page {
   min-width: 20em;
 }

@@ -562,7 +562,7 @@ $(function () {
             plugins: plugins,
             minHeight: '300px',
             imageResizable: false,
-            imageFigure: false,
+            imageFigure: true,
             // imageEditable: false,
             imagePosition: {
                 "left": "img-left",
