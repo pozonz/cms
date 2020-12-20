@@ -115,7 +115,12 @@ $(function () {
     Handlebars.registerHelper('getByValueAndCompare', function(array, key, value, options) {
         array = array && typeof array == 'object' ? array : [];
         var pos = value.indexOf('-');
-        value = value.substr(0, pos);
+        if (pos != -1) {
+            value = value.substr(0, pos);
+        }
+        if (!value) {
+            return options.inverse(this);
+        }
         if (typeof array[key] == 'object') {
             return array[key] && array[key].indexOf(value) != -1 ? options.fn(this) : options.inverse(this);
         } else {
@@ -135,5 +140,9 @@ $(function () {
         }
 
         return options.inverse(this);
+    });
+
+    Handlebars.registerHelper('paddingLevel', function(level, options) {
+        return 'padding-left: ' + (level * 25) + 'px;'
     });
 });
