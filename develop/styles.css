@@ -742,7 +742,7 @@ body.page-restore .edit .submit-area button.restore {
   background-color: orange !important;
 }
 body.page-orm .asset-record-fields div {
-  padding-bottom: 1em;
+  padding-bottom: .5em;
 }
 body.page-orm .product-variants-table td:not(:first-child) {
   padding-left: 0;
