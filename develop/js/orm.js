@@ -523,7 +523,7 @@ $(function () {
             allow_single_deselect: true
         });
 
-        $.each($('.js-selectize'), function (idx, itm) {
+        $.each($(container).find('.js-selectize'), function (idx, itm) {
             var id = $(itm).attr('id');
             var choiceClass = id + '-choice';
             var options = [];
