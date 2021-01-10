@@ -744,9 +744,6 @@ body.page-restore .edit .submit-area button.restore {
 body.page-orm .asset-record-fields div {
   padding-bottom: 1em;
 }
-body.page-orm .product-variants-table td:not(:first-child) {
-  padding-left: 0;
-}
 body.page-orm .abtest-widget select.page {
   min-width: 20em;
 }
@@ -816,19 +813,56 @@ body.page-orm .edit .page-template-widget .template-new > div:first-child {
 body.page-orm .edit .product-variants-table .tableHead {
   text-align: left;
 }
-body.page-orm .edit .product-special-section {
-  padding-top: 1em;
-  padding-left: 2%;
-  background: lightgrey;
-}
-body.page-orm .edit .product-special-section :disabled {
-  background: #eee;
+body.page-orm .edit .product-variants-table .column td.no-result {
+  padding-left: 0;
+  opacity: .5;
 }
 body.page-orm .edit .versions__restore {
   text-decoration: underline;
 }
 body.page-orm .edit .versions__restore:hover {
   font-weight: bold;
+}
+body.page-orm .edit .shipping-cost-rates .mb-little {
+  margin-bottom: 1em !important;
+}
+body.page-orm .edit .shipping-cost-rates .block-file .up {
+  background: url('/cms/images/icon-nestable-active.png') no-repeat center;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+}
+body.page-orm .edit .shipping-cost-rates .block-file .down {
+  background: url('/cms/images/icon-nestable.png') no-repeat center;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+}
+body.page-orm .edit .shipping-cost-rates .block-file .right-third {
+  right: 4em;
+}
+body.page-orm .edit .shipping-cost-rates .block-file .right-second {
+  right: 2.5em;
+}
+body.page-orm .edit .shipping-cost-rates .conditions-container {
+  margin-top: 0;
+}
+body.page-orm .edit .shipping-cost-rates .conditions-container .formStyle {
+  margin-bottom: 1em;
+  width: 28% !important;
+}
+body.page-orm .edit .shipping-cost-rates .conditions-container .deleteExtra {
+  display: inline-block;
+  vertical-align: middle;
+  width: 5%;
+  padding-top: .8em;
+}
+body.page-orm .edit .shipping-cost-rates .conditions-container .extra-title {
+  padding-bottom: .5em;
+}
+body.page-orm .edit .shipping-cost-rates .conditions-container .ui-sortable > div {
+  padding: 0 15px;
+  cursor: move;
 }
 body.page-orm .orm-fm {
   padding: 20px 50px;

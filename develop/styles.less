@@ -910,6 +910,7 @@ body {
     .restore {
       background-color: orange !important;
     }
+
     .cancel {
       color: #999 !important;
     }
@@ -927,12 +928,6 @@ body {
     .asset-record-fields {
       div {
         padding-bottom: 1em;
-      }
-    }
-
-    .product-variants-table {
-      td:not(:first-child) {
-        padding-left: 0;
       }
     }
 
@@ -1052,15 +1047,12 @@ body {
         .tableHead {
           text-align: left;
         }
-      }
 
-      .product-special-section {
-        padding-top: 1em;
-        padding-left: 2%;
-        background: lightgrey;
-
-        :disabled {
-          background: #eee;
+        .column {
+          td.no-result {
+            padding-left: 0;
+            opacity: .5;
+          }
         }
       }
 
@@ -1069,6 +1061,63 @@ body {
 
         &:hover {
           font-weight: bold;
+        }
+      }
+
+      .shipping-cost-rates {
+        .mb-little {
+          margin-bottom: 1em !important;
+        }
+
+        .block-file {
+          .up {
+            background: url('/cms/images/icon-nestable-active.png') no-repeat center;
+            width: 22px;
+            height: 22px;
+            display: inline-block;
+          }
+
+          .down {
+            background: url('/cms/images/icon-nestable.png') no-repeat center;
+            width: 22px;
+            height: 22px;
+            display: inline-block;
+          }
+
+          .right-third {
+            right: 4em;
+          }
+
+          .right-second {
+            right: 2.5em;
+          }
+        }
+
+        .conditions-container {
+          margin-top: 0;
+
+          .formStyle {
+            margin-bottom: 1em;
+            width: 28% !important;
+          }
+
+          .deleteExtra {
+            display: inline-block;
+            vertical-align: middle;
+            width: 5%;
+            padding-top: .8em;
+          }
+
+          .extra-title {
+            padding-bottom: .5em;
+          }
+
+          .ui-sortable {
+            > div {
+              padding: 0 15px;
+              cursor: move;
+            }
+          }
         }
       }
     }
@@ -1081,8 +1130,6 @@ body {
         right: 2em;
       }
     }
-
-
   }
 
   .jstree-anchor {

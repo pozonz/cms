@@ -55,7 +55,7 @@ $(function () {
 
 function getVariants() {
     $('.js-product-variants-table').find('tbody').remove();
-    $('.js-product-variants-table').append('<tbody><tr class="column"><td colspan="8">Loading...</td></tr></tbody>');
+    $('.js-product-variants-table').append('<tbody><tr class="column"><td colspan="8"><img src="/cms/images/spinner.gif"></td></tr></tbody>');
 
     var productVariantListItem = Handlebars.compile($('#product-variant-list-item').html());
 
@@ -73,7 +73,7 @@ function getVariants() {
             }
 
             if (data.length == 0) {
-                $('.js-product-variants-table').append('<tbody><tr class="column"><td colspan="8">No results found</td></tr></tbody>');
+                $('.js-product-variants-table').append('<tbody><tr class="column"><td colspan="8" class="no-result">No product variants created</td></tr></tbody>');
             } else {
                 //Setup sortable table
                 $.each($('.js-product-variants-table').find('td'), function (key, val) {

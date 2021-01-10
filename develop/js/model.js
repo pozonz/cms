@@ -200,7 +200,7 @@ function updateColumns() {
         },
         placeholder: {
             element: function(currentItem) {
-                return $('<tr><td colspan="5" style="background: lightyellow; height: ' + $(currentItem).height() + 'px">&nbsp;</td></tr>')[0];
+                return $('<tr><td colspan="7" style="background: lightyellow; height: ' + $(currentItem).height() + 'px">&nbsp;</td></tr>')[0];
             },
             update: function(container, p) {
                 return;
