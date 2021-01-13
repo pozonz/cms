@@ -32,9 +32,9 @@ $(function () {
                                 $(_this).dialog('close');
                                 $('.js-model-note-content').text(note);
                                 if (note) {
-                                    $('.js-model-note-content').hide();
-                                } else {
                                     $('.js-model-note-content').show();
+                                } else {
+                                    $('.js-model-note-content').hide();
                                 }
                             }
                         });
