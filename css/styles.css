@@ -301,7 +301,7 @@ span.skype_pnh_print_container {
   margin: 0 -4px 0 0;
 }
 .sprite {
-  background-image: url('/cms/images/sprites.png?v=1610416345529');
+  background-image: url('/cms/images/sprites.png?v=1610506863055');
   background-repeat: no-repeat;
 }
 .nav-ul {
@@ -390,7 +390,7 @@ h4 {
   margin: 0 0 0.5em;
 }
 .glyph {
-  background: url('/cms/images/sprites.png?v=1610416345531') no-repeat;
+  background: url('/cms/images/sprites.png?v=1610506863056') no-repeat;
   display: block;
   text-indent: -5000px;
 }
@@ -1104,6 +1104,12 @@ a.delete-button:hover,
 a.delete-button:focus,
 .delete-button:focus {
   background-color: #d7565e;
+}
+.model-note {
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin: 0.6em 0 3.1em;
+  max-width: 38rem;
 }
 /*-----------------------------------------------------------------------------------------
 	CMS record save - dialogue box
@@ -2682,7 +2688,7 @@ html {
   border: 1px solid rgba(0, 0, 0, 0.3);
   margin: 0 0 0.5em;
   padding-left: 2.5em;
-  background-image: url('/cms/images/sprites.png?v=1610416345529');
+  background-image: url('/cms/images/sprites.png?v=1610506863055');
   background-repeat: no-repeat;
   background-position: -84px -87px;
 }
@@ -2710,7 +2716,7 @@ html {
   border-radius: 20em 0 0 20em;
   opacity: 1;
   overflow: hidden;
-  background-image: url('/cms/images/sprites.png?v=1610416345529');
+  background-image: url('/cms/images/sprites.png?v=1610506863055');
   background-repeat: no-repeat;
   padding-left: 2.5em;
   background-position: 18px 15px;
@@ -2732,7 +2738,7 @@ html {
 }
 .edit .add-content-section .button {
   padding-left: 2.5em;
-  background-image: url('/cms/images/sprites.png?v=1610416345529');
+  background-image: url('/cms/images/sprites.png?v=1610506863055');
   background-repeat: no-repeat;
   background-position: -134px -138px;
 }
@@ -3281,7 +3287,7 @@ html {
 	Forms - Datepicker
 -----------------------------------------------------------------------------------------*/
 input.hasDatepicker {
-  background-image: url('/cms/images/sprites.png?v=1610416345529');
+  background-image: url('/cms/images/sprites.png?v=1610506863055');
   background-repeat: no-repeat;
   padding-left: 3em;
   background-position: -186px -187px;
@@ -3392,7 +3398,7 @@ input.hasDatepicker {
 .formStyle.type26 .moveKVP,
 .formStyle.type20 .moveKVP,
 .formStyle.type35 .moveKVP {
-  background-image: url('/cms/images/sprites.png?v=1610416345529');
+  background-image: url('/cms/images/sprites.png?v=1610506863055');
   background-repeat: no-repeat;
   background-position: -250px 0;
   display: inline-block;
@@ -4285,7 +4291,7 @@ input.hasDatepicker {
 	Lists
 -----------------------------------------------------------------------------------------*/
 .iconCell .facebookshare {
-  background: url('/cms/images/sprites.png?v=1610416345531') no-repeat;
+  background: url('/cms/images/sprites.png?v=1610506863056') no-repeat;
   display: block;
   text-indent: -5000px;
   display: inline-block;
