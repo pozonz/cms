@@ -9,6 +9,47 @@ $(function () {
         }
     });
 
+    $(document).on('click', '.js-model-note-button', function (ev) {
+        var container = $('<div>').html(`<textarea>${$(this).data('content')}</textarea>`).appendTo('body');
+        container.dialog({
+            title: 'Editing note...',
+            resizable: false,
+            draggable: false,
+            modal: true,
+            dialogClass: 'confirmation',
+            buttons: [
+                {
+                    text: 'Update', click: function () {
+                        var _this = this;
+                        var note = $(container).find('textarea').val();
+                        $('.js-model-note-button').data('content', note);
+
+                        $.ajax({
+                            type: 'GET',
+                            url: '/manage/rest/model/note',
+                            data: 'className=' + $('body').data('class') + '&note=' + encodeURIComponent(note),
+                            success: function (msg) {
+                                $(_this).dialog('close');
+                                $('.js-model-note-content').text(note);
+                                if (note) {
+                                    $('.js-model-note-content').show();
+                                } else {
+                                    $('.js-model-note-content').hide();
+                                }
+                            }
+                        });
+                    }
+                },
+                {
+                    text: "Cancel", click: function () {
+                        $(this).dialog("close");
+                    }
+                },
+            ]
+        });
+        return false;
+    });
+
     //Setup delete orm
     $(document).on('click', '.js-orm-delete', function (ev) {
         var ormInfo = $(this).closest('.js-orm-info');

@@ -135,6 +135,7 @@ body {
 	padding: 0;
 	position: relative;
 	background: @color-grey1;
+	-webkit-font-smoothing: antialiased;
 }
 a {
 	cursor: pointer;
@@ -491,7 +492,23 @@ input[type="checkbox"], input[type="radio"] {
 		background-color: darken(@green,10%);
 	}
 }
+.button--orm-user-welcome {
+	background-color: @green;
 
+	&:hover,&:focus {
+		background-color: darken(@green,10%);
+	}
+}
+.button--orm-user-welcome-repeat {
+	background-color: transparent;
+	border: 1px solid fade(@body-copy,20%);
+	color: @body-copy;
+
+	&:hover,&:focus {
+		border: 1px solid @green;
+		background-color: @green;
+	}
+}
 
 
 
@@ -665,6 +682,8 @@ div#h1 h1 {
 	#cms_viewmode_admin a { background-image: url("/cms/images/mode-admin.png"); }
 	#cms_viewmode_snippet a { background-image: url("/cms/images/mode-snippets.png"); }
 	#cms_viewmode_utilities a { background-image: url("/cms/images/mode-utilities.png"); }
+	#cms_viewmode_team a { background-image: url("/cms/images/mode-team.png"); }
+	#cms_viewmode_articles a { background-image: url("/cms/images/mode-articles.png"); }
 }
 
 
@@ -849,8 +868,12 @@ a.delete-button:focus,
 .delete-button:focus {
 	background-color: lighten(@red, 6%);
 }
-
-
+.model-note {
+	font-size: 0.9rem;
+	font-weight: normal;
+	margin: 0.6em 0 3.1em;
+	max-width: 38rem;
+}
 
 
 
@@ -1194,8 +1217,8 @@ a.delete-button:focus,
 .dd .delete, .dd-dragel .delete, .dd .edit, .dd-dragel .edit, .dd .state, .dd-dragel .state {
   position: absolute;
   right: .5em;
-  top: .6em;
-  z-index: 1
+  top: .1em;
+  z-index: 1;
 }
 
 .dd .edit, .dd-dragel .edit {

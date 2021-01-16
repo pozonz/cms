@@ -551,6 +551,33 @@ $(function () {
             });
         });
 
+        $.each($(container).find('.js-selectize-block'), function (idx, itm) {
+            var id = $(itm).attr('id');
+            var choiceClass = id + '-choice';
+            var options = [];
+            $.each($('.' + choiceClass), function (choiceIdx, choiceItm) {
+                options.push({
+                    id: $(choiceItm).data('id'),
+                    name: $(choiceItm).data('name'),
+                });
+            });
+
+            $(itm).selectize({
+                plugins: ['restore_on_backspace', 'remove_button', 'drag_drop'],
+                persist: false,
+                maxItems: null,
+                valueField: 'id',
+                labelField: 'name',
+                searchField: ['name'],
+                options: options,
+                createFilter: function(input) {
+                    return false;
+                },
+                create: function(input) {
+                    return false;
+                },
+            });
+        });
 
         var plugInType = $('#var_wysiwyg_no_image_video_buttons').val();
         var plugins = ['filePicker', 'imagePicker', 'video', 'table'];

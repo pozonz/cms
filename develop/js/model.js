@@ -26,21 +26,15 @@ $(function() {
 
     $('#model_listType').on('change', function (ev) {
         if ($(this).val() == 1) {
-            $('.js-model-pagination-detail .formStyle:first').show();
-            $('.js-model-pagination-detail').fadeIn();
-        } else if ($(this).val() == 2) {
-            $('.js-model-pagination-detail .formStyle:first').hide();
             $('.js-model-pagination-detail').fadeIn();
         } else {
             $('.js-model-pagination-detail').hide();
         }
     });
-    if ($('#model_listType').val() == 1) {
-        $('.js-model-pagination-detail .formStyle:first').show();
+    if ($(this).val() == 1) {
         $('.js-model-pagination-detail').fadeIn();
-    } else if ($('#model_listType').val() == 2) {
-        $('.js-model-pagination-detail .formStyle:first').hide();
-        $('.js-model-pagination-detail').fadeIn();
+    } else {
+        $('.js-model-pagination-detail').hide();
     }
 
     $(document).on('change', '#fields', function (ev) {
