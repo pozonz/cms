@@ -44,6 +44,9 @@ body .sidebarorm_content .jstree-leaf a {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+body .sidebarorm_content .jstree-leaf a .text-danger {
+  color: red;
+}
 body .mkvp-add {
   background-color: grey !important;
   max-height: 3em;
