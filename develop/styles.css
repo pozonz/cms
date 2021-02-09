@@ -814,8 +814,10 @@ body.page-orm .edit .product-variants-table .tableHead {
   text-align: left;
 }
 body.page-orm .edit .product-variants-table .column td.no-result {
-  padding-left: 0;
   opacity: .5;
+}
+body.page-orm .edit .product-variants-table .column td:not(:first-child) {
+  padding-left: 0;
 }
 body.page-orm .edit .versions__restore {
   text-decoration: underline;
