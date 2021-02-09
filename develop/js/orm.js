@@ -923,9 +923,11 @@ $(function () {
                 var blocks = [];
                 for (idxBlk in dataBlocks) {
                     var dataBlk = dataBlocks[idxBlk];
-                    var tags = itm.tags.filter(value => -1 !== dataBlk.tags.indexOf(`"${value}"`));
-                    if (tags.length || !itm.tags.length) {
-                        blocks.push(dataBlk);
+                    if (typeof dataBlk.tags == 'string') {
+                        var tags = itm.tags.filter(value => -1 !== dataBlk.tags.indexOf(`"${value}"`));
+                        if (tags.length || !itm.tags.length) {
+                            blocks.push(dataBlk);
+                        }
                     }
                 }
                 $('#' + dataId + '_container').append(template_section({
