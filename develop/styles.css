@@ -7,10 +7,10 @@ body.page-formbuilder .option-type {
 }
 body.page-formbuilder .option-type label {
   line-height: 24px;
-  padding-right: .7em;
+  padding-right: 0.7em;
 }
 body.page-formbuilder .option-type label input[type=radio] {
-  margin-right: .3em;
+  margin-right: 0.3em;
 }
 body.page-formbuilder .custom-options {
   padding-top: 2em;
@@ -122,7 +122,7 @@ body .file-manager .row .col-lg-3 form .input-group-btn {
   top: 0.1em;
 }
 body .file-manager .row .col-lg-3 form .input-group-btn button {
-  margin-top: .2em;
+  margin-top: 0.2em;
   color: #454A51;
   border: none;
   box-shadow: none;
@@ -139,7 +139,7 @@ body .file-manager .row .col-lg-9 ul {
   padding-right: 0;
 }
 body .file-manager .row .col-lg-9 ul li {
-  margin-right: .75em;
+  margin-right: 0.75em;
 }
 body .file-manager .extra-stuff {
   border-top: 1px solid #ddd;
@@ -358,7 +358,7 @@ body .file-manager .dropzone-custom .dz-default.dz-message {
   top: 50%;
   left: 50%;
 }
-@media all and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 1.5/1), (min-device-pixel-ratio: 1.5), (min-resolution: 138dpi), (min-resolution: 1.5dppx) {
+@media all and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 138dpi), (min-resolution: 1.5dppx) {
   body .file-manager .dropzone-custom .dz-default.dz-message {
     background-image: url("../images/spritemap@2x.png");
     -webkit-background-size: 428px 406px;
@@ -432,7 +432,7 @@ body .file-manager .dropzone-previews .dz-preview .dz-success-mark {
   background-image: url("../images/spritemap.png");
   background-repeat: no-repeat;
 }
-@media all and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 1.5/1), (min-device-pixel-ratio: 1.5), (min-resolution: 138dpi), (min-resolution: 1.5dppx) {
+@media all and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 138dpi), (min-resolution: 1.5dppx) {
   body .file-manager .dropzone-custom .dz-preview .dz-error-mark,
   body .file-manager .dropzone-previews .dz-preview .dz-error-mark,
   body .file-manager .dropzone-custom .dz-preview .dz-success-mark,
@@ -480,7 +480,7 @@ body .file-manager .dropzone-previews .dz-preview .dz-progress .dz-upload {
   background-repeat: repeat-x;
   background-position: 0px -400px;
 }
-@media all and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 1.5/1), (min-device-pixel-ratio: 1.5), (min-resolution: 138dpi), (min-resolution: 1.5dppx) {
+@media all and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 138dpi), (min-resolution: 1.5dppx) {
   body .file-manager .dropzone-custom .dz-preview .dz-progress .dz-upload,
   body .file-manager .dropzone-previews .dz-preview .dz-progress .dz-upload {
     background-image: url("../images/spritemap@2x.png");
@@ -626,7 +626,7 @@ body .file-manager .dropzone-custom .dz-default.dz-message.dz-progress {
 body .file-manager .dropzone-custom.dz-started .dz-default.dz-message.dz-progress {
   display: block;
   color: green;
-  opacity: .5;
+  opacity: 0.5;
 }
 body .file-manager .dropzone-custom.dz-started .dz-default.dz-message {
   display: none;
@@ -710,7 +710,7 @@ body.fragment-base #bodyContent {
 body.page-login .alert.alert-danger {
   background: red;
   color: white;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
 }
 body.page-model .model-pagination-detail {
   padding: 5px 0;
@@ -735,15 +735,6 @@ body.page-model .model-data-group .formStyle {
   text-align: left;
   width: 90%;
 }
-body.page-restore .restore {
-  background-color: orange !important;
-}
-body.page-restore .cancel {
-  color: #999 !important;
-}
-body.page-restore .edit .submit-area button.restore {
-  background-color: orange !important;
-}
 body.page-orm .asset-record-fields div {
   padding-bottom: 1em;
 }
@@ -754,7 +745,7 @@ body.page-orm .table-striped tbody:not(:last-child) tr td {
   border-bottom: 1px solid #e5e5e5 !important;
 }
 body.page-orm .edit .cropImagePickButton {
-  padding-right: .5em;
+  padding-right: 0.5em;
 }
 body.page-orm .edit .text-danger {
   color: red;
@@ -770,14 +761,14 @@ body.page-orm .edit input[type=email] {
   border: 1px solid #ddd;
   border-radius: 3px;
   color: #666;
-  padding: .6em 1em;
+  padding: 0.6em 1em;
   width: 100%;
   background: #fcfcfc;
   background: #fff;
   font-family: 'Titillium Web', 'Helvetica Neue', Arial, sans-serif;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
-  -webkit-transition: all .2s ease;
+  -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 body.page-orm .edit .formStyle.type34 .delete-block.edit-block {
@@ -801,9 +792,9 @@ body.page-orm .edit .content-block .formStyle {
   margin-bottom: 2em;
 }
 body.page-orm .edit .page-template-widget .template-new {
-  margin-top: .5em;
+  margin-top: 0.5em;
   background: #fefefe;
-  padding: .5em;
+  padding: 0.5em;
   border: 1px solid #ddd;
 }
 body.page-orm .edit .page-template-widget .template-new > div {
@@ -811,13 +802,13 @@ body.page-orm .edit .page-template-widget .template-new > div {
   width: 50%;
 }
 body.page-orm .edit .page-template-widget .template-new > div:first-child {
-  padding-right: .5em;
+  padding-right: 0.5em;
 }
 body.page-orm .edit .product-variants-table .tableHead {
   text-align: left;
 }
 body.page-orm .edit .product-variants-table .column td.no-result {
-  opacity: .5;
+  opacity: 0.5;
 }
 body.page-orm .edit .product-variants-table .column td:not(:first-child) {
   padding-left: 0;
@@ -860,10 +851,10 @@ body.page-orm .edit .shipping-cost-rates .conditions-container .deleteExtra {
   display: inline-block;
   vertical-align: middle;
   width: 5%;
-  padding-top: .8em;
+  padding-top: 0.8em;
 }
 body.page-orm .edit .shipping-cost-rates .conditions-container .extra-title {
-  padding-bottom: .5em;
+  padding-bottom: 0.5em;
 }
 body.page-orm .edit .shipping-cost-rates .conditions-container .ui-sortable > div {
   padding: 0 15px;
@@ -921,7 +912,7 @@ body .jstree-default .jstree-node {
   background: none;
 }
 body .jstree-default .mode-asset .assets-images.ui-sortable .ui-sortable-placeholder {
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
 body .jstree-open .jstree-themeicon:before {
   content: '\f07c';
@@ -954,6 +945,6 @@ body .jstree-closed .jstree-themeicon:before {
   padding: 0;
 }
 .ui-sortable-helper {
-  opacity: .6;
+  opacity: 0.6;
 }
 /*# sourceMappingURL=styles.css.map */

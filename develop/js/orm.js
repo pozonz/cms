@@ -55,7 +55,19 @@ $(function () {
     window._files = [];
     window._ancestors = [];
 
-    $(document).on('click', '.js-orm-apply,.js-orm-save', function (ev) {
+    $(document).on('click', '.js-submit-orm-status', function (ev) {
+        var val = $(this).val();
+        $('#orm_status [value=' + val + ']').prop('checked', 'checked');
+        $('#sidebar_submit_area_orm_status [value=' + val + ']').prop('checked', 'checked');
+    });
+
+    $(document).on('click', '.js-sidebar-submit-orm-status', function (ev) {
+        var val = $(this).val();
+        $('#orm_status [value=' + val + ']').prop('checked', 'checked');
+        $('#submit_area_orm_status [value=' + val + ']').prop('checked', 'checked');
+    });
+
+    $(document).on('click', '.js-orm-apply,.js-orm-save,.js-orm-restore,.js-orm-update', function (ev) {
         var form = $(this).closest('form')
         form.removeAttr('target', '_blank');
     });
@@ -82,16 +94,35 @@ $(function () {
         var id = $(this).data('id');
         var className = $(this).data('classname');
 
-        $.ajax({
-            type: 'GET',
-            url: '/manage/rest/version/delete',
-            data: {
-                id: id,
-                className: className,
-            },
-            success: function (data) {
-                location.reload();
-            }
+        var container = $('<div>').html('<p>Are you sure? Please click "Confirm" to proceed.</p>').appendTo('body');
+        container.dialog({
+            title: 'Deleting data...',
+            resizable: false,
+            draggable: false,
+            modal: true,
+            dialogClass: 'confirmation',
+            buttons: [
+                {
+                    text: 'Confirm', click: function () {
+                        $.ajax({
+                            type: 'GET',
+                            url: '/manage/rest/version/delete',
+                            data: {
+                                id: id,
+                                className: className,
+                            },
+                            success: function (data) {
+                                location.reload();
+                            }
+                        });
+                    }
+                },
+                {
+                    text: "Cancel", click: function () {
+                        $(this).dialog("close");
+                    }
+                },
+            ]
         });
 
         return false;
@@ -992,6 +1023,11 @@ $(function () {
             $('.sidebar' + dataId).remove();
             $('body').append(template_sidebar({
                 className: 'sidebar' + dataId,
+                canBePreviewed: $('#canBePreviewed').val(),
+                isRestoringFromVersion: $('#isRestoringFromVersion').val(),
+                isDraft: $('#isDraft').val(),
+                cancelVersionRestoreUrl: $('#cancelVersionRestoreUrl').val(),
+                returnUrl: $('#returnUrl').val(),
             }));
             $('.sidebar' + dataId + ' .panel-body').append('<div class="jstree"></div>');
 
@@ -1118,45 +1154,32 @@ $(function () {
                 $("html, body").animate({scrollTop: $(selector).position().top});
             });
 
-            $('.sidebar' + dataId).find('.sidebar-submit-area .js-back').click(function () {
-                location.href = $('form').find('.js-back').attr('href');
-                return false;
+            $('.sidebar' + dataId).find('.js-submit-area-sidebar .update').click(function () {
+                $('form').find('.update').click();
             });
 
-            $('.sidebar' + dataId).find('.sidebar-submit-area [value=Apply]').click(function () {
-                $('form').find('[value=Apply]').click();
-            });
-
-            $('.sidebar' + dataId).find('.sidebar-submit-area [value=Save]').click(function () {
-                $('form').find('[value=Save]').click();
-            });
-
-            $('.sidebar' + dataId).find('.sidebar-submit-area .restore').click(function () {
+            $('.sidebar' + dataId).find('.js-submit-area-sidebar .restore').click(function () {
                 $('form').find('.restore').click();
             });
 
-            if ($('#canBePreviewed').val() == 1) {
-                $('.sidebar' + dataId).find('.js-sidebar-preview-area').show();
-                $('.sidebar' + dataId).find('.js-sidebar-preview-area').click(function () {
-                    $('form').find('[value=Preview]').click();
-                });
-            } else {
-                $('.sidebar' + dataId).find('.js-sidebar-preview-area').hide();
-            }
+            $('.sidebar' + dataId).find('.js-submit-area-sidebar .js-orm-preview').click(function () {
+                $('form').find('.preview').click();
+            });
 
-            if ($('#isRestoringFromVersion').val() == 1) {
-                $('.sidebar' + dataId).find('.sidebar-submit-area .cancel').attr('href', $('.js-orm-restore-cancel').attr('href'));
+            $('.sidebar' + dataId).find('.js-submit-area-sidebar .js-orm-draft').click(function () {
+                $('form').find('.draft').click();
+            });
 
-                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Save]').hide();
-                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Apply]').hide();
-                $('.sidebar' + dataId).find('.sidebar-submit-area .restore').show();
-                $('.sidebar' + dataId).find('.sidebar-submit-area .cancel').show();
-            } else {
-                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Save]').show();
-                $('.sidebar' + dataId).find('.sidebar-submit-area [value=Apply]').show();
-                $('.sidebar' + dataId).find('.sidebar-submit-area .restore').hide();
-                $('.sidebar' + dataId).find('.sidebar-submit-area .cancel').hide();
-            }
+            var statusVal = $('#orm_status :checked').val();
+            $('#sidebar_submit_area_orm_status [value=' + statusVal + ']').prop('checked', 'checked');
+
+            $('.sidebar' + dataId).find('.js-submit-area-sidebar [value=Apply]').click(function () {
+                $('form').find('[value=Apply]').click();
+            });
+
+            $('.sidebar' + dataId).find('.js-submit-area-sidebar [value=Save]').click(function () {
+                $('form').find('[value=Save]').click();
+            });
         };
 
         //assemble all data
