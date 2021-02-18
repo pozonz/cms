@@ -1901,7 +1901,7 @@
 			}
 		},
 	"esLintSourceType": 0,
-	"externalServerAddress": "https://nzbcf.jamie.dev6.innovanet.co.nz/manage",
+	"externalServerAddress": "https://foundationnorth.jamie.dev6.innovanet.co.nz",
 	"gitIgnoreBuildFolder": 1,
 	"hideConfigFile": 0,
 	"jsCheckerReservedNamesString": "",
