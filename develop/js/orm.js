@@ -1118,7 +1118,7 @@ console.log(history)
     }));
 
     if ($('.js-version-container').length == 0) {
-        $('.js-article-version-list').empty();
+        $('.js-article-version-list').hide();
     } else {
         $('.js-article-version-list').show();
     }
