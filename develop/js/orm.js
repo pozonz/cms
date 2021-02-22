@@ -1079,8 +1079,8 @@ function render_sidebar(dataId, template_sidebar, dataValue) {
         if ($('.js-version-container').find('.js-version-container-drafts').length > 0) {
             $.each($('.js-version-container').find('.js-version-container-drafts').find('.js-versions__item'), function (idx, itm) {
                 history.drafts.push({
-                    datetime: $(itm).find('.js-versions-info__author').text(),
-                    author: $(itm).find('.js-versions-info__time').text(),
+                    datetime: $(itm).find('.js-versions-info__time').text(),
+                    author: $(itm).find('.js-versions-info__author').text(),
                     url: $(itm).find('.js-versions__restore').attr('href'),
                     deleteClass: $(itm).find('.js-delete-version').data('classname'),
                     deleteId: $(itm).find('.js-delete-version').data('id'),
@@ -1092,8 +1092,8 @@ function render_sidebar(dataId, template_sidebar, dataValue) {
         if ($('.js-version-container').find('.js-version-container-versions').length > 0) {
             $.each($($('.js-version-container').find('.js-version-container-versions').find('.js-versions__item')), function (idx, itm) {
                 history.versions.push({
-                    datetime: $(itm).find('.js-versions-info__author').text(),
-                    author: $(itm).find('.js-versions-info__time').text(),
+                    datetime: $(itm).find('.js-versions-info__time').text(),
+                    author: $(itm).find('.js-versions-info__author').text(),
                     url: $(itm).find('.js-versions__restore').attr('href'),
                     deleteClass: $(itm).find('.js-delete-version').data('classname'),
                     deleteId: $(itm).find('.js-delete-version').data('id'),
@@ -1101,7 +1101,7 @@ function render_sidebar(dataId, template_sidebar, dataValue) {
             });
         }
     }
-console.log(history)
+
     $('.sidebar' + dataId).remove();
     $('body').append(template_sidebar({
         className: 'sidebar' + dataId,
