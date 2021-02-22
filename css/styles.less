@@ -1713,10 +1713,16 @@ li.ui-timepicker-selected .ui-timepicker-duration,
 	/Article state - page heading
 -----------------------------------------------------------------------------------------*/
 .link-back-to-listing {
-	font-size: 0.9em;
-    display: flex;
-    font-weight: normal;
-    align-items: center;
+	font-size: .9em;
+	display: inline-flex;
+	font-weight: 400;
+	align-items: center;
+	margin: 0 0 0.6em;
+	border-bottom: 1px solid fade(@links, 40%);
+
+	&:hover,&:focus {
+		border-bottom-color: @links;
+	}
 }
 .icon--back-to-listing {
 	width: 7px;
@@ -1729,7 +1735,6 @@ li.ui-timepicker-selected .ui-timepicker-duration,
 }
 .article-revision-label {
 	font-size: .9em;
-	opacity: .6;
 }
 .article-state {
 	text-transform: uppercase;
@@ -1745,8 +1750,8 @@ li.ui-timepicker-selected .ui-timepicker-duration,
 	color: white;
 }
 .article-state--draft {
-	color: fade(@body-copy,70%);
-	background: @color-grey2;
+	color: white;
+	background: @body-copy;
 }
 .article-state--revision {
 	background-color: @links;
@@ -1764,6 +1769,7 @@ li.ui-timepicker-selected .ui-timepicker-duration,
 }
 .article-state-controls__toggle-preview {
 	display: flex;
+	margin-bottom: 1em;
 	justify-content: space-between;
 }
 .buttons--article-state {
@@ -1796,22 +1802,44 @@ li.ui-timepicker-selected .ui-timepicker-duration,
 }
 .button--article-link,.button--article-link:hover,.button--article-link:focus {
 	background: none;
-	padding: 0 0 .2em;
+	padding: 0 0 .3em;
 	height: auto;
 	border-radius: 0;
 	color: @links;
 	border-bottom: 1px solid fade(@links,40%);
 	font-size: .9em;
 	margin-top: .9em;
+	display: inline-block;
+	line-height: 1;
+	font-weight: normal;
 }
 .button--article-link:hover,.button--article-link:focus {
 	border-bottom-color: @links;
 }
+.button--article-link--delete {
+	color: @red;
+	border-bottom: 1px solid fade(@red,40%);
+	display: inline-flex !important;
+	align-items: center;
+
+	&:hover,&:focus {
+		color: @red;
+		border-bottom-color: @red;
+	}
+}
+.button--article-link--delete__icon {
+	background: url(/cms/images/binIcon.gif) no-repeat scroll center center;
+	width: 10px;
+	height: 10px;
+	display: block;
+	margin-right: 0.4em;
+}
+
 .article-version-list {
 	list-style-type: none;
 	position: relative;
 	cursor: pointer;
-    margin: 1em 0 1.5em;
+    margin: 0 0 1.5em;
 	padding: 0;
 	font-size: .9em;
 }
@@ -1871,10 +1899,30 @@ li.ui-timepicker-selected .ui-timepicker-duration,
     height: 30px;
     width: 30px;
     text-indent: -500px;
-    overflow: hidden;
     border-radius: 0;
     background: url('/cms/images/binIcon.gif') no-repeat center;
 }
+.article-version-link__remove:before {
+	border-radius: 100%;
+	width: 40px;
+	height: 40px;
+	background-color: #D13D46;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -20px;
+	opacity: 0;
+	transition: .1s opacity, .1s transform;
+	transform: scale(.9);
+
+}
+.article-version-link__remove:hover:before,
+.article-version-link__remove:focus:before  {
+	opacity: .1;
+	transform: none;
+}
+
 .article-version-link {
 	display: block;
 	font-weight: normal;
@@ -1887,14 +1935,20 @@ li.ui-timepicker-selected .ui-timepicker-duration,
 		width: 4px;
 		bottom: 0.4em;
 		height: 2.5em;
-		transition: .2s;
+		transition: .1s;
 	}
-	&:hover:before, &:focus:before {
-		background: fade(@body-copy, 20%);
-	}
-	&.active:before {
-		background: @links;
-	}
+}
+.article-version-link--current {
+	&:hover:before, &:focus:before { background: @green; }
+	&.active:before { background: @green; }
+}
+.article-version-link--draft {
+	&:hover:before, &:focus:before { background: @body-copy; }
+	&.active:before { background: @body-copy; }
+}
+.article-version-link--revision {
+	&:hover:before, &:focus:before { background: @links; }
+	&.active:before { background: @links; }
 }
 .article-version-link__name {
 	color: @body-copy;
@@ -1902,15 +1956,15 @@ li.ui-timepicker-selected .ui-timepicker-duration,
     overflow: hidden;
     text-overflow: ellipsis;
 	text-decoration: none !important;
+	font-size: 0.92em;
+	margin: -0.1em 0 0;
 }
 .article-version-list__item {
 	border-bottom: 1px solid fade(@body-copy, 20%);
-	padding: 1em 1.4em;
+	padding: 1.4em;
 }
 .article-version-link-item {
-	border-bottom: 1px solid fade(@body-copy, 20%);
 	margin: 0 0 1em;
-    padding: 0 0 1em;
 
 	&:last-child {
 		border: none;

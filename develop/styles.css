@@ -34,9 +34,7 @@ body.page-formbuilder .custom-options .custom-option .remove {
 body #popup-container .pagination {
   overflow: hidden;
 }
-body .sidebarorm_content {
-  margin-left: 12px !important;
-}
+
 body .sidebarorm_content .jstree-leaf a {
   width: 175px;
   padding-right: 10px;
