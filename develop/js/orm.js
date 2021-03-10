@@ -1106,6 +1106,7 @@ function render_sidebar(dataId, template_sidebar, dataValue) {
     $('body').append(template_sidebar({
         className: 'sidebar' + dataId,
         canBePreviewed: $('#canBePreviewed').val(),
+        isNew: $('#isNew').val(),
         isRestoringFromVersion: $('#isRestoringFromVersion').val(),
         versionOrmId: $('#versionOrmId').val(),
         isDraft: $('#isDraft').val(),
