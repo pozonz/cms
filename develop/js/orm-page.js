@@ -62,6 +62,8 @@ function setByPageType() {
         $('.preview').hide();
         $('.js-version-container').hide();
         $('hr').hide();
+
+        $('#orm_redirectTo').closest('.formStyle').show();
     } else {
         $.each($('.formStyle '), function (idx, itm) {
             $(itm).show();
@@ -70,5 +72,7 @@ function setByPageType() {
         $('.preview').show();
         $('.js-version-container').show();
         $('hr').show();
+
+        $('#orm_redirectTo').closest('.formStyle').hide();
     }
 };
