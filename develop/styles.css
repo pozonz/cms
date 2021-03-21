@@ -17,16 +17,16 @@ body.page-formbuilder .custom-options {
   padding-bottom: 5em;
 }
 body.page-formbuilder .custom-options .custom-option {
-  max-width: 50%;
+  max-width: 42%;
   float: left;
   padding-right: 1em;
   padding-bottom: 1em;
 }
 body.page-formbuilder .custom-options .custom-option input[type=text].option-key {
-  width: 45%;
+  width: 42%;
 }
 body.page-formbuilder .custom-options .custom-option input[type=text].option-val {
-  width: 45%;
+  width: 42%;
 }
 body.page-formbuilder .custom-options .custom-option .remove {
   display: inline-block !important;
