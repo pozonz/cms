@@ -1,4 +1,8 @@
 $(function () {
+    if ($('body').hasClass('fragment-base')) {
+        $('select').addClass('no-chosen');
+    }
+
     $R.add('plugin', 'filePicker', {
         init: function (app) {
             this.app = app;
