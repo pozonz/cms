@@ -44,6 +44,22 @@ $(function () {
         return false;
     });
 
+    $(document).on('click', '.js-copy-variant', function () {
+        var ormInfo = $(this).closest('.js-orm-info');
+        $.fancybox.open({
+            href: '/manage/orms/ProductVariant/copy/' + $(ormInfo).attr('id') + '?fragment=1',
+            type: 'iframe',
+            width: 1200,
+            beforeShow: function(){
+                $(".fancybox-skin").css("background-color", "white");
+            },
+            beforeClose: function(){
+                getVariants();
+            }
+        });
+        return false;
+    });
+
     $('#product-vairant').on('pjax:complete', function () {
         $('.ui-dialog-buttonpane').show();
         if ($(this).find('.js-submitted').length) {
