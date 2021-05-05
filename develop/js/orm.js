@@ -1,4 +1,8 @@
 $(function () {
+    if ($('body').hasClass('fragment-base')) {
+        $('select').addClass('no-chosen');
+    }
+
     $R.add('plugin', 'filePicker', {
         init: function (app) {
             this.app = app;
@@ -541,13 +545,13 @@ $(function () {
 
         $(container).find('.formStyle.datepicker input,.inner-box.datepicker input').datetimepicker({
             timepicker: false,
-            format: 'd F Y',
+            format: 'd M Y',
             scrollInput: false,
         });
 
         $(container).find('.formStyle.datetimepicker input,.inner-box.datetimepicker input').datetimepicker({
             step: 5,
-            format: 'd F Y H:i',
+            format: 'd M Y H:i',
             scrollInput: false,
         });
 

@@ -17,16 +17,16 @@ body.page-formbuilder .custom-options {
   padding-bottom: 5em;
 }
 body.page-formbuilder .custom-options .custom-option {
-  max-width: 50%;
+  max-width: 42%;
   float: left;
   padding-right: 1em;
   padding-bottom: 1em;
 }
 body.page-formbuilder .custom-options .custom-option input[type=text].option-key {
-  width: 45%;
+  width: 42%;
 }
 body.page-formbuilder .custom-options .custom-option input[type=text].option-val {
-  width: 45%;
+  width: 42%;
 }
 body.page-formbuilder .custom-options .custom-option .remove {
   display: inline-block !important;
@@ -811,6 +811,12 @@ body.page-orm .edit .product-variants-table .column td.no-result {
 body.page-orm .edit .product-variants-table .column td:not(:first-child) {
   padding-left: 0;
 }
+body.page-orm .edit .product-variants-table .column td:not(:first-child).out-of-stock {
+  color: red;
+}
+body.page-orm .edit .product-variants-table .column td:not(:first-child).low-stock {
+  color: orange;
+}
 body.page-orm .edit .versions__restore {
   text-decoration: underline;
 }
@@ -864,6 +870,18 @@ body.page-orm .orm-fm {
 body.page-orm .orm-fm .addForm {
   top: 1.5em;
   right: 2em;
+}
+body.page-orms-product .edit .button.search {
+  background: gray;
+}
+body.page-orms-product .table .out-of-stock {
+  color: red;
+}
+body.page-orms-product .table .low-stock {
+  color: orange;
+}
+body.page-orms-product .table .disabled-variants {
+  color: lightgrey;
 }
 body .jstree-anchor {
   display: inline-block;

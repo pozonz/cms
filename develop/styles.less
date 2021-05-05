@@ -25,18 +25,18 @@ body {
       padding-bottom: 5em;
 
       .custom-option {
-        max-width: 50%;
+        max-width: 42%;
         float: left;
         padding-right: 1em;
         padding-bottom: 1em;
 
         input[type=text] {
           &.option-key {
-            width: 45%;
+            width: 42%;
           }
 
           &.option-val {
-            width: 45%;
+            width: 42%;
           }
         }
 
@@ -1040,6 +1040,14 @@ body {
 
           td:not(:first-child) {
             padding-left: 0;
+
+            &.out-of-stock {
+              color: red;
+            }
+
+            &.low-stock {
+              color: orange;
+            }
           }
         }
       }
@@ -1120,6 +1128,30 @@ body {
     }
   }
 
+  &.page-orms-product {
+    .edit {
+      .button {
+        &.search {
+          background: gray;
+        }
+      }
+    }
+
+    .table {
+      .out-of-stock {
+        color: red;
+      }
+
+      .low-stock {
+        color: orange;
+      }
+
+      .disabled-variants {
+        color: lightgrey;
+      }
+    }
+  }
+
   .jstree-anchor {
     display: inline-block;
     color: black;
@@ -1193,7 +1225,6 @@ body {
     }
   }
 
-
   .jstree-open {
     .jstree-themeicon {
       &:before {
@@ -1209,7 +1240,6 @@ body {
       }
     }
   }
-
 
   .jstree-closed {
     .jstree-themeicon {
@@ -1259,7 +1289,6 @@ body {
 .jstree-er {
 
 }
-
 
 .ui-sortable-helper {
   opacity: .6;
