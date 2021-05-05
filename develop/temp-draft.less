@@ -1,0 +1,100 @@
+@links: #4087F1;
+.page-orm {
+
+  .version-container {
+    margin-top: 1.5em;
+
+    .versions {
+      margin-top: 0 !important;
+    }
+  }
+
+  .submit-area {
+    .preview {
+      margin-bottom: 1em;
+
+      .draft {
+        .submit-area & {
+          &.button {
+            background: none;
+            &:hover, &:focus {
+              background: none;
+            }
+          }
+        }
+
+        &.button {
+          max-width: 12em !important;
+          position: relative;
+          background: none;
+          color: @links;
+          font-weight: 400;
+          padding-left: 2.3em;
+          margin-bottom: .5em;
+
+          &:before {
+            content: '';
+            position: absolute;
+            top: ~'calc(50% - .5em)';
+            left: 0;
+            height: 1.2em;
+            width: 1.8em;
+            background: url(/cms/images/icon-asset-crop.png) no-repeat scroll center center;
+
+          }
+
+          &:after {
+            content: '';
+            position: absolute;
+            left: 2.3em;
+            bottom: .75em;
+            height: 1px;
+            width: ~'calc(100% - 4.1em)';
+            background: @links;
+          }
+        }
+      }
+    }
+
+    .enabled-status {
+      flex-basis: 100%;
+      min-width: 100%;
+      display: block;
+
+      #submit_area_orm_status, #sidebar_submit_area_orm_status {
+        div {
+          display: inline-block;
+        }
+      }
+    }
+
+    .submit-buttons {
+      &.submit-buttons-bottom {
+        flex-basis: 100%;
+        min-width: 100%;
+        display: block;
+      }
+
+      .cancel {
+        background-color: transparent !important;
+        color: #999 !important;
+      }
+
+      .restore {
+        border: 2px solid #4087F1;
+        color: #4087F1;
+        background-color: transparent !important;
+      }
+
+      .update {
+        border: 2px solid #4BB174;
+        color: #4BB174;
+        background-color: transparent !important;
+      }
+
+      .save {
+        background-color: #4BB174;
+      }
+    }
+  }
+}

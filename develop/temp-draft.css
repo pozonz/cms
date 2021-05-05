@@ -1,0 +1,75 @@
+.page-orm .version-container {
+  margin-top: 1.5em;
+}
+.page-orm .version-container .versions {
+  margin-top: 0 !important;
+}
+.page-orm .submit-area .preview {
+  margin-bottom: 1em;
+}
+.submit-area .page-orm .submit-area .preview .draft.button {
+  background: none;
+}
+.submit-area .page-orm .submit-area .preview .draft.button:hover,
+.submit-area .page-orm .submit-area .preview .draft.button:focus {
+  background: none;
+}
+.page-orm .submit-area .preview .draft.button {
+  max-width: 12em !important;
+  position: relative;
+  background: none;
+  color: #4087F1;
+  font-weight: 400;
+  padding-left: 2.3em;
+  margin-bottom: 0.5em;
+}
+.page-orm .submit-area .preview .draft.button:before {
+  content: '';
+  position: absolute;
+  top: calc(50% - .5em);
+  left: 0;
+  height: 1.2em;
+  width: 1.8em;
+  background: url(/cms/images/icon-asset-crop.png) no-repeat scroll center center;
+}
+.page-orm .submit-area .preview .draft.button:after {
+  content: '';
+  position: absolute;
+  left: 2.3em;
+  bottom: 0.75em;
+  height: 1px;
+  width: calc(100% - 4.1em);
+  background: #4087F1;
+}
+.page-orm .submit-area .enabled-status {
+  flex-basis: 100%;
+  min-width: 100%;
+  display: block;
+}
+.page-orm .submit-area .enabled-status #submit_area_orm_status div,
+.page-orm .submit-area .enabled-status #sidebar_submit_area_orm_status div {
+  display: inline-block;
+}
+.page-orm .submit-area .submit-buttons.submit-buttons-bottom {
+  flex-basis: 100%;
+  min-width: 100%;
+  display: block;
+}
+.page-orm .submit-area .submit-buttons .cancel {
+  background-color: transparent !important;
+  color: #999 !important;
+}
+.page-orm .submit-area .submit-buttons .restore {
+  border: 2px solid #4087F1;
+  color: #4087F1;
+  background-color: transparent !important;
+}
+.page-orm .submit-area .submit-buttons .update {
+  border: 2px solid #4BB174;
+  color: #4BB174;
+  background-color: transparent !important;
+}
+.page-orm .submit-area .submit-buttons .save {
+  background-color: #4BB174;
+}
+/*# sourceMappingURL=temp-draft.css.map */

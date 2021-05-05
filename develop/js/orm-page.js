@@ -58,9 +58,13 @@ function setByPageType() {
                 $(itm).show();
             }
         });
-        $('.sidebarorm_content').hide();
-        $('.preview').hide();
-        $('.js-version-container').hide();
+        $('.js-article-version-list').hide();
+        // $('.sidebarorm_content').hide();
+        $('.js-orm-preview').hide();
+        $('.js-orm-draft').hide();
+        $('.sidebarorm_content').find('.panel-heading').hide();
+        $('.sidebarorm_content').find('.panel-body').hide();
+        // $('.js-version-container').hide();
         $('hr').hide();
 
         $('#orm_redirectTo').closest('.formStyle').show();
@@ -68,9 +72,13 @@ function setByPageType() {
         $.each($('.formStyle '), function (idx, itm) {
             $(itm).show();
         });
-        $('.sidebarorm_content').show();
-        $('.preview').show();
-        $('.js-version-container').show();
+        $('.js-article-version-list').show();
+        // $('.sidebarorm_content').show();
+        $('.js-orm-preview').show();
+        $('.js-orm-draft').show();
+        $('.sidebarorm_content').find('.panel-heading').show();
+        $('.sidebarorm_content').find('.panel-body').show();
+        // $('.js-version-container').show();
         $('hr').show();
 
         $('#orm_redirectTo').closest('.formStyle').hide();
