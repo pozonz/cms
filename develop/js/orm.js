@@ -1241,8 +1241,8 @@ function render_sidebar(dataId, template_sidebar, dataValue) {
         }
 
         dataValue = result;
-        render_content();
-        assemble();
+//        render_content();
+//        assemble();
 
     });
     $('.sidebar' + dataId + ' .jstree').on("select_node.jstree", function (e, data) {
