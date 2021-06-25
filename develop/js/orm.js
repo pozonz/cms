@@ -1210,7 +1210,7 @@ $(function () {
                 dataValue = result;
                 console.log(dataValue);
                 render_content();
-                // assemble();
+                assemble();
 
             });
             $('.sidebar' + dataId + ' .jstree').on("select_node.jstree", function (e, data) {
@@ -1348,6 +1348,26 @@ function render_sidebar_justforsave(dataId, template_sidebar) {
         } else {
             $('.sidebar' + dataId).css('top', '200px');
         }
+    });
+
+    $('.sidebar' + dataId).find('.js-sidebar-preview-area .js-orm-preview').click(function () {
+        $('form').find('.preview').click();
+    });
+
+    $('.sidebar' + dataId).find('.js-submit-area-sidebar .update').click(function () {
+        $('form').find('.update').click();
+    });
+
+    $('.sidebar' + dataId).find('.js-submit-area-sidebar .restore').click(function () {
+        $('form').find('.restore').click();
+    });
+
+    $('.sidebar' + dataId).find('.js-submit-area-sidebar .js-orm-draft').click(function () {
+        $('form').find('.draft').click();
+    });
+
+    $('.sidebar' + dataId).find('.js-submit-area-sidebar [value=Apply]').click(function () {
+        $('form').find('[value=Apply]').click();
     });
 };
 
