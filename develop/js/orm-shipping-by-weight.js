@@ -8,7 +8,7 @@ $(function () {
         $('#orm_shippingCostRates').val(JSON.stringify(jsonValue));
     }
 
-    $(document).on('change', '#orm_title', function (idx, itm) {
+    $(document).on('change', '#orm_country', function (idx, itm) {
         getRegions();
     });
 
@@ -113,7 +113,7 @@ function getRegions() {
     $.ajax({
         type: 'GET',
         url: '/manage/rest/shipping/regions',
-        data: 'zone=' + $('#orm_title').val(),
+        data: 'zone=' + $('#orm_country').val(),
         success: function (data) {
             window._regions = data;
             renderRates();

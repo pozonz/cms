@@ -15,6 +15,14 @@ $(function () {
             'typeof':   function(l,r) { return typeof l == r; }
         }
 
+        if (!isNaN(lvalue)) {
+            lvalue = parseFloat(lvalue, 10);
+        }
+
+        if (!isNaN(rvalue)) {
+            rvalue = parseFloat(rvalue, 10);
+        }
+
         if (!operators[operator])
             throw new Error("Handlerbars Helper 'compare' doesn't know the operator "+operator);
 

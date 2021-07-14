@@ -624,9 +624,9 @@ $(function () {
         });
 
         var plugInType = $('#var_wysiwyg_no_image_video_buttons').val();
-        var plugins = ['filePicker', 'imagePicker', 'video', 'table'];
-        if (plugInType == 1) {
-            plugins = ['table', 'line'];
+        var plugins = ['counter', 'table', 'line'];
+        if (plugInType != 1) {
+            plugins = plugins.concat(['filePicker', 'imagePicker', 'video']);
         }
         $(container).find('.wysiwyg textarea').redactor({
             buttonsAdd: ['line'],
