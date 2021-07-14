@@ -308,6 +308,7 @@ $(function () {
                     $(itm).find('.js-asset-change').show();
                 }
             };
+
             if (typeof window._File[elemId] !== 'undefined') {
                 renderFile();
             } else {
@@ -327,10 +328,15 @@ $(function () {
                     widgetContainer.data('height', ormInfo.data('height'));
                     widgetContainer.find('.js-asset-delete').show();
                     widgetContainer.find('.js-cropping-options').show();
+                    window._File[widgetContainer.find('.js-fileId').attr('id')] = {
+                        id: ormInfo.data('id'),
+                        code: ormInfo.data('code'),
+                        width: ormInfo.data('width'),
+                        height: ormInfo.data('height'),
+                    };
                     if (callback) {
                         callback();
                     }
-                    ;
                     $.fancybox.close();
                 };
                 var ormInfo = $(this).closest('.js-orm-info');
@@ -343,10 +349,10 @@ $(function () {
                 widgetContainer.find('.js-filePickFile').attr('src', '/cms/images/spacer.gif');
                 widgetContainer.find('.js-asset-delete').hide();
                 widgetContainer.find('.js-cropping-options').hide();
+                window._File[widgetContainer.find('.js-fileId').attr('id')] = {};
                 if (callback) {
                     callback();
                 }
-                ;
                 return false;
             });
         });
@@ -692,6 +698,34 @@ $(function () {
                 })
             }
         }
+
+        //assemble all data
+        var assemble = function () {
+            var blocks = [];
+            for (var idx in dataValue) {
+                var itm = dataValue[idx];
+                blocks = blocks.concat(itm.blocks);
+            }
+
+            $.each($('#' + dataId + '_container .js-section'), function (idx, itm) {
+                var section = getById(dataValue, $(itm).data('id'));
+                section.blocks = [];
+                $.each($(itm).find('.js-block'), function (idxBlk, itmBlk) {
+                    var block = getById(blocks, $(itmBlk).data('id'));
+                    if (block) {
+                        $.each($(itmBlk).find('.js-elem'), function (idxElem, itmElem) {
+                            if ($(itmElem).attr('type') == 'checkbox') {
+                                block.values[$(itmElem).data('id')] = $(itmElem).is(':checked') ? 1 : 0;
+                            } else {
+                                block.values[$(itmElem).data('id')] = $(itmElem).val();
+                            }
+                        });
+                        section.blocks.push(block)
+                    }
+                });
+            });
+            $('#' + dataId).val(cleanString(dataValue));
+        };
 
         for (var idx in dataBlocks) {
             var itm = dataBlocks[idx];
@@ -1243,34 +1277,6 @@ $(function () {
             // $('.sidebar' + dataId).find('.js-submit-area-sidebar [value=Save]').click(function () {
             //     $('form').find('[value=Save]').click();
             // });
-        };
-
-        //assemble all data
-        var assemble = function () {
-            var blocks = [];
-            for (var idx in dataValue) {
-                var itm = dataValue[idx];
-                blocks = blocks.concat(itm.blocks);
-            }
-
-            $.each($('#' + dataId + '_container .js-section'), function (idx, itm) {
-                var section = getById(dataValue, $(itm).data('id'));
-                section.blocks = [];
-                $.each($(itm).find('.js-block'), function (idxBlk, itmBlk) {
-                    var block = getById(blocks, $(itmBlk).data('id'));
-                    if (block) {
-                        $.each($(itmBlk).find('.js-elem'), function (idxElem, itmElem) {
-                            if ($(itmElem).attr('type') == 'checkbox') {
-                                block.values[$(itmElem).data('id')] = $(itmElem).is(':checked') ? 1 : 0;
-                            } else {
-                                block.values[$(itmElem).data('id')] = $(itmElem).val();
-                            }
-                        });
-                        section.blocks.push(block)
-                    }
-                });
-            });
-            $('#' + dataId).val(cleanString(dataValue));
         };
 
         render();
