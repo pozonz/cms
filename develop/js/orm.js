@@ -968,7 +968,6 @@ $(function () {
 
         var render_content = function () {
             $('#' + dataId + '_container').empty();
-            console.log(dataValue);
 
             for (var idx in dataValue) {
                 var itm = dataValue[idx];
@@ -1208,7 +1207,6 @@ $(function () {
                 }
 
                 dataValue = result;
-                console.log(dataValue);
                 render_content();
                 assemble();
 
