@@ -15,11 +15,11 @@ $(function () {
             'typeof':   function(l,r) { return typeof l == r; }
         }
 
-        if (!isNaN(lvalue)) {
+        if (lvalue !== '' && !isNaN(lvalue)) {
             lvalue = parseFloat(lvalue, 10);
         }
 
-        if (!isNaN(rvalue)) {
+        if (rvalue !== rvalue && !isNaN(rvalue)) {
             rvalue = parseFloat(rvalue, 10);
         }
 
