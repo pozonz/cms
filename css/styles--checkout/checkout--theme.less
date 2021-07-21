@@ -1,0 +1,76 @@
+body {
+	@media(min-width: 100em) {
+		font-size: 1.0625rem;
+	}
+}
+
+.checkout-step__label {
+	font-weight: @weight-medium;
+	color: @color-body;
+	opacity: 0.32;
+	&.active {
+		opacity: 1;
+	}
+}
+
+.checkout-heading--page,
+.checkout-heading--section {
+	font-family: @font-headings;
+	font-weight: @weight-regular;
+}
+
+.checkout-heading--section--small {
+	font-family: @font-body;
+	text-transform: uppercase;
+	font-size: 1em;
+	font-weight: @weight-medium;
+}
+
+
+.checkout-button {
+	font-family: @font-headings;
+	font-size: 1.4375rem;
+	padding: 1rem 2rem;
+	min-height: 4rem;
+}
+
+.checkout-aside__product-img__wrap {
+	border: 1px solid fade(@color-body, 16%);
+}
+
+.checkout-aside__promo-submit {
+	font-family: @font-body;
+	font-size: 0.75rem;
+	font-weight: @weight-bold;
+}
+
+.checkout-aside__total--large {
+	font-family: @font-headings;
+	font-weight: @weight-regular;
+}
+
+.checkout-data-row {
+	& + & {
+
+	}
+}
+
+.checkout-data-row__inner {
+	box-shadow: inset 0 0 0 1px tint(@color-body, 84%);
+}
+
+.stripe.checkout-data-row {
+	form {
+		width: 100%;
+		min-width: 100%;
+	}
+}
+
+.checkout-data-row__finance-img {
+	vertical-align: text-top;
+	margin-left: 0.25em;
+}
+
+.formValidationError {
+	font-style: normal;
+}

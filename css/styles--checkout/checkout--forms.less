@@ -1,0 +1,173 @@
+/*-----------------------------------------------------------------------------------------
+	/Global
+-----------------------------------------------------------------------------------------*/
+@field-padding: 1.05rem 1.5rem;
+
+.checkout-field {
+    padding: 0;
+    margin: 0 0 1.5rem;
+    border: none;
+    position: relative;
+}
+.checkout-fields--has-gutters {
+    margin-left: -1rem;
+}
+.checkout-field--has-gutter {
+    padding-left: 1rem;
+}
+.checkout-input--text,
+.checkout-select,
+.checkout-textarea {
+    border: 1px solid fade(@color-body,20%);
+    background: @color-grey--5;
+    color: @color-body;
+    padding: @field-padding;
+    border-radius: 4px;
+    width: 100%;
+	transition:
+        background-color .2s ease-in-out,
+        border .2s ease-in-out,
+        box-shadow .2s ease-in-out,
+        color .2s;
+    appearance: none;
+    font-family: @font-body;
+    outline: none;
+}
+.checkout-input--text:hover,
+.checkout-textarea:hover,
+.checkout-select:hover {
+    border-color: @color-body;
+    outline: none;
+}
+.checkout-input--text:focus,
+.checkout-textarea:focus,
+.checkout-select:focus {
+    border-color: @color-body;
+    box-shadow: 0 13px 10px -10px rgba(0, 0, 0, 0.2);
+}
+legend {
+    margin-bottom: 1rem;
+}
+
+
+/*-----------------------------------------------------------------------------------------
+	/Select
+-----------------------------------------------------------------------------------------*/
+select {
+	height: auto;
+    appearance: none;
+    -webkit-appearance: none;
+	cursor: pointer;
+}
+.checkout-select-wrap {
+	position: relative;
+
+	&:before {
+        content: "";
+		background: url('/images-checkout/icon--select.svg') no-repeat;
+		position: absolute;
+        width: 13px;
+        height: 9px;
+		right: 1.4rem;
+		top: 50%;
+        margin-top: -3.5px;
+		pointer-events: none;
+		transition: opacity .2s ease-in-out;
+	}
+}
+select:hover,
+select:focus {
+    outline: none;
+}
+select::-ms-expand {
+    display: none;
+}
+option:focus {
+	// outline: none;
+}
+option {
+	color: @color-body;
+}
+
+
+/*-----------------------------------------------------------------------------------------
+	/Textarea
+-----------------------------------------------------------------------------------------*/
+textarea {
+    height: 9.5em;
+}
+
+
+/*-----------------------------------------------------------------------------------------
+	/Labels
+-----------------------------------------------------------------------------------------*/
+.checkout-label {
+    display: block;
+    margin-bottom: .5rem;
+}
+.checkout-label__small {
+    font-size: .9em;
+    opacity: .5;
+    display: block;
+
+    @media(min-width: @mq-m) {
+        display: inline;
+    }
+}
+
+
+/*-----------------------------------------------------------------------------------------
+	/Validation
+-----------------------------------------------------------------------------------------*/
+.validationErrors {
+    .list-reset;
+}
+.formValidationError {
+    background: @color-red;
+    font-weight: @weight-medium;
+    color: #fff;
+    line-height: normal;
+    font-size: 0.9rem;
+    overflow: hidden;
+    width: auto;
+    position: relative;
+    padding: 0.4em 0.8em;
+    display: inline-block;
+    border-radius: 0 0 3px 3px;
+    font-style: italic;
+
+    .field--checkbox &,
+    .field--choice & {
+        border-radius: 3px;
+    }
+    .field--radio-toggle & {
+        margin: .8rem 0 0;
+        border-radius: 3px;
+    }
+}
+
+
+/*-----------------------------------------------------------------------------------------
+	/Checkboxes,radios
+-----------------------------------------------------------------------------------------*/
+input[type=radio],
+input[type=checkbox] {
+    margin-left: 0;
+}
+.field--choice {
+    .checkbox-item {
+        display: flex;
+
+        @media(min-width: 31.25em) {
+            display: inline-flex;
+            margin-right: 1.5em;
+        }
+    }
+}
+.field-choice-item__label {
+    cursor: pointer;
+}
+.field-choice-item--inline {
+    display: inline-block;
+    margin: 0 0.9em 0 0;
+}
