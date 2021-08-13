@@ -73,7 +73,7 @@ function getVariants() {
     $('.js-product-variants-table').find('tbody').remove();
     $('.js-product-variants-table').append('<tbody><tr class="column"><td colspan="8"><img src="/cms/images/spinner.gif"></td></tr></tbody>');
 
-    var productVariantListItem = Handlebars.compile($('#product-variant-list-item').html());
+    var productVariantListItem = Handlebars.templates['orm-custom-productvariant.tr'];
 
     $.ajax({
         type: 'GET',

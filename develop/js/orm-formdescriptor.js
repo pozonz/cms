@@ -125,7 +125,7 @@ function repaint() {
 };
 
 function repaint_add(itm, idx) {
-    var template = Handlebars.compile(window._formbuilder);
+    var template = window._formbuilder;
     $('#' + window.formFieldsId + '_formbuilder').append(template({
         widgets: window._formWidgets,
         itm: itm,
@@ -142,7 +142,7 @@ function repaint_add(itm, idx) {
 };
 
 function repaint_update(itm, idx) {
-    var template = Handlebars.compile(window._formbuilder);
+    var template = window._formbuilder;
     $('#' + window.formFieldsId + '_formbuilder').find('.js-row-' + idx).replaceWith(template({
         widgets: window._formWidgets,
         itm: itm,
