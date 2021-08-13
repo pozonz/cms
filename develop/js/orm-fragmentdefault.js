@@ -1,5 +1,5 @@
 $(function() {
-    window._template = Handlebars.compile($("#row").html());;
+    window._template = Handlebars.templates['orm-custom-fragmentdefault.tr'];
     $('#add').click(function () {
         try {
             var data = JSON.parse($('#orm_content').val());
