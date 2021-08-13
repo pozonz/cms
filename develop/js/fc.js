@@ -6,7 +6,7 @@ fc = {
         window._fcCallback = null;
 
         //Setup image crop
-        var template_crop_image = Handlebars.templates['base.crop-image'];//Handlebars.compile($('#crop-image').html());
+        var template_crop_image = Handlebars.templates['base.crop-image'];
         $(document).on('click', '.js-cropping-options', function () {
             var ormInfo = $(this).closest('.js-orm-info');
             $('#crop-image-modal').html(template_crop_image({

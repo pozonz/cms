@@ -1,6 +1,6 @@
 $(function() {
     window.formFieldsId = 'orm_formFields';
-    window._formbuilder = $("#formbuilder-source").html();
+    window._formbuilder = Handlbars.templates['orm-custom-formdescriptor.tr'];
 
     $(document).on('keydown', '#' + window.formFieldsId + '_formbuilder .form-control', function(ev) {
         if(ev.keyCode == 13) {
