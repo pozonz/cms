@@ -24,12 +24,12 @@ fm = {
         fm.attributeName = options.attributeName;
         fm.ormId = options.ormId;
 
-        fm.templateLoading = Handlebars.compile($("#loading").html());
-        fm.templateFolder = Handlebars.compile($("#folder").html());
-        fm.templateFile = Handlebars.compile($("#file").html());
-        fm.templateFiles = Handlebars.compile($("#files").html());
-        fm.templateNav = Handlebars.compile($("#nav").html());
-        fm.templateProgress = Handlebars.compile($("#file-progress").html());
+        fm.templateLoading = Handlebars.templates['loading'];
+        fm.templateFolder = Handlebars.templates['fm-folders'];
+        fm.templateFile = Handlebars.templates['fm-file'];
+        fm.templateFiles = Handlebars.templates['fm-files']
+        fm.templateNav = Handlebars.templates['fm-nav'];
+        fm.templateProgress = Handlebars.templates['fm-file-progress'];
 
         fm.ajaxFile = null;
         fm.ajaxFolder = null;
@@ -322,6 +322,7 @@ fm = {
     },
 
     renderFolders: function () {
+
         $('#js-folders').html(fm.templateFolder({
             keyword: fm.keyword,
         }));
@@ -372,6 +373,7 @@ fm = {
     },
 
     renderFiles: function () {
+
         $('#js-files').html(fm.templateFiles({
             showUploadButton: fm.keyword ? 0 : 1,
         }));

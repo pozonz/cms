@@ -669,7 +669,7 @@ $(function () {
                 },
             }).done(function (msg) {
                 if (msg.id) {
-                    var template_crop_image = Handlebars.compile($('#crop-image-redactor').html());
+                    var template_crop_image = Handlebars.templates['base.crop-image-redactor'];
                     $('#crop-image-modal').html(template_crop_image({
                         code: msg.id,
                         width: msg.width,
@@ -713,7 +713,7 @@ $(function () {
                         $(current).addClass(imageData.align);
 
                         $(current).html('<h2>fdafsd</h2>');
-                        var template_image = Handlebars.compile($('#crop-image-redactor-img-with-figure').html());
+                        var template_image = Handlebars.templates['base.crop-image-redactor-img-with-figure'];
                         $(current).html(template_image(imageData))
                         $.fancybox.close();
                     });

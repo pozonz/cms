@@ -1,24 +1,4 @@
 $(function() {
-    window._fieldSource = $("#field-source").html();
-
-    // $('#model_dataType').on('change', function (ev) {
-    //     if ($(this).val() == 0) {
-    //         $('.js-model-data-group').fadeIn(400, function () {
-    //             $('.js-choice_multi_json').chosen({
-    //                 allow_single_deselect: true
-    //             });
-    //         });
-    //     } else {
-    //         $('.js-model-data-group').hide();
-    //     }
-    // });
-    // if ($('#model_dataType').val() == 0) {
-    //     $('.js-model-data-group').fadeIn(400, function () {
-    //         $('.js-choice_multi_json').chosen({
-    //             allow_single_deselect: true
-    //         });
-    //     });
-    // }
 
     $('.js-choice_multi_json').chosen({
         allow_single_deselect: true
@@ -38,7 +18,7 @@ $(function() {
     }
 
     $(document).on('change', '#fields', function (ev) {
-        var template = Handlebars.compile(_fieldSource);
+        var template = Handlebars.templates['model.tr'];
         $('#columns').append(template({
             itm: {
                 id: 'z' + new Date().getTime(),
@@ -159,7 +139,7 @@ function renderFields() {
 function renderColumns() {
     for (var idx in _columns) {
         var itm = _columns[idx];
-        var template = Handlebars.compile(_fieldSource);
+        var template = Handlebars.templates['model.tr'];
         $('#columns').append(template({
             itm: itm,
             widgets: _widgets,

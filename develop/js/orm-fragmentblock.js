@@ -1,5 +1,5 @@
 $(function() {
-    window._template = Handlebars.compile($("#row").html());;
+    window._template = Handlebars.compile($("#row").html());
     $('#add').click(function () {
         try {
             var data = JSON.parse($('#orm_items').val());
