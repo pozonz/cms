@@ -1,639 +1,153 @@
 {
-"AAInfo": "This is a CodeKit 3 project config file. EDITING THIS FILE IS A POOR LIFE DECISION. Doing so may cause CodeKit to crash and/or corrupt your project. Several critical values in this file are 64-bit integers, which JavaScript JSON parsers do not support because JavaScript cannot handle 64-bit integers. These values will be corrupted if the file is parsed with JavaScript. This file is not backwards-compatible with CodeKit 1 or 2. For details, see https://codekitapp.com/",
+"AAInfo": "This is a CodeKit 3 project config file. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. Doing so will cause CodeKit to crash and/or corrupt your project. I know it looks like JSON, but it is *not*. Many numbers in this file are 64-bit long long bitFlags, which JSON does not support. These numbers *cannot* be treated as discrete values and if you attempt to parse this file as standard JSON with any public JSON parser, these values will be corrupted. This file is not backwards-compatible with CodeKit 1 or 2. For more information, see https://codekitapp.com/",
 "buildSteps": [
 	{
 		"name": "Process All Remaining Files and Folders",
 		"stepType": 1,
-		"uuidString": "1CE1B734-20CE-43D7-BE48-F5E06D04A435"
+		"uuidString": "14E43AFF-0EA0-46AA-B00D-CC20C150791B"
 		}
 	],
-"creatorBuild": "33081",
+"creatorBuild": "32186",
 "files": {
-	"/checkout.css": {
+	"/checkout--base.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/checkout--base.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
+	"/checkout--buttons.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/checkout--buttons.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
+	"/checkout--components.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/checkout--components.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
+	"/checkout--forms.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/checkout--forms.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
+	"/checkout--lib.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/checkout--lib.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
+	"/checkout--reset.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/checkout--reset.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
+	"/checkout--stripe.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/checkout--stripe.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
+	"/checkout--theme.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/checkout--theme.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
+	"/checkout.less": {
 		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/checkout-min.css",
-		"oF": 0,
-		"oS": 3
-		},
-	"/chosen-sprite.png": {
-		"ft": 32768,
-		"iS": 646,
-		"oA": 1,
-		"oAP": "/chosen-sprite.png",
-		"oF": 1,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/chosen-sprite@2x.png": {
-		"ft": 32768,
-		"iS": 872,
-		"oA": 1,
-		"oAP": "/chosen-sprite@2x.png",
-		"oF": 1,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/chosen.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/chosen-min.css",
-		"oF": 0,
-		"oS": 3
-		},
-	"/chosen.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/chosen.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/cms-min.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/cms-min-min.css",
-		"oF": 0,
-		"oS": 3
-		},
-	"/cms.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/cms-min.css",
-		"oF": 0,
-		"oS": 3
-		},
-	"/dropzone.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "/dropzone-min.css",
-		"oF": 1,
-		"oS": 3
-		},
-	"/ie.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/ie.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/image-cropper.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/image-cropper.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/jquery.Jcrop.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "/jquery.Jcrop-min.css",
-		"oF": 1,
-		"oS": 3
-		},
-	"/modal.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/modal.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/originate.form.builder.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "/originate.form.builder-min.css",
-		"oF": 1,
-		"oS": 3
-		},
-	"/page-specific.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/page-specific.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/print.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/print.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/redactor-extend.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/redactor-extend.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/redactor.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/redactor.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/reset.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/reset.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/smoothness/images/animated-overlay.gif": {
-		"ft": 4194304,
-		"iS": 1738,
-		"oA": 0,
-		"oAP": "/smoothness/images/animated-overlay.gif",
-		"oF": 0,
-		"opt": 0,
-		"ou": "lpckwebp-none",
-		"rq": 75
-		},
-	"/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png": {
-		"ft": 32768,
-		"iS": 212,
-		"oA": 0,
-		"oAP": "/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/smoothness/images/ui-bg_flat_100_3c3c3c_40x100.png": {
-		"ft": 32768,
-		"iS": 230,
-		"oA": 0,
-		"oAP": "/smoothness/images/ui-bg_flat_100_3c3c3c_40x100.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/smoothness/images/ui-bg_flat_100_85AF1E_40x100.png": {
-		"ft": 32768,
-		"iS": 206,
-		"oA": 0,
-		"oAP": "/smoothness/images/ui-bg_flat_100_85AF1E_40x100.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/smoothness/images/ui-bg_flat_100_ccc_40x100.png": {
-		"ft": 32768,
-		"iS": 220,
-		"oA": 0,
-		"oAP": "/smoothness/images/ui-bg_flat_100_ccc_40x100.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/smoothness/images/ui-bg_flat_100_DAE3C4_40x100.png": {
-		"ft": 32768,
-		"iS": 206,
-		"oA": 0,
-		"oAP": "/smoothness/images/ui-bg_flat_100_DAE3C4_40x100.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/smoothness/images/ui-bg_flat_100_e5e5e5_40x100.png": {
-		"ft": 32768,
-		"iS": 230,
-		"oA": 0,
-		"oAP": "/smoothness/images/ui-bg_flat_100_e5e5e5_40x100.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/smoothness/images/ui-bg_flat_100_EECAC1_40x100.png": {
-		"ft": 32768,
-		"iS": 206,
-		"oA": 0,
-		"oAP": "/smoothness/images/ui-bg_flat_100_EECAC1_40x100.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/smoothness/images/ui-bg_flat_100_ffffff_40x100.png": {
-		"ft": 32768,
-		"iS": 208,
-		"oA": 0,
-		"oAP": "/smoothness/images/ui-bg_flat_100_ffffff_40x100.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/smoothness/images/ui-bg_flat_65_85AF1E_40x100.png": {
-		"ft": 32768,
-		"iS": 206,
-		"oA": 0,
-		"oAP": "/smoothness/images/ui-bg_flat_65_85AF1E_40x100.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/smoothness/images/ui-icons_333333_256x240.png": {
-		"ft": 32768,
-		"iS": 6975,
-		"oA": 0,
-		"oAP": "/smoothness/images/ui-icons_333333_256x240.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/smoothness/images/ui-icons_333_256x240.png": {
-		"ft": 32768,
-		"iS": 6975,
-		"oA": 0,
-		"oAP": "/smoothness/images/ui-icons_333_256x240.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/smoothness/images/ui-icons_839F41_256x240.png": {
-		"ft": 32768,
-		"iS": 4549,
-		"oA": 0,
-		"oAP": "/smoothness/images/ui-icons_839F41_256x240.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/smoothness/images/ui-icons_D52800_256x240.png": {
-		"ft": 32768,
-		"iS": 4549,
-		"oA": 0,
-		"oAP": "/smoothness/images/ui-icons_D52800_256x240.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/smoothness/images/ui-icons_fff_256x240.png": {
-		"ft": 32768,
-		"iS": 6299,
-		"oA": 0,
-		"oAP": "/smoothness/images/ui-icons_fff_256x240.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"ou": "lpckwebp-none",
-		"q": 100,
-		"rq": 75
-		},
-	"/smoothness/jquery-ui-1.10.3.custom.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "/smoothness/jquery-ui-1.10.3.custom-min.css",
-		"oF": 0,
-		"oS": 3
-		},
-	"/smoothness/jquery-ui-1.10.3.custom.min.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/smoothness/jquery-ui-1.10.3.custom.min-min.css",
-		"oF": 0,
-		"oS": 3
-		},
-	"/styles--checkout/checkout--base.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/styles--checkout/checkout--base.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/styles--checkout/checkout--buttons.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/styles--checkout/checkout--buttons.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/styles--checkout/checkout--components.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/styles--checkout/checkout--components.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/styles--checkout/checkout--forms.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/styles--checkout/checkout--forms.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/styles--checkout/checkout--lib.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/styles--checkout/checkout--lib.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/styles--checkout/checkout--reset.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/styles--checkout/checkout--reset.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/styles--checkout/checkout--stripe.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/styles--checkout/checkout--stripe.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/styles--checkout/checkout--theme.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/styles--checkout/checkout--theme.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/styles--checkout/checkout.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 0,
-		"oAP": "/styles--checkout/checkout.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/styles.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/styles-min.css",
-		"oF": 0,
-		"oS": 3
-		},
-	"/styles.css.map": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/styles.css.map",
-		"oF": 0
-		},
-	"/styles.less": {
-		"aP": 0,
 		"bl": 0,
 		"eJ": 1,
 		"ft": 1,
 		"iI": 0,
-		"ma": 1,
+		"ma": 0,
 		"mS": 0,
 		"oA": 0,
-		"oAP": "/styles.css",
-		"oF": 0,
+		"oAP": "/Volumes/sites-dev6/demo.dev6.innovanet.co.nz/public/cms/css/checkout.css",
+		"oF": 6,
 		"oS": 1,
 		"rwU": 0,
 		"sI": 0,
@@ -645,16 +159,16 @@
 "manualImportLinks": {
 	},
 "projectAttributes": {
-	"creationDate": 604467182.14388895,
-	"displayValue": "CMS - legacy",
+	"creationDate": 648957591.46399403,
+	"displayValue": "styles--checkout DEMO",
 	"displayValueWasSetByUser": 1,
-	"iconImageName": "meme-angryPicard",
+	"iconImageName": "brackets_magenta",
 	"iconImageWasSetByUser": 0
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
 	"allowInjectionReloads": 1,
-	"alwaysUseExternalServer": 1,
+	"alwaysUseExternalServer": 0,
 	"animateCSSInjections": 1,
 	"autoBuildNewItems": 1,
 	"autoprefixerEnableIEGrid": 0,
@@ -1091,7 +605,7 @@
 	"esLintRules": {
 		"accessor-pairs": {
 			"active": 0,
-			"optionString": "{'setWithoutGet': true, 'getWithoutSet': false}"
+			"optionString": "{'setWithoutGet': true, 'getWithoutSet': false, 'enforceForClassMembers': true}"
 			},
 		"array-bracket-newline": {
 			"active": 0,
@@ -1122,7 +636,8 @@
 			"optionString": "{'before': true, 'after': true}"
 			},
 		"block-scoped-var": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"block-spacing": {
 			"active": 0,
@@ -1138,7 +653,7 @@
 			},
 		"camelcase": {
 			"active": 0,
-			"optionString": "{'properties': 'always', 'ignoreDestructuring': false}"
+			"optionString": "{'properties': 'always', 'ignoreDestructuring': false, 'ignoreImports': false}"
 			},
 		"capitalized-comments": {
 			"active": 0,
@@ -1166,7 +681,7 @@
 			},
 		"computed-property-spacing": {
 			"active": 0,
-			"optionString": "'never'"
+			"optionString": "'never', {'enforceForClassMembers': true}"
 			},
 		"consistent-return": {
 			"active": 0,
@@ -1177,20 +692,24 @@
 			"optionString": "'that'"
 			},
 		"constructor-super": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"curly": {
 			"active": 0,
 			"optionString": "'all'"
 			},
 		"default-case": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"default-case-last": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"default-param-last": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"dot-location": {
 			"active": 0,
@@ -1209,7 +728,8 @@
 			"optionString": "'always', {'null': 'always'}"
 			},
 		"for-direction": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"func-call-spacing": {
 			"active": 0,
@@ -1240,14 +760,16 @@
 			"optionString": "{'allowImplicit': false}"
 			},
 		"global-require": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"grouped-accessor-pairs": {
 			"active": 0,
 			"optionString": "'anyOrder'"
 			},
 		"guard-for-in": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"handle-callback-err": {
 			"active": 0,
@@ -1355,42 +877,51 @@
 			},
 		"new-parens": {
 			"active": 0,
-			"optionString": ""
+			"optionString": "'always'"
 			},
 		"newline-per-chained-call": {
 			"active": 0,
 			"optionString": "{'ignoreChainWithDepth': 2}"
 			},
 		"no-alert": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-array-constructor": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-async-promise-executor": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-await-in-loop": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-bitwise": {
 			"active": 0,
 			"optionString": "{'allow': ['~'], 'int32Hint': true}"
 			},
 		"no-buffer-constructor": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-caller": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-case-declarations": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-class-assign": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-compare-neg-zero": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-cond-assign": {
 			"active": 1,
@@ -1398,108 +929,131 @@
 			},
 		"no-confusing-arrow": {
 			"active": 0,
-			"optionString": "{'allowParens': false}"
+			"optionString": "{'allowParens': true}"
 			},
 		"no-console": {
 			"active": 1,
 			"optionString": "{'allow': ['warn', 'error']}"
 			},
 		"no-const-assign": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-constant-condition": {
 			"active": 1,
 			"optionString": "{'checkLoops': true}"
 			},
 		"no-constructor-return": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-continue": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-control-regex": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-debugger": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-delete-var": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-div-regex": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-dupe-args": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-dupe-class-members": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-dupe-else-if": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-dupe-keys": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-duplicate-imports": {
 			"active": 0,
 			"optionString": "{'includeExports': false}"
 			},
 		"no-else-return": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-empty": {
 			"active": 1,
 			"optionString": "{'allowEmptyCatch': false}"
 			},
 		"no-empty-character-class": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-empty-function": {
 			"active": 0,
 			"optionString": "{'allow': []}"
 			},
 		"no-empty-pattern": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-eq-null": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-eval": {
 			"active": 0,
 			"optionString": "{'allowIndirect': false}"
 			},
 		"no-ex-assign": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-extend-native": {
 			"active": 0,
 			"optionString": "{'exceptions': []}"
 			},
 		"no-extra-bind": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-extra-boolean-cast": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-extra-labels": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-extra-parens": {
 			"active": 0,
-			"optionString": "'all', {'conditionalAssign': false, 'returnAssign': false, 'nestedBinaryExpressions': false, 'ignoreJSX': 'none', 'enforceForArrowConditionals': false}"
+			"optionString": "'all', {'conditionalAssign': false, 'returnAssign': false, 'nestedBinaryExpressions': false, 'ignoreJSX': 'none', 'enforceForArrowConditionals': false, 'enforceForSequenceExpressions': false, 'enforceForNewInMemberExpressions': false}"
 			},
 		"no-extra-semi": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-fallthrough": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-floating-decimal": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-func-assign": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-global-assign": {
 			"active": 1,
@@ -1510,16 +1064,20 @@
 			"optionString": "{'boolean': true, 'number': true, 'string': true, 'allow': []}"
 			},
 		"no-implicit-globals": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-implied-eval": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-import-assign": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-inline-comments": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-inner-declarations": {
 			"active": 1,
@@ -1531,40 +1089,47 @@
 			},
 		"no-invalid-this": {
 			"active": 0,
-			"optionString": ""
+			"optionString": "{'capIsConstructor': true}"
 			},
 		"no-irregular-whitespace": {
 			"active": 1,
 			"optionString": "{'skipStrings': true, 'skipComments': false, 'skipRegExps': true, 'skipTemplates': true}"
 			},
 		"no-iterator": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-label-var": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-labels": {
 			"active": 0,
 			"optionString": "{'allowLoop': false, 'allowSwitch': false}"
 			},
 		"no-lone-blocks": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-lonely-if": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-loop-func": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-loss-of-precision": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-magic-numbers": {
 			"active": 0,
 			"optionString": "{'ignore': [], 'ignoreArrayIndexes': true, 'enforceConst': false, 'detectObjects': false}"
 			},
 		"no-misleading-character-class": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-mixed-operators": {
 			"active": 0,
@@ -1579,84 +1144,100 @@
 			"optionString": ""
 			},
 		"no-multi-assign": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-multi-spaces": {
 			"active": 0,
 			"optionString": "{'exceptions': {'Property': true, 'BinaryExpression': false, 'VariableDeclarator': false, 'ImportDeclaration': false}}"
 			},
 		"no-multi-str": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-multiple-empty-lines": {
 			"active": 0,
 			"optionString": "{'max': 2, 'maxBOF': 2, 'maxEOF': 2}"
 			},
 		"no-negated-condition": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-nested-ternary": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-new": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-new-func": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-new-object": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-new-require": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-new-symbol": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-new-wrappers": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-obj-calls": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-octal": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-octal-escape": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-param-reassign": {
 			"active": 0,
 			"optionString": "{'props': false}"
 			},
 		"no-path-concat": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-plusplus": {
 			"active": 0,
 			"optionString": "{'allowForLoopAfterthoughts': false}"
 			},
 		"no-process-env": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-process-exit": {
-			"active": 0
-			},
-		"no-promise-executor-return": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-proto": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-prototype-builtins": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-redeclare": {
 			"active": 1,
 			"optionString": "{'builtinGlobals': false}"
 			},
 		"no-regex-spaces": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-restricted-exports": {
 			"active": 0,
@@ -1667,7 +1248,8 @@
 			"optionString": "'event', 'fdescribe'"
 			},
 		"no-restricted-imports": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-restricted-modules": {
 			"active": 0,
@@ -1686,33 +1268,40 @@
 			"optionString": "'except-parens'"
 			},
 		"no-return-await": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-script-url": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-self-assign": {
 			"active": 1,
 			"optionString": "{'props': true}"
 			},
 		"no-self-compare": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-sequences": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-setter-return": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-shadow": {
 			"active": 0,
 			"optionString": "{'builtinGlobals': false, 'hoist': 'functions', 'allow': []}"
 			},
 		"no-shadow-restricted-names": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-sparse-arrays": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-sync": {
 			"active": 0,
@@ -1723,16 +1312,20 @@
 			"optionString": "{allowIndentationTabs: false}"
 			},
 		"no-template-curly-in-string": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-ternary": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-this-before-super": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-throw-literal": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-trailing-spaces": {
 			"active": 0,
@@ -1743,45 +1336,48 @@
 			"optionString": "{'typeof': false}"
 			},
 		"no-undef-init": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-undefined": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-underscore-dangle": {
 			"active": 0,
-			"optionString": "{'allow': [], 'allowAfterThis': false, 'allowAfterSuper': false, 'enforceInMethodNames': false}"
+			"optionString": "{'allow': [], 'allowAfterThis': false, 'allowAfterSuper': false, 'allowAfterThisConstructor': false, 'enforceInMethodNames': false}"
 			},
 		"no-unexpected-multiline": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-unmodified-loop-condition": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-unneeded-ternary": {
 			"active": 0,
 			"optionString": "{'defaultAssignment': true}"
 			},
 		"no-unreachable": {
-			"active": 1
-			},
-		"no-unreachable-loop": {
-			"active": 0,
-			"optionString": "{'ignore': []}"
+			"active": 1,
+			"optionString": ""
 			},
 		"no-unsafe-finally": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-unsafe-negation": {
 			"active": 1,
-			"optionString": ""
+			"optionString": "{'enforceForOrderingRelations': false}"
 			},
 		"no-unused-expressions": {
 			"active": 0,
 			"optionString": "{'allowShortCircuit': false, 'allowTernary': false, 'allowTaggedTemplates': false}"
 			},
 		"no-unused-labels": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"no-unused-vars": {
 			"active": 1,
@@ -1792,50 +1388,60 @@
 			"optionString": "{'functions': true, 'classes': true, 'variables': true}"
 			},
 		"no-useless-backreference": {
-			"active": 0
-			},
-		"no-useless-call": {
-			"active": 0
-			},
-		"no-useless-catch": {
-			"active": 0
-			},
-		"no-useless-computed-key": {
 			"active": 0,
 			"optionString": ""
 			},
+		"no-useless-call": {
+			"active": 0,
+			"optionString": ""
+			},
+		"no-useless-catch": {
+			"active": 0,
+			"optionString": ""
+			},
+		"no-useless-computed-key": {
+			"active": 0,
+			"optionString": "{'enforceForClassMembers': false}"
+			},
 		"no-useless-concat": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-useless-constructor": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-useless-escape": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-useless-rename": {
 			"active": 0,
 			"optionString": "{'ignoreDestructuring': false, 'ignoreImport': false, 'ignoreExport': false}"
 			},
 		"no-useless-return": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-var": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-void": {
 			"active": 0,
-			"optionString": ""
+			"optionString": "{'allowAsStatement': false}"
 			},
 		"no-warning-comments": {
 			"active": 0,
 			"optionString": "{'terms': ['todo', 'fixme', 'xxx'], 'location': 'start'}"
 			},
 		"no-whitespace-before-property": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"no-with": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"nonblock-statement-body-position": {
 			"active": 0,
@@ -1882,7 +1488,8 @@
 			"optionString": "{blankLine: 'always', prev:'*', next:'return'}"
 			},
 		"prefer-arrow-callback": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"prefer-const": {
 			"active": 0,
@@ -1893,32 +1500,40 @@
 			"optionString": "{'array': true, 'object': true}, {'enforceForRenamedProperties': false}"
 			},
 		"prefer-exponentiation-operator": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"prefer-named-capture-group": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"prefer-numeric-literals": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"prefer-object-spread": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"prefer-promise-reject-errors": {
 			"active": 0,
 			"optionString": "{'allowEmptyReject': false}"
 			},
 		"prefer-regex-literals": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"prefer-rest-params": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"prefer-spread": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"prefer-template": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"quote-props": {
 			"active": 0,
@@ -1933,20 +1548,24 @@
 			"optionString": "'always'"
 			},
 		"require-atomic-updates": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"require-await": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"require-jsdoc": {
 			"active": 0,
 			"optionString": "{'require': {'FunctionDeclaration': true, 'MethodDefinition': false, 'ClassDeclaration': false, 'ArrowFunctionExpression': false}}"
 			},
 		"require-unicode-regexp": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"require-yield": {
-			"active": 1
+			"active": 1,
+			"optionString": ""
 			},
 		"rest-spread-spacing": {
 			"active": 0,
@@ -1970,7 +1589,7 @@
 			},
 		"sort-keys": {
 			"active": 0,
-			"optionString": "'asc', {'caseSensitive': true, 'natural': false}"
+			"optionString": "'asc', {'caseSensitive': true, 'natural': false, 'minKeys': 2}"
 			},
 		"sort-vars": {
 			"active": 0,
@@ -2009,7 +1628,8 @@
 			"optionString": "{'after': true, 'before': false}"
 			},
 		"symbol-description": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"template-curly-spacing": {
 			"active": 0,
@@ -2025,7 +1645,7 @@
 			},
 		"use-isnan": {
 			"active": 1,
-			"optionString": ""
+			"optionString": "{'enforceForSwitchCase': true, 'enforceForIndexOf': false}"
 			},
 		"valid-jsdoc": {
 			"active": 0,
@@ -2036,14 +1656,16 @@
 			"optionString": "{'requireStringLiterals': true}"
 			},
 		"vars-on-top": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"wrap-iife": {
 			"active": 0,
 			"optionString": "'outside'"
 			},
 		"wrap-regex": {
-			"active": 0
+			"active": 0,
+			"optionString": ""
 			},
 		"yield-star-spacing": {
 			"active": 0,
@@ -2055,7 +1677,7 @@
 			}
 		},
 	"esLintSourceType": 0,
-	"externalServerAddress": "https://foundationnorth.jamie.dev6.innovanet.co.nz",
+	"externalServerAddress": "http://localhost:8888",
 	"gitIgnoreBuildFolder": 1,
 	"hideConfigFile": 0,
 	"jsCheckerReservedNamesString": "",
@@ -2438,9 +2060,7 @@
 		"autoOutputPathRelativePath": "",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
-		"autoOutputPathStyle": 0,
-		"webpOptimizationPresetUUID": "lpckwebp-none",
-		"webpRGBQuality": 75
+		"autoOutputPathStyle": 0
 		},
 	"languageDefaultsHAML": {
 		"autoOutputAction": 0,
@@ -2466,9 +2086,7 @@
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
 		"outputFormat": 0,
-		"quality": 100,
-		"webpOptimizationPresetUUID": "lpckwebp-none",
-		"webpRGBQuality": 75
+		"quality": 100
 		},
 	"languageDefaultsJS": {
 		"autoOutputAction": 0,
@@ -2560,9 +2178,7 @@
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
 		"optimizerType": 1,
-		"quality": 100,
-		"webpOptimizationPresetUUID": "lpckwebp-none",
-		"webpRGBQuality": 75
+		"quality": 100
 		},
 	"languageDefaultsPUG": {
 		"autoOutputAction": 0,
@@ -2583,7 +2199,7 @@
 		"autoOutputPathReplace1": "sass",
 		"autoOutputPathReplace2": "css",
 		"autoOutputPathStyle": 0,
-		"compilerType": 1,
+		"compilerType": 0,
 		"createSourceMap": 0,
 		"decimalPrecision": 10,
 		"emitCharset": 1,
@@ -2628,7 +2244,7 @@
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
-		"pluginMask": 3758088159
+		"pluginMask": 52780316221407
 		},
 	"languageDefaultsTS": {
 		"autoOutputAction": 0,
@@ -2963,8 +2579,6 @@
 		},
 	"uglifyMangleNames": 1,
 	"uglifyReservedNamesString": "$,exports,require",
-	"webpPresets": {
-		},
 	"websiteRelativeRoot": ""
 	},
 "settingsFileVersion": "3"
