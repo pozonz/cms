@@ -15,7 +15,7 @@ $(function () {
         toggle: function () {
             window._redactor = this;
             window._callback = function () {
-                window._redactor.app.insertion.insertHtml('<a target="_blank" href="/downloads/assets/' + $(this).closest('.js-orm-info').data('id') + '">' + $(this).closest('.js-orm-info').find('a').attr('title') + '</a>');
+                window._redactor.app.insertion.insertHtml('<a target="_blank" href="/downloads/assets/' + $(this).closest('.js-orm-info').data('id') + ($(this).closest('.js-orm-info').data('filename') ? ('/' + encodeURIComponent($(this).closest('.js-orm-info').data('filename'))) : '') + '">' + $(this).closest('.js-orm-info').find('a').attr('title') + '</a>');
                 $.fancybox.close();
             };
             filepicker(null);
