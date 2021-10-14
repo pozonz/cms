@@ -1,4 +1,11 @@
 $(function () {
+    var uuidv4 = function() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
     $R.add('plugin', 'filePicker', {
         init: function (app) {
             this.app = app;
@@ -15,7 +22,7 @@ $(function () {
         toggle: function () {
             window._redactor = this;
             window._callback = function () {
-                window._redactor.app.insertion.insertHtml('<a target="_blank" href="/downloads/assets/' + $(this).closest('.js-orm-info').data('id') + ($(this).closest('.js-orm-info').data('filename') ? ('/' + encodeURIComponent($(this).closest('.js-orm-info').data('filename'))) : '') + '">' + $(this).closest('.js-orm-info').find('a').attr('title') + '</a>');
+                window._redactor.app.insertion.insertHtml('<a id="download-' + uuidv4() + '" target="_blank" href="/downloads/assets/' + $(this).closest('.js-orm-info').data('id') + ($(this).closest('.js-orm-info').data('filename') ? ('/' + encodeURIComponent($(this).closest('.js-orm-info').data('filename'))) : '') + '">' + $(this).closest('.js-orm-info').find('a').attr('title') + '</a>');
                 $.fancybox.close();
             };
             filepicker(null);
