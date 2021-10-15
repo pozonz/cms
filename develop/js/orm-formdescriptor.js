@@ -46,7 +46,7 @@ $(function() {
     $(document).on('change', '#' + window.formFieldsId + '_formbuilder .js-req', function(ev) {
         var idx = $(this).closest('tbody.js-row').data('idx');
         var json = JSON.parse($('#' + window.formFieldsId).val() ? $('#' + window.formFieldsId).val() : '[]');
-        json[idx].required = $(this).is(':checked');
+        json[idx].required = $(this).is(':checked') ? 1 : 0;
         $('#' + window.formFieldsId).val(JSON.stringify(json));
         repaint_update(json[idx], idx);
         setUpSortable();
