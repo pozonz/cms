@@ -402,10 +402,6 @@ $(function () {
                 });
 
                 changeValue(mkvps);
-
-                if (callback) {
-                    callback();
-                }
             };
 
             var changeValue = function (mkvps) {
@@ -415,6 +411,10 @@ $(function () {
                     $(tbody).find('.js-delete').data('idx', key);
                 });
                 $(itm).find('textarea').val(JSON.stringify(mkvps));
+
+                if (callback) {
+                    callback();
+                }
             };
 
             $(itm).on('keyup', '.js-input', function () {
