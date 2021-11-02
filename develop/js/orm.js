@@ -402,6 +402,10 @@ $(function () {
                 });
 
                 changeValue(mkvps);
+
+                if (callback) {
+                    callback();
+                }
             };
 
             var changeValue = function (mkvps) {
