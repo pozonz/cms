@@ -842,15 +842,15 @@ $(function () {
         });
         $(document).on('click', '#' + dataId + '_container .js-status-toggle', function () {
             var type = $(this).data('type');
-            if (type == 'section') {
-                var obj = getById(dataValue, $(this).closest('.js-section').data('id'));
-            } else {
+            if (type == 'block') {
                 var blocks = [];
                 for (var idx in dataValue) {
                     var itm = dataValue[idx];
                     blocks = blocks.concat(itm.blocks);
                 }
                 var obj = getById(blocks, $(this).closest('.js-block').data('id'));
+            } else {
+                var obj = getById(dataValue, $(this).closest('.js-section').data('id'));
             }
 
             obj.status = $(this).data('status');
