@@ -383,6 +383,33 @@ fm = {
                 parentId: fm.currentFolderId,
             },
             previewTemplate: '<div></div>',
+            accept: function(file, done) {
+                console.log(file.type);
+                if(
+                  [
+                    'image/png',
+                    'image/jpeg',
+                    'application/vnd.ms-powerpoint',
+                    'application/vnd.openxmlformats-officedocument.presentationml.presentation  ',
+                    'application/msword',
+                    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                    'application/vnd.ms-excel',
+                    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                    'application/pdf',
+                    'audio/mpeg',
+                    'audio/wav',
+                    'video/x-msvideo',
+                    'video/mp4',
+                    'video/mpeg',
+                  ].includes(file.type)
+                ) {
+                  done();
+                }
+                else {
+                    alert('Error! Files of this type are not accepted.');
+                    done('Error! Files of this type are not accepted.');
+                }
+            },
             complete: function (file, done) {
                 if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
                     fm.getFiles();
