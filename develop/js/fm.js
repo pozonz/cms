@@ -384,7 +384,6 @@ fm = {
             },
             previewTemplate: '<div></div>',
             accept: function(file, done) {
-                console.log(file.type);
                 if(
                   [
                     'image/png',
