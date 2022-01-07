@@ -1070,12 +1070,104 @@ $(function () {
 
             $('.js-elem').change(function () {
                 assemble();
+                sidebar_data_update();
+            });
+
+            $('.js-elem').keyup(function () {
+                assemble();
+                sidebar_data_update();
             });
 
             $('.js-cbi-item').on('keyup', function () {
                 assemble();
             });
         };
+
+        var sidebar_data_update = function () {
+            if (window._indexEnabled == 1) {
+                var data = sidebar_data();
+
+                for (var secIdx in data) {
+                    var section = data[secIdx];
+                    for (var blkIdx in section.children) {
+                        var block = section.children[blkIdx];
+                        var node = $('.sidebar' + dataId + ' .jstree').jstree(true).get_node(block.id, true);
+                        $('.sidebar' + dataId + ' .jstree').jstree('rename_node', node, block.text);
+                    }
+                }
+            }
+        }
+
+        var sidebar_data = function () {
+            window._indexEnabled = 0;
+            var data = [];
+            for (var idxSec in dataValue) {
+                var section = dataValue[idxSec];
+                var obj = {
+                    id: section.id,
+                    text: section.title,
+                    state: {
+                        opened: true,
+                        selected: false
+                    },
+                    children: [],
+                    type: section.status == 1 ? 'section' : 'section-disabled',
+                };
+
+                var result = [];
+                for (var idxBlk in section.blocks) {
+                    var block = section.blocks[idxBlk];
+                    var t = block.title;
+                    if (typeof block.values.title !== 'undefined' && block.values.title) {
+                        t = block.values.title;
+                    } else if (typeof block.values.heading !== 'undefined' && block.values.heading) {
+                        t = block.values.heading;
+                    } else if (typeof block.values.title !== 'undefined' && block.values.header) {
+                        t = block.values.header;
+                    }
+
+                    var blockType = block.status == 1 ? 'block' : 'block-disabled';
+                    var prefix = '';
+
+                    if (block.twig == 'indexing-block-section-anchor.twig' || block.twig == 'indexing-block-section-anchor-sublevel.twig') {
+                        t = block.values.title ? block.values.title : '[Empty]';
+
+                        blockType = block.status == 1 ? 'index' : 'index-disabled';
+
+                        if (block.status == 1) {
+                            window._indexEnabled = 1;
+
+                            block._idx = '';
+                            if (block.twig == 'indexing-block-section-anchor.twig' && block.values.headingOnly != 1) {
+
+                                block._idx = result.length + 1
+                                block._children = [];
+                                result.push(block);
+
+                            } else if (block.twig == 'indexing-block-section-anchor-sublevel.twig' && result.length > 0) {
+
+                                var lastBlock = result[result.length - 1];
+                                block._idx = lastBlock._idx + '.' + (lastBlock._children.length + 1);
+                                lastBlock._children.push(block);
+
+                            }
+
+                            if (block._idx) {
+                                prefix += '' + block._idx + ' - ';
+                            }
+                        }
+                    }
+
+                    obj.children.push({
+                        id: block.id,
+                        text: prefix + t,
+                        type: blockType,
+                    })
+                }
+                data.push(obj);
+            }
+            return data;
+        }
 
         var render_sidebar = function() {
             var history = {};
@@ -1148,37 +1240,7 @@ $(function () {
                 }
             });
 
-            var data = [];
-            for (var idxSec in dataValue) {
-                var section = dataValue[idxSec];
-                var obj = {
-                    id: section.id,
-                    text: section.title,
-                    state: {
-                        opened: true,
-                        selected: false
-                    },
-                    children: [],
-                    type: section.status == 1 ? 'section' : 'section-disabled',
-                };
-                for (var idxBlk in section.blocks) {
-                    var block = section.blocks[idxBlk];
-                    var t = block.title;
-                    if (typeof block.values.title !== 'undefined' && block.values.title) {
-                        t = block.values.title;
-                    } else if (typeof block.values.heading !== 'undefined' && block.values.heading) {
-                        t = block.values.heading;
-                    } else if (typeof block.values.title !== 'undefined' && block.values.header) {
-                        t = block.values.header;
-                    }
-                    obj.children.push({
-                        id: block.id,
-                        text: t,
-                        type: block.status == 1 ? 'block' : 'block-disabled',
-                    })
-                }
-                data.push(obj);
-            }
+            var data = sidebar_data();
 
             $('.sidebar' + dataId + ' .jstree').jstree({
                 core: {
@@ -1204,6 +1266,14 @@ $(function () {
                     },
                     "block-disabled": {
                         'icon': 'far fa-file text-danger',
+                        "valid_children": [],
+                    },
+                    "index": {
+                        'icon': 'fas fa-bookmark text-index',
+                        "valid_children": [],
+                    },
+                    "index-disabled": {
+                        'icon': 'fas fa-bookmark text-index-disabled',
                         "valid_children": [],
                     },
                 },
@@ -1246,6 +1316,9 @@ $(function () {
 
                 dataValue = result;
                 render_content();
+                if (window._indexEnabled == 1) {
+                    sidebar_data_update();
+                }
                 assemble();
 
             });
