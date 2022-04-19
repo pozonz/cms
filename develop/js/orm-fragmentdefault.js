@@ -71,10 +71,12 @@ function render() {
 function assembleform_content() {
     var data = [];
     $.each($('#content-block-container tbody.js-row'), function (idx, itm) {
+        let tags = $(itm).find('.js-cbi-tags').val().map(itm => parseInt(itm, 10));
+
         data.push({
             id: $(itm).find('.js-cbi-id').val(),
             title: $(itm).find('.js-cbi-title').val(),
-            tags: $(itm).find('.js-cbi-tags').val(),
+            tags: tags,
         });
     });
     $('#orm_content').val(JSON.stringify(data));
