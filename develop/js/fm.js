@@ -400,11 +400,11 @@ fm = {
                     'video/x-msvideo',
                     'video/mp4',
                     'video/mpeg',
+                    'image/svg+xml',
                   ].includes(file.type)
                 ) {
                   done();
-                }
-                else {
+                } else {
                     alert('Error! Files of this type are not accepted.');
                     done('Error! Files of this type are not accepted.');
                 }
