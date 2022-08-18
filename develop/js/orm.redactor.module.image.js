@@ -722,8 +722,6 @@ $(function () {
                     alert('Can not crop this image');
                 }
             });
-
-
         },
     });
 });

@@ -99,7 +99,7 @@ function getVariants() {
                     items: '> tbody',
                     stop: function (event, ui) {
                         $.ajax({
-                            type: 'GET',
+                            type: 'POST',
                             url: '/manage/rest/column/sort',
                             data: 'data=' + encodeURIComponent(JSON.stringify($('.js-product-variants-table').sortable("toArray"))) + '&className=ProductVariant',
                             success: function (msg) {

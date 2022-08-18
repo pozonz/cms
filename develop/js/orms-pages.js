@@ -43,7 +43,7 @@ $(function() {
     //closed
     $(document).on('click', '.dd-item button', function () {
         $.ajax({
-            type: 'GET',
+            type: 'POST',
             url: '/manage/rest/page/closed',
             data: 'id=' + $(this).parent().data('id') + '&closed=' + ($(this).parent().hasClass('dd-collapsed') ? 1 : 0) + '&cat=' + _cat,
             success : function(msg) {
@@ -79,7 +79,7 @@ function update() {
         if (items.length > 0) {
             if (_cat != $(value).data('id')) {
                 $.ajax({
-                    type: 'GET',
+                    type: 'POST',
                     url: '/manage/rest/page/change',
                     data: 'oldCat=' + _cat + '&newCat=' + $(value).data('id') + '&id=' + items[0].id,
                     success : function(msg) {

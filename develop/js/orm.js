@@ -114,7 +114,7 @@ $(function () {
                 {
                     text: 'Confirm', click: function () {
                         $.ajax({
-                            type: 'GET',
+                            type: 'DELETE',
                             url: '/manage/rest/version/delete',
                             data: {
                                 id: id,
@@ -184,7 +184,7 @@ $(function () {
                     stop: function () {
                         var data = $(itm).find('.js-gallery-container').sortable("toArray");
                         $.ajax({
-                            type: 'GET',
+                            type: 'POST',
                             url: '/manage/rest/asset/files/chosen/rank',
                             data: 'modelName=' + modelName + '&attributeName=' + attributeName + '&ormId=' + ormId + '&ids=' + encodeURIComponent(JSON.stringify(data)),
                             success: function (data) {
@@ -215,7 +215,7 @@ $(function () {
                 $(itm).find('.js-gallery-container').html('<img src="/cms/images/spinner.gif" alt="Loading..." />');
 
                 $.ajax({
-                    type: 'GET',
+                    type: 'POST',
                     url: '/manage/rest/asset/folders/file/select',
                     data: 'modelName=' + modelName + '&attributeName=' + attributeName + '&ormId=' + ormId + '&addOrDelete=2',
                     success: function (data) {
@@ -229,7 +229,7 @@ $(function () {
                 // $(itm).find('.js-gallery-container').parent().addClass('sk-loading');
                 var id = $(this).closest('.js-orm-info').data('id');
                 $.ajax({
-                    type: 'GET',
+                    type: 'POST',
                     url: '/manage/rest/asset/folders/file/select',
                     data: 'modelName=' + modelName + '&attributeName=' + attributeName + '&ormId=' + ormId + '&addOrDelete=0' + '&id[]=' + id,
                     success: function (data) {
