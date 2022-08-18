@@ -310,7 +310,7 @@ fm = {
             fm.ajaxNav.abort();
         }
         fm.ajaxNav = $.ajax({
-            type: 'GET',
+            type: 'POST',
             url: '/manage/rest/asset/nav',
             data: 'currentFolderId=' + fm.currentFolderId,
             success: function (data) {

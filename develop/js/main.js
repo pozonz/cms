@@ -25,7 +25,7 @@ $(function () {
                         $('.js-model-note-button').data('content', note);
 
                         $.ajax({
-                            type: 'GET',
+                            type: 'POST',
                             url: '/manage/rest/model/note',
                             data: 'className=' + $('body').data('class') + '&note=' + encodeURIComponent(note),
                             success: function (msg) {
@@ -66,7 +66,7 @@ $(function () {
                         text: 'Confirm', click: function () {
                             var _this = this;
                             $.ajax({
-                                type: 'GET',
+                                type: 'DELETE',
                                 url: '/manage/rest/delete',
                                 data: 'id=' + encodeURIComponent($(ormInfo).attr('id')) + '&className=' + encodeURIComponent($(ormInfo).data('class') ? $(ormInfo).data('class') : $('body').data('class')),
                                 success: function (msg) {
@@ -99,7 +99,7 @@ $(function () {
             $(this).find('img').attr('src', '/cms/images/dot' + (status ? 'Green' : 'Red') + '.gif');
             $(this).data('status', status);
             $.ajax({
-                type: 'GET',
+                type: 'POST',
                 url: '/manage/rest/status',
                 data: 'id=' + encodeURIComponent($(ormInfo).attr('id')) + '&className=' + encodeURIComponent($(ormInfo).data('class') ? $(ormInfo).data('class') : $('body').data('class')) + '&status=' + encodeURIComponent($(this).data('status')),
                 success: function (msg) {
@@ -116,7 +116,7 @@ $(function () {
     $('.js-sort-column').sortable({
         stop: function (event, ui) {
             $.ajax({
-                type: 'GET',
+                type: 'POST',
                 url: '/manage/rest/column/sort',
                 data: 'data=' + encodeURIComponent(JSON.stringify($('.js-sort-column').sortable("toArray"))) + '&className=' + encodeURIComponent($('body').data('class')),
                 success: function (msg) {

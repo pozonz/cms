@@ -73,7 +73,7 @@ fc = {
                 data += '&assetId=' + assetId;
                 data += '&assetSizeId=' + $('#redactor_image_size').val();
                 $.ajax({
-                    type: 'GET',
+                    type: 'POST',
                     url: '/manage/rest/asset/file/crop',
                     data: data,
                     success: function (msg) {
