@@ -387,8 +387,6 @@ fm = {
             },
             previewTemplate: '<div></div>',
             accept: function(file, done) {
-              // simple mime type checks...
-              console.log(file.type);
               if ([
                 'image/png',
                 'image/jpeg',
