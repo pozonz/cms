@@ -388,9 +388,12 @@ fm = {
             previewTemplate: '<div></div>',
             accept: function(file, done) {
               // simple mime type checks...
+              console.log(file.type);
               if ([
                 'image/png',
                 'image/jpeg',
+                'image/webp',
+                'image/avif',
                 'application/vnd.ms-powerpoint',
                 'application/vnd.openxmlformats-officedocument.presentationml.presentation  ',
                 'application/msword',
@@ -403,10 +406,10 @@ fm = {
                 'video/x-msvideo',
                 'video/mp4',
                 'video/mpeg',
+                'video/quicktime'
               ].includes(file.type)) {
                 done();
-              }
-              else {
+              }else {
                 alert('Error! Files of this type are not accepted.');
                 done('Error! Files of this type are not accepted.');
               }
