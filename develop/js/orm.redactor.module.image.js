@@ -700,9 +700,17 @@ $(function () {
                             imageData.align = ''
                         }
 
-                        var selectedImageSize = 1;
-                        if (imageData.size) {
-                            selectedImageSize = $('#redactor_image_size option:selected').data('code');
+                        var sizeCodes = $('#redactor_image_size').val();
+                        if (typeof sizeCodes === 'string') {
+                            sizeCodes = [sizeCodes];
+                        }
+                        let sizeId = sizeCodes[0] === 'All sizes' ? null : sizeCodes[0];
+                        let selectedImageSize = 1;
+                        for (let idx in window._imageSizes) {
+                            let itm = window._imageSizes[idx];
+                            if (itm.id == sizeId) {
+                                selectedImageSize = itm.code;
+                            }
                         }
 
                         imageData.src = '/images/assets/' + imageCode + '/' + selectedImageSize + '?v=' + Math.random();

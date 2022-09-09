@@ -89,7 +89,26 @@ fc = {
             }
         });
 
+        window._lastSizes = $('#redactor_image_size').val();
         $('#redactor_image_size').change(function () {
+            let values = $(this).val();
+
+            let added = values.filter(x => window._lastSizes.indexOf(x) === -1);
+            if (added.length > 0) {
+                if (added.indexOf('All sizes') === -1 && values.indexOf('All sizes') !== -1) {
+                    $(this).val(values.filter(x => x !== 'All sizes')).trigger("chosen:updated");
+                } else if (added.indexOf('All sizes') !== -1 && values.length > 1) {
+                    $(this).val(['All sizes']).trigger("chosen:updated");
+                }
+
+            } else {
+                // let deleted = window._lastSizes.filter(x => values.indexOf(x) === -1);
+                if (values.length === 0) {
+                    $(this).val(['All sizes']).trigger("chosen:updated");
+                }
+            }
+
+            window._lastSizes = $(this).val();
             fc.setCropPreview();
         });
 
@@ -104,6 +123,13 @@ fc = {
                     window._jcrop_api = this;
                     fc.setCropPreview();
                 });
+
+                setTimeout(function () {
+                    $('#redactor_image_size').prop('multiple', true);
+                    $('#redactor_image_size').chosen({
+                        allow_single_deselect: true
+                    });
+                }, 500)
             },
             beforeClose: function () {
                 if (window._fcCallback) {
@@ -121,7 +147,18 @@ fc = {
 
     setCropPreview: function () {
         var assetCode = $('.js-crop-container').data('code');
-        var sizeCode = $('#redactor_image_size option:selected').data('code');
+        var sizeCodes = $('#redactor_image_size').val();
+        if (typeof sizeCodes === 'string') {
+            sizeCodes = [sizeCodes];
+        }
+        let sizeId = sizeCodes[0] === 'All sizes' ? null : sizeCodes[0];
+        let sizeCode = null;
+        for (let idx in window._imageSizes) {
+            let itm = window._imageSizes[idx];
+            if (itm.id == sizeId) {
+                sizeCode = itm.code;
+            }
+        }
         $('#previewCrop').attr('src', '/images/assets/' + assetCode + (sizeCode ? '/' + sizeCode : '/1') + '?v=' + Math.random());
 
         $('#imageSizeCrop').find('.js-crop-preivew-width').html('...');
