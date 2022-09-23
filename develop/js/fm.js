@@ -310,7 +310,7 @@ fm = {
             fm.ajaxNav.abort();
         }
         fm.ajaxNav = $.ajax({
-            type: 'GET',
+            type: 'POST',
             url: '/manage/rest/asset/nav',
             data: 'currentFolderId=' + fm.currentFolderId,
             success: function (data) {
@@ -382,32 +382,37 @@ fm = {
             params: {
                 parentId: fm.currentFolderId,
             },
+            headers: {
+              'session-rest-token': window.rest_token
+            },
             previewTemplate: '<div></div>',
             accept: function(file, done) {
-                if(
-                  [
-                    'image/png',
-                    'image/jpeg',
-                    'application/vnd.ms-powerpoint',
-                    'application/vnd.openxmlformats-officedocument.presentationml.presentation  ',
-                    'application/msword',
-                    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-                    'application/vnd.ms-excel',
-                    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-                    'application/pdf',
-                    'audio/mpeg',
-                    'audio/wav',
-                    'video/x-msvideo',
-                    'video/mp4',
-                    'video/mpeg',
-                    'image/svg+xml',
-                  ].includes(file.type)
-                ) {
-                  done();
-                } else {
-                    alert('Error! Files of this type are not accepted.');
-                    done('Error! Files of this type are not accepted.');
-                }
+
+              if ([
+                'image/png',
+                'image/jpeg',
+                'image/webp',
+                'image/avif',
+                'application/vnd.ms-powerpoint',
+                'application/vnd.openxmlformats-officedocument.presentationml.presentation  ',
+                'application/msword',
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                'application/vnd.ms-excel',
+                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                'application/pdf',
+                'audio/mpeg',
+                'audio/wav',
+                'video/x-msvideo',
+                'video/mp4',
+                'video/mpeg',
+                'video/quicktime'                                                   
+                'image/svg+xml',
+              ].includes(file.type)) {
+                done();
+              }else {
+                alert('Error! Files of this type are not accepted.');
+                done('Error! Files of this type are not accepted.');
+              }
             },
             complete: function (file, done) {
                 if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {

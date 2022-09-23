@@ -2,7 +2,7 @@ $(function() {
     //closed
     $(document).on('click', '.dd-item button', function () {
         $.ajax({
-            type: 'GET',
+            type: 'POST',
             url: '/manage/rest/nestable/closed',
             data: 'id=' + $(this).parent().data('id') + '&closed=' + ($(this).parent().hasClass('dd-collapsed') ? 1 : 0) + '&model=' + $('.js-model-wrapper').data('modelname') ,
             success : function(msg) {
