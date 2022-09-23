@@ -62,7 +62,7 @@ $(function () {
 
     Handlebars.registerHelper('ifHasIt', function(array, item, options) {
         array = array && typeof array == 'object' ? array : [];
-        return array.indexOf(item) !== -1 ? options.fn(this) : options.inverse(this);
+        return array.findIndex(i => i == item) !== -1 ? options.fn(this) : options.inverse(this);
     });
 
     Handlebars.registerHelper('ifGetByKey', function(array, key, options) {

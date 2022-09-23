@@ -387,6 +387,7 @@ fm = {
             },
             previewTemplate: '<div></div>',
             accept: function(file, done) {
+
               if ([
                 'image/png',
                 'image/jpeg',
@@ -404,7 +405,8 @@ fm = {
                 'video/x-msvideo',
                 'video/mp4',
                 'video/mpeg',
-                'video/quicktime'
+                'video/quicktime'                                                   
+                'image/svg+xml',
               ].includes(file.type)) {
                 done();
               }else {

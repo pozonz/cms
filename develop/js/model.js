@@ -51,6 +51,8 @@ $(function() {
             || $(value).val() == '\\MillenniumFalcon\\Core\\Form\\Type\\ChoiceMultiJsonTree'
             || $(value).val() == '\\MillenniumFalcon\\Core\\Form\\Type\\ChoiceTree'
             || $(value).val() == '\\MillenniumFalcon\\Core\\Form\\Type\\ChoiceSortable'
+            || $(value).val() == '\\Symfony\\Component\\Form\\Extension\\Core\\Type\\EnumType'
+            || $(value).val() == '\\MillenniumFalcon\\Core\\Form\\Type\\ChoiceEnumMultiJson'
         ) {
             $('#sql' + $(value).closest('tbody').find('.id').val()).show();
         } else {
