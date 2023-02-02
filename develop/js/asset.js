@@ -1,5 +1,7 @@
 $(function () {
-
+    $(document).on('click', '#replace-file', function() {
+        $('#orm_file').click();
+    });
 
 });
 
