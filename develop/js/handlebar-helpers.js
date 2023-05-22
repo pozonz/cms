@@ -140,7 +140,8 @@ $(function () {
         var choiceTypes = [
             '\\Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType',
             '\\MillenniumFalcon\\FormDescriptor\\Type\\CheckboxesType',
-            '\\MillenniumFalcon\\FormDescriptor\\Type\\RadioButtonsType'
+            '\\MillenniumFalcon\\FormDescriptor\\Type\\RadioButtonsType',
+            '\\MillenniumFalcon\\FormDescriptor\\Type\\MultipleDropdownType'
         ];
 
         if (choiceTypes.indexOf(str) === -1) {
