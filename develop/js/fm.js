@@ -405,8 +405,9 @@ fm = {
                 'video/x-msvideo',
                 'video/mp4',
                 'video/mpeg',
-                'video/quicktime',                                                   
+                'video/quicktime',
                 'image/svg+xml',
+                'application/zip',
               ].includes(file.type)) {
                 done();
               }else {
