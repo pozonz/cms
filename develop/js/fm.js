@@ -388,6 +388,8 @@ fm = {
             previewTemplate: '<div></div>',
             accept: function(file, done) {
 
+console.log(file.type);
+
               if ([
                 'image/png',
                 'image/jpeg',
@@ -408,7 +410,8 @@ fm = {
                 'video/quicktime',
                 'image/svg+xml',
                 'application/zip',
-              ].includes(file.type)) {
+              	'application/x-zip-compressed',
+	      ].includes(file.type)) {
                 done();
               }else {
                 alert('Error! Files of this type are not accepted.');
