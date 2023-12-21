@@ -1028,7 +1028,7 @@ $(function () {
                 }));
 
                 for (var idxBlk in itm.blocks) {
-                    var block = itm.blocks[idxBlk];
+                    const block = itm.blocks[idxBlk];
                     $('.js-section-' + dataId + '-' + itm.id + ' .js-blocks').append(template_block({
                         id: dataId,
                         block: block,
