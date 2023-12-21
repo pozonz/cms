@@ -111,29 +111,32 @@ $(function () {
     });
 
     Handlebars.registerHelper('myOptionKey', function(str) {
-        var pos = str.indexOf('-');
-        return str.substr(0, pos);
+        const [key] = str;
+        return key;
     });
 
     Handlebars.registerHelper('myOptionValue', function(str) {
-        var pos = str.indexOf('-');
-        return str.substr(parseInt(pos, 10) + 1);
+        const [_, value] = str;
+        return value;
     });
 
     Handlebars.registerHelper('getByValueAndCompare', function(array, key, value, options) {
-        array = array && typeof array == 'object' ? array : [];
-        var pos = value.indexOf('-');
-        if (pos != -1) {
-            value = value.substr(0, pos);
+        if (Array.isArray(value)) {
+            [value] = value;
         }
+
+        array = array && typeof array == 'object' ? array : [];
+
         if (!value) {
             return options.inverse(this);
         }
+
         if (typeof array[key] == 'object') {
             return array[key] && array[key].indexOf(value) != -1 ? options.fn(this) : options.inverse(this);
-        } else {
-            return array[key] && array[key] == value ? options.fn(this) : options.inverse(this);
         }
+
+        return array[key] && array[key] == value ? options.fn(this) : options.inverse(this);
+
     });
 
     Handlebars.registerHelper('isNotChoiceType', function(str, options) {
