@@ -644,6 +644,7 @@ $(function () {
             minHeight: '300px',
             imageResizable: false,
             imageFigure: true,
+            removeComments: false,
             // imageEditable: false,
             imagePosition: {
                 "left": "img-left",
