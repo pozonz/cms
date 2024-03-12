@@ -42,7 +42,7 @@ $(function () {
         toggle: function () {
             window._redactor = this;
             window._callback = function () {
-                window._redactor.app.insertion.insertHtml('<img src="/images/assets/' + $(this).closest('.js-orm-info').data('id') + '/large" alt="' + $(this).closest('.js-orm-info').find('a').attr('title') + '">');
+                window._redactor.app.insertion.insertHtml('<img src="/manage/images/assets/' + $(this).closest('.js-orm-info').data('id') + '/large" alt="' + $(this).closest('.js-orm-info').find('a').attr('title') + '">');
                 $.fancybox.close();
             };
             filepicker(null);
@@ -290,7 +290,7 @@ $(function () {
                     $(itm).find('.js-orm-info').data('width', data.width);
                     $(itm).find('.js-orm-info').data('height', data.height);
 
-                    $(itm).find('.js-filePickFile').attr('src', '/images/assets/' + data.code + '/cms_small');
+                    $(itm).find('.js-filePickFile').attr('src', '/manage/images/assets/' + data.code + '/cms_small');
                     $(itm).find('.js-filePickFile').show();
                     $(itm).find('.js-asset-delete').show();
                     $(itm).find('.js-cropping-options').show();
@@ -320,7 +320,7 @@ $(function () {
                     var widgetContainer = $(_this).closest('.js-filePickWrap')
                     var ormInfo = $(this).closest('.js-orm-info');
                     widgetContainer.find('.js-fileId').val(ormInfo.data('id'));
-                    widgetContainer.find('.js-filePickFile').attr('src', '/images/assets/' + ormInfo.data('code') + '/cms_small');
+                    widgetContainer.find('.js-filePickFile').attr('src', '/manage/images/assets/' + ormInfo.data('code') + '/cms_small');
                     widgetContainer.data('id', ormInfo.data('id'));
                     widgetContainer.data('code', ormInfo.data('code'));
                     widgetContainer.data('width', ormInfo.data('width'));

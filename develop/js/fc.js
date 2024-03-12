@@ -122,7 +122,7 @@ fc = {
     setCropPreview: function () {
         var assetCode = $('.js-crop-container').data('code');
         var sizeCode = $('#redactor_image_size option:selected').data('code');
-        $('#previewCrop').attr('src', '/images/assets/' + assetCode + (sizeCode ? '/' + sizeCode : '/1') + '?v=' + Math.random());
+        $('#previewCrop').attr('src', '/manage/images/assets/' + assetCode + (sizeCode ? '/' + sizeCode : '/1') + '?v=' + Math.random());
 
         $('#imageSizeCrop').find('.js-crop-preivew-width').html('...');
         $('#imageSizeCrop').find('.js-crop-preivew-height').html('...');

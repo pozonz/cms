@@ -705,7 +705,7 @@ $(function () {
                             selectedImageSize = $('#redactor_image_size option:selected').data('code');
                         }
 
-                        imageData.src = '/images/assets/' + imageCode + '/' + selectedImageSize + '?v=' + Math.random();
+                        imageData.src = '/manage/images/assets/' + imageCode + '/' + selectedImageSize + '?v=' + Math.random();
                         var current = _this.selection.getCurrent();
                         $(current).removeClass('img-left');
                         $(current).removeClass('img-right');
