@@ -652,13 +652,25 @@ $(function () {
             }
 
             var srcFragments = parsedUrl.pathname.split('/');
-            if (srcFragments.length >= 4) {
-                imageCode = srcFragments[3];
+
+            if (parsedUrl.pathname.indexOf('/manage') === 0) {
+                if (srcFragments.length >= 5) {
+                    imageCode = srcFragments[4];
+                }
+
+                if (srcFragments.length >= 6) {
+                    imageSize = srcFragments[5];
+                }
+            } else {
+                if (srcFragments.length >= 4) {
+                    imageCode = srcFragments[3];
+                }
+
+                if (srcFragments.length >= 5) {
+                    imageSize = srcFragments[4];
+                }
             }
 
-            if (srcFragments.length >= 5) {
-                imageSize = srcFragments[4];
-            }
 
             $.ajax({
                 type: 'GET',
