@@ -131,6 +131,8 @@ $(function () {
             return options.inverse(this);
         }
 
+        value = value + '';
+
         if (typeof array[key] == 'object') {
             return array[key] && array[key].indexOf(value) != -1 ? options.fn(this) : options.inverse(this);
         }
