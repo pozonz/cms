@@ -151,7 +151,8 @@ function renderRates() {
 };
 
 function renderRate(idx, itm, container) {
-    var rateTemplate = Handlebars.compile($('#shipping-by-weight-rate').html());
+    // var rateTemplate = Handlebars.compile($('#shipping-by-weight-rate').html());
+    var rateTemplate = Handlebars.templates['orm.shipping-by-weight-rate.twig'];
 
     var value = $('#orm_shippingCostRates').val();
     var jsonValue = JSON.parse(value ? value : '[]');
@@ -202,7 +203,8 @@ function renderRate(idx, itm, container) {
 };
 
 function renderRateExtra(idx, itm, container) {
-    var rateExtraTemplate = Handlebars.compile($('#shipping-by-weight-rate-extra').html());
+    // var rateExtraTemplate = Handlebars.compile($('#shipping-by-weight-rate-extra').html());
+    var rateExtraTemplate = Handlebars.templates['orm.shipping-by-weight-rate-extra.twig'];
     $(container).html(rateExtraTemplate({
         idx: idx,
         itm: itm,

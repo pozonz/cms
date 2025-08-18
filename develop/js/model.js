@@ -38,7 +38,9 @@ $(function() {
     }
 
     $(document).on('change', '#fields', function (ev) {
-        var template = Handlebars.compile(_fieldSource);
+        // var template = Handlebars.compile(_fieldSource);
+        console.log("renderFields fieldSource", _fieldSource);
+        var template = Handlebars.templates['model.tr.twig'];
         $('#columns').append(template({
             itm: {
                 id: 'z' + new Date().getTime(),
@@ -159,7 +161,9 @@ function renderFields() {
 function renderColumns() {
     for (var idx in _columns) {
         var itm = _columns[idx];
-        var template = Handlebars.compile(_fieldSource);
+        // var template = Handlebars.compile(_fieldSource);
+        console.log("renderColumns fieldSource", _fieldSource);
+        var template = Handlebars.templates['model.tr.twig'];
         $('#columns').append(template({
             itm: itm,
             widgets: _widgets,
