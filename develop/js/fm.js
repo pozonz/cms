@@ -375,10 +375,17 @@ fm = {
         $('#js-files').html(fm.templateFiles({
             showUploadButton: fm.keyword ? 0 : 1,
         }));
+
+        const requireLoginElement = $('#orm_requiresLogin');
+        const isRequireLogin = (requireLoginElement && requireLoginElement.is(':checked')) ? 1 : 0;
+
         $("div#cmsFormDropzone").dropzone({
             url: "/manage/rest/asset/files/upload",
             params: {
                 parentId: fm.currentFolderId,
+                additionalData: JSON.stringify({
+                    requiresLogin: isRequireLogin
+                })
             },
             previewTemplate: '<div></div>',
             complete: function (file, done) {
@@ -467,12 +474,18 @@ fm = {
             path: fm.path,
         }));
 
+        const requireLoginElement = $('#orm_requiresLogin');
+        const isRequireLogin = (requireLoginElement && requireLoginElement.is(':checked')) ? 1 : 0;
+
         $('#fileupload').fileupload({
             url: '/manage/rest/asset/files/upload',
             dataType: 'json',
             sequentialUploads: true,
             formData: {
                 parentId: fm.currentFolderId,
+                additionalData: JSON.stringify({
+                    requiresLogin: isRequireLogin
+                })
             },
             add: function (e, data) {
                 var uploadErrors = [];

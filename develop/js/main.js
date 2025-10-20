@@ -109,6 +109,26 @@ $(function () {
         return false;
     });
 
+    // Change require login data
+    $(document).on('click', '.js-orm-require-login', function() {
+        console.log('click js orm require login');
+
+        var ormInfo = $(this).closest('.js-orm-info');
+        console.log('ormInfo', ormInfo);
+        if (ormInfo.length) {
+            var requireLogin = $(this).data('require-login') ? 0 : 1;
+            console.log('requireLogin', requireLogin);
+            $(this).find('img').attr('src', '/cms/images/icon-' + (requireLogin ? 'lock' : 'unlock') + '.png');
+            $(this).data('require-login', requireLogin);
+            $.ajax({
+                type: 'GET',
+                url: '/manage/rest/asset/file/require-login',
+                data: 'id=' + encodeURIComponent($(ormInfo).attr('id')) + '&className=' + encodeURIComponent($(ormInfo).data('class') ? $(ormInfo).data('class') : $('body').data('class')) + '&requireLogin=' + encodeURIComponent($(this).data('require-login')),
+            });
+        }
+        return false;
+    });
+
     //Setup sortable table
     $.each($('.js-sort-column').find('td'), function (key, val) {
         $(val).css('width', $(val).outerWidth() + 'px');
