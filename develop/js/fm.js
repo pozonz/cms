@@ -24,12 +24,13 @@ fm = {
         fm.attributeName = options.attributeName;
         fm.ormId = options.ormId;
 
-        fm.templateLoading = Handlebars.compile($("#loading").html());
-        fm.templateFolder = Handlebars.compile($("#folder").html());
-        fm.templateFile = Handlebars.compile($("#file").html());
-        fm.templateFiles = Handlebars.compile($("#files").html());
-        fm.templateNav = Handlebars.compile($("#nav").html());
-        fm.templateProgress = Handlebars.compile($("#file-progress").html());
+        fm.templateLoading = Handlebars.templates['loading.twig'];
+        fm.templateFolder = Handlebars.templates['fm-folders.twig'];
+        fm.templateFile = Handlebars.templates['fm-file.twig'];
+        fm.templateFiles = Handlebars.templates['fm-files.twig'];
+        fm.templateNav = Handlebars.templates['fm-nav.twig'];
+        fm.templateProgress = Handlebars.templates['fm-file-progress.twig'];
+
 
         fm.ajaxFile = null;
         fm.ajaxFolder = null;

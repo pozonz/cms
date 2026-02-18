@@ -49,7 +49,7 @@ $(function () {
         }
     });
 
-    var templateGalleryFile = Handlebars.compile($('#gallery-file').html());
+    var templateGalleryFile = Handlebars.templates['orm.gallery-file.twig'];
 
     window._galleryFiles = [];
     window._File = [];
@@ -673,7 +673,7 @@ $(function () {
 
     if ($('.js-fragment-container').length == 0) {
         var dataId = 'no_content_blocks';
-        var template_sidebar = Handlebars.compile($('#' + dataId + '_sidebar').html());
+        var template_sidebar = Handlebars.templates['orm.fragment-sidebar.twig'];
         render_sidebar_justforsave(dataId, template_sidebar);
         $('.sidebar' + dataId).find('.panel-heading').hide();
         $('.sidebar' + dataId).find('.panel-body').hide();
@@ -744,11 +744,11 @@ $(function () {
             }
         }
 
-        var template_section = Handlebars.compile($('#' + dataId + '_section').html());
-        var template_block = Handlebars.compile($('#' + dataId + '_block').html());
-        var template_modal_section = Handlebars.compile($('#' + dataId + '_modal_section').html());
-        var template_modal_block = Handlebars.compile($('#' + dataId + '_modal_block').html());
-        var template_sidebar = Handlebars.compile($('#' + dataId + '_sidebar').html());
+        var template_section = Handlebars.templates['orm.fragment-section.twig'];
+        var template_block = Handlebars.templates['orm.fragment-block.twig'];
+        var template_modal_section = Handlebars.templates['orm.fragment-modal-section.twig'];
+        var template_modal_block = Handlebars.templates['orm.fragment-modal-block.twig'];
+        var template_sidebar = Handlebars.templates['orm.fragment-sidebar.twig'];
 
         //Set blocks sort
         $('.js-blocks-' + dataId).sortable({
